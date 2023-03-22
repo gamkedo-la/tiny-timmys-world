@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0o4o37sdluio"]
+
+[ext_resource type="PackedScene" uid="uid://byry5qi2p7ckd" path="res://src/Map Objects/FloorTileMap.tscn" id="1_fwt4h"]
+
+[node name="FloorManager" type="Node2D"]
+
+[node name="FloorTileMap" parent="." instance=ExtResource("1_fwt4h")]
+
+[node name="FloorTileMap2" parent="." instance=ExtResource("1_fwt4h")]
+position = Vector2(400, 2.08165e-12)

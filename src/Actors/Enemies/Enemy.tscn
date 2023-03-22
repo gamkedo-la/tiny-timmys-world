@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://c55cwuqj7ofxd"]
+
+[ext_resource type="Script" path="res://src/Actors/Enemies/Enemy.gd" id="1_su7ia"]
+[ext_resource type="Texture2D" uid="uid://hp2dtncnhrp5" path="res://src/Sprites/Enemy_Beetle.png" id="2_3casd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
+size = Vector2(17.5, 8.94738)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0twr"]
+size = Vector2(20.1992, 8.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkaph"]
+size = Vector2(10.2273, 5.79711)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_su7ia")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -13.25)
+texture = ExtResource("2_3casd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+scale = Vector2(1.89999, 1.9)
+shape = SubResource("RectangleShape2D_u60ad")
+
+[node name="StompDetector" type="Area2D" parent="."]
+modulate = Color(0, 0.207843, 1, 1)
+position = Vector2(0, -17.5)
+scale = Vector2(2.11, 1)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
+position = Vector2(-1.42109e-14, -3.75)
+scale = Vector2(1.00106, 1.00106)
+shape = SubResource("RectangleShape2D_r0twr")
+
+[node name="BulletDetector" type="Area2D" parent="."]
+position = Vector2(0, -13.25)
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetector"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(2.68221e-06, -0.499999)
+scale = Vector2(4.39999, 3.44999)
+shape = SubResource("RectangleShape2D_fkaph")
+
+[connection signal="body_entered" from="StompDetector" to="." method="_on_stomp_detecter_body_entered"]
+[connection signal="area_entered" from="BulletDetector" to="." method="_on_bullet_detector_area_entered"]

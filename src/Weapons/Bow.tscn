@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccj6pegu1pcwt"]
+
+[ext_resource type="Script" path="res://src/Weapons/Bow.gd" id="1_vilhr"]
+[ext_resource type="Texture2D" uid="uid://c3j8xjd4wlt44" path="res://src/Sprites/bow_5x5.png" id="2_qsf1p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1cll"]
+radius = 2.77778
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cgo5l"]
+radius = 3.05452
+
+[node name="Bow" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 10
+script = ExtResource("1_vilhr")
+SPEED = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_qsf1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.44, 1.44)
+shape = SubResource("CircleShape2D_g1cll")
+
+[node name="CollisionDetector" type="Area2D" parent="."]
+scale = Vector2(1.63692, 1.63692)
+collision_layer = 16
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetector"]
+modulate = Color(0, 0.0117647, 1, 1)
+shape = SubResource("CircleShape2D_cgo5l")
+
+[connection signal="area_entered" from="CollisionDetector" to="." method="_on_collision_detector_area_entered"]
+[connection signal="body_entered" from="CollisionDetector" to="." method="_on_collision_detector_body_entered"]

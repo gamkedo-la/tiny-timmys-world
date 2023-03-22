@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbaqsffy7g6qo"]
+
+[ext_resource type="Script" path="res://src/Actors/player.gd" id="1_is4vd"]
+[ext_resource type="PackedScene" uid="uid://ccj6pegu1pcwt" path="res://src/Weapons/Bow.tscn" id="2_hqw2k"]
+[ext_resource type="Texture2D" uid="uid://bpfe7l7sd254o" path="res://src/Sprites/Timmy.png" id="3_5ep6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
+size = Vector2(6, 13.2797)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy01v"]
+size = Vector2(6, 30)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 8
+script = ExtResource("1_is4vd")
+stomp_impulse = 500.0
+JUMP_VELOCITY = -700.0
+weapon = ExtResource("2_hqw2k")
+SPEED = 200.0
+
+[node name="Player" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("3_5ep6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15.67)
+scale = Vector2(2.44, 2.36)
+shape = SubResource("RectangleShape2D_u60ad")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+modulate = Color(0.152941, 0.188235, 1, 1)
+position = Vector2(0, -16)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(2.08165e-12, 0)
+scale = Vector2(2.24, 1)
+shape = SubResource("RectangleShape2D_cy01v")
+
+[connection signal="area_entered" from="EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

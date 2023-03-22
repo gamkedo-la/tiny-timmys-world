@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://hymhaj8chdx2"]
+
+[ext_resource type="Script" path="res://src/Actors/Enemies/EnemyManager.gd" id="1_ny2sp"]
+[ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="2_he7db"]
+
+[node name="EnemyManager" type="Node2D"]
+script = ExtResource("1_ny2sp")
+enemies = Array[PackedScene]([ExtResource("2_he7db")])
+timer_time = 3.0
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]

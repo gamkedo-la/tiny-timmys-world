@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byry5qi2p7ckd"]
+
+[ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="1_vvkiq"]
+[ext_resource type="Script" path="res://src/Map Objects/FloorTileMap.gd" id="2_ut0rl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da070"]
+size = Vector2(400, 17)
+
+[node name="FloorTile" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_ut0rl")
+
+[node name="FloorTileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_vvkiq")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 1, 2, 65536, 1, 3, 65536, 1, 4, 65536, 1, 5, 65536, 1, 6, 65536, 1, 7, 65536, 1, 8, 65536, 1, 9, 65536, 1, 10, 65536, 1, 11, 65536, 1, 12, 65536, 1, 13, 65536, 1, 14, 65536, 1, 15, 65536, 1, 16, 65536, 1, 17, 65536, 1, 18, 65536, 1, 19, 65536, 1, 20, 65536, 1, 21, 65536, 1, 22, 65536, 1, 23, 65536, 1, 24, 65536, 1, 1, 65536, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(200, 8.5)
+shape = SubResource("RectangleShape2D_da070")
