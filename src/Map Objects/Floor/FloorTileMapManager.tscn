@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://csk0ii5gs2bp7"]
+
+[ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="1_dvhxi"]
+[ext_resource type="Script" path="res://src/Map Objects/Floor/FloorTiles.gd" id="2_edp3t"]
+
+[node name="FloorTiles" type="TileMap"]
+tile_set = ExtResource("1_dvhxi")
+format = 2
+script = ExtResource("2_edp3t")
