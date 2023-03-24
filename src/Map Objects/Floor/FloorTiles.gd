@@ -5,7 +5,7 @@ var viewport_height: int = 0
 var pixel_cell_counter: float
 var pixel_total_movement_counter: float
 var floor_tilemap
-const SPEED: float = -20.0
+const SPEED: float = -16.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -37,5 +37,5 @@ func _process(delta: float) -> void:
 
 
 func _spawn_new_floor_cell(coords: Vector2i) -> void:
-	#var spawn_coords: Vector2i = Vector2i(5, 5)
+	# var spawn_coords: Vector2i = Vector2i(5, 5)
 	floor_tilemap.set_cell(0,  coords, 0, Vector2(0,0), 0)
