@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://df0k3v30o6yxg"]
+[gd_scene load_steps=9 format=3 uid="uid://cx5kow8kpntgx"]
 
 [ext_resource type="PackedScene" uid="uid://dbaqsffy7g6qo" path="res://src/Actors/player.tscn" id="1_0qs5q"]
 [ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="1_3v84x"]
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_opgmf"]
-[ext_resource type="PackedScene" uid="uid://dw4gop63ktce2" path="res://src/Map Objects/PlatformsManager.tscn" id="2_4nx3r"]
 [ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="4_qw13h"]
 [ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="5_7hwhk"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="5_7yb7w"]
+[ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="6_sjulo"]
 [ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="8_2ga0l"]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -23,9 +23,7 @@ position = Vector2(267, 147)
 
 [node name="FloorTileMapManager" parent="." instance=ExtResource("4_qw13h")]
 
-[node name="PlatformsManager" parent="." instance=ExtResource("2_4nx3r")]
-heights = Array[int]([3, 4, 5, 6])
-timer_time = 4.0
+[node name="PlatformsManager" parent="." instance=ExtResource("6_sjulo")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("5_7hwhk")]
 position = Vector2(267, 52)
