@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbaqsffy7g6qo"]
+[gd_scene load_steps=6 format=3 uid="uid://bcyxc5ba6pbfk"]
 
 [ext_resource type="Script" path="res://src/Actors/player.gd" id="1_is4vd"]
-[ext_resource type="PackedScene" uid="uid://ccj6pegu1pcwt" path="res://src/Weapons/Bow.tscn" id="2_hqw2k"]
+[ext_resource type="PackedScene" uid="uid://br7vfr0bq2vlv" path="res://src/Weapons/Slingshot.tscn" id="2_vjs8h"]
 [ext_resource type="Texture2D" uid="uid://bpfe7l7sd254o" path="res://src/Sprites/Timmy.png" id="3_5ep6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
@@ -15,7 +15,7 @@ collision_mask = 8
 script = ExtResource("1_is4vd")
 stomp_impulse = 500.0
 JUMP_VELOCITY = -700.0
-weapon = ExtResource("2_hqw2k")
+weapon = ExtResource("2_vjs8h")
 SPEED = 200.0
 
 [node name="Player" type="Sprite2D" parent="."]
