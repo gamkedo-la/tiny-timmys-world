@@ -43,6 +43,11 @@ func _spawn_initial_random_floor() -> void:
 	for n in max_coords_x:
 		print_debug("Adding cell to coords: ", Vector2i(n, max_coords_y))
 		new_floor.set_cell(0, Vector2i(n, max_coords_y), 0, Vector2(2, 0), 0)
+	
+	#TODO: Decoration tiles
+	for n in max_coords_x:
+		print_debug("Adding decoration cell to coords: ", Vector2i(n, max_coords_y))
+		new_floor.set_cell(1, Vector2i(n, max_coords_y), 0, Vector2(6, 1), 0)
 		
 	add_child(new_floor)
 	
