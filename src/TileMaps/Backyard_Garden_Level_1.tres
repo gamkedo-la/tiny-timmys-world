@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bvyqdyfqsn8g4"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bo31abhmofat"]
 
 [ext_resource type="Texture2D" uid="uid://cnvym5vbejaxh" path="res://src/TileMaps/Backyard_Tilemap.png" id="1_minad"]
 

@@ -1,52 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx5kow8kpntgx"]
+[gd_scene load_steps=10 format=3 uid="uid://cx5kow8kpntgx"]
 
 [ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="1_0qs5q"]
 [ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="1_3v84x"]
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_opgmf"]
-[ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_syrwe"]
-[ext_resource type="Texture2D" uid="uid://cerbthxar48lj" path="res://src/Map Objects/Plax/mid_proto01.png" id="3_g42gi"]
-[ext_resource type="Texture2D" uid="uid://cxwssukbdhg1b" path="res://src/Map Objects/Plax/rear_proto01.png" id="3_u2vgt"]
+[ext_resource type="PackedScene" uid="uid://de5bboah7wgdr" path="res://src/Map Objects/Plax/plax_bg.tscn" id="2_on8rb"]
 [ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="4_qw13h"]
 [ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="5_7hwhk"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="5_7yb7w"]
 [ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="6_sjulo"]
 [ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="8_2ga0l"]
-[ext_resource type="Texture2D" uid="uid://3n24ie74rlfr" path="res://src/Map Objects/Plax/fore_proto01.png" id="9_ca745"]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_opgmf")
 level_completion_time = 60.0
 
-[node name="PlaxBG" type="ParallaxBackground" parent="."]
-offset = Vector2(0, 150)
-transform = Transform2D(1, 0, 0, 1, 0, 150)
-follow_viewport_scale = 2.0
-scroll_base_scale = Vector2(1, 0)
-script = ExtResource("2_syrwe")
-
-[node name="Rear" type="ParallaxLayer" parent="PlaxBG"]
-motion_scale = Vector2(0.5, 0.5)
-motion_offset = Vector2(100, 0)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Rear"]
-texture = ExtResource("3_u2vgt")
-
-[node name="Mid" type="ParallaxLayer" parent="PlaxBG"]
-motion_scale = Vector2(0.75, 0.75)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid"]
-texture = ExtResource("3_g42gi")
-
-[node name="Fore" type="ParallaxLayer" parent="PlaxBG"]
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Fore"]
-texture = ExtResource("9_ca745")
-
-[node name="BackCamera2D" type="Camera2D" parent="PlaxBG"]
-position_smoothing_enabled = true
+[node name="PlaxBG" parent="." instance=ExtResource("2_on8rb")]
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
