@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1p6xtbxm6gun"]
+
+[ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
+[ext_resource type="PackedScene" uid="uid://dls505dxcxh8y" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c6sew")
+level_scene = ExtResource("2_gg8ts")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -164.0
+offset_right = 80.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tiny Timmy's World"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="FullscreenToggle" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Credits" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="toggled" from="Panel/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
