@@ -18,15 +18,7 @@
 script = ExtResource("1_m2rpn")
 level_completion_time = 60.0
 
-[node name="MainLayer" type="CanvasLayer" parent="."]
-
-[node name="UIManager" parent="MainLayer" instance=ExtResource("2_uf821")]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MainLayer"]
-offset_right = 1600.0
-offset_bottom = 1200.0
-
-[node name="PlaxBG" type="ParallaxBackground" parent="MainLayer/SubViewportContainer"]
+[node name="PlaxBG" type="ParallaxBackground" parent="."]
 offset = Vector2(0, 600)
 scale = Vector2(4, 4)
 transform = Transform2D(4, 0, 0, 4, 0, 600)
@@ -34,12 +26,12 @@ follow_viewport_scale = 2.0
 scroll_base_scale = Vector2(1, 0)
 script = ExtResource("2_crxet")
 
-[node name="Rear" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
+[node name="Rear" type="ParallaxLayer" parent="PlaxBG"]
 motion_scale = Vector2(0.5, 0.5)
 motion_offset = Vector2(100, 0)
 motion_mirroring = Vector2(800, 0)
 
-[node name="ColorRect" type="ColorRect" parent="MainLayer/SubViewportContainer/PlaxBG/Rear"]
+[node name="ColorRect" type="ColorRect" parent="PlaxBG/Rear"]
 custom_minimum_size = Vector2(1600, 600)
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,38 +40,46 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00784314, 0.054902, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Rear"]
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Rear"]
 visible = false
 texture = ExtResource("3_vwh07")
 
-[node name="Mid2" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
+[node name="Mid2" type="ParallaxLayer" parent="PlaxBG"]
 visible = false
 position = Vector2(100, 0)
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(480, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Mid2"]
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid2"]
 position = Vector2(0, 32)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_tdai4")
 
-[node name="Mid" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
+[node name="Mid" type="ParallaxLayer" parent="PlaxBG"]
 position = Vector2(0, -32)
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Mid"]
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid"]
 texture = ExtResource("5_j4kxc")
 
-[node name="Fore" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
+[node name="Fore" type="ParallaxLayer" parent="PlaxBG"]
 position = Vector2(0, -36)
 motion_mirroring = Vector2(800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Fore"]
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Fore"]
 texture = ExtResource("3_tdai4")
 
-[node name="BackCamera2D" type="Camera2D" parent="MainLayer/SubViewportContainer/PlaxBG"]
+[node name="BackCamera2D" type="Camera2D" parent="PlaxBG"]
 position_smoothing_enabled = true
+
+[node name="MainLayer" type="CanvasLayer" parent="."]
+
+[node name="UIManager" parent="MainLayer" instance=ExtResource("2_uf821")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainLayer"]
+offset_right = 1600.0
+offset_bottom = 1200.0
 
 [node name="PixelViewport" type="SubViewport" parent="MainLayer/SubViewportContainer"]
 unique_name_in_owner = true
@@ -91,6 +91,7 @@ canvas_item_default_texture_filter = 3
 size = Vector2i(1600, 1200)
 size_2d_override = Vector2i(400, 300)
 size_2d_override_stretch = true
+render_target_update_mode = 4
 
 [node name="Player" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("3_jc4ji")]
 position = Vector2(19, 293)
