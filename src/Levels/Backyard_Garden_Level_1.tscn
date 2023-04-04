@@ -18,19 +18,28 @@
 script = ExtResource("1_m2rpn")
 level_completion_time = 60.0
 
-[node name="PlaxBG" type="ParallaxBackground" parent="."]
-offset = Vector2(0, 150)
-transform = Transform2D(1, 0, 0, 1, 0, 150)
+[node name="MainLayer" type="CanvasLayer" parent="."]
+
+[node name="UIManager" parent="MainLayer" instance=ExtResource("2_uf821")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainLayer"]
+offset_right = 1600.0
+offset_bottom = 1200.0
+
+[node name="PlaxBG" type="ParallaxBackground" parent="MainLayer/SubViewportContainer"]
+offset = Vector2(0, 600)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 600)
 follow_viewport_scale = 2.0
 scroll_base_scale = Vector2(1, 0)
 script = ExtResource("2_crxet")
 
-[node name="Rear" type="ParallaxLayer" parent="PlaxBG"]
+[node name="Rear" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
 motion_scale = Vector2(0.5, 0.5)
 motion_offset = Vector2(100, 0)
 motion_mirroring = Vector2(800, 0)
 
-[node name="ColorRect" type="ColorRect" parent="PlaxBG/Rear"]
+[node name="ColorRect" type="ColorRect" parent="MainLayer/SubViewportContainer/PlaxBG/Rear"]
 custom_minimum_size = Vector2(1600, 600)
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,74 +48,80 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00784314, 0.054902, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Rear"]
+[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Rear"]
 visible = false
 texture = ExtResource("3_vwh07")
 
-[node name="Mid2" type="ParallaxLayer" parent="PlaxBG"]
+[node name="Mid2" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
 visible = false
 position = Vector2(100, 0)
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(480, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid2"]
+[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Mid2"]
 position = Vector2(0, 32)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_tdai4")
 
-[node name="Mid" type="ParallaxLayer" parent="PlaxBG"]
+[node name="Mid" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
 position = Vector2(0, -32)
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid"]
+[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Mid"]
 texture = ExtResource("5_j4kxc")
 
-[node name="Fore" type="ParallaxLayer" parent="PlaxBG"]
+[node name="Fore" type="ParallaxLayer" parent="MainLayer/SubViewportContainer/PlaxBG"]
 position = Vector2(0, -36)
 motion_mirroring = Vector2(800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Fore"]
+[node name="Sprite2D" type="Sprite2D" parent="MainLayer/SubViewportContainer/PlaxBG/Fore"]
 texture = ExtResource("3_tdai4")
 
-[node name="BackCamera2D" type="Camera2D" parent="PlaxBG"]
+[node name="BackCamera2D" type="Camera2D" parent="MainLayer/SubViewportContainer/PlaxBG"]
 position_smoothing_enabled = true
 
-[node name="MainLayer" type="CanvasLayer" parent="."]
+[node name="PixelViewport" type="SubViewport" parent="MainLayer/SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+use_taa = true
+canvas_item_default_texture_filter = 3
+size = Vector2i(1600, 1200)
+size_2d_override = Vector2i(400, 300)
+size_2d_override_stretch = true
 
-[node name="UIManager" parent="MainLayer" instance=ExtResource("2_uf821")]
-
-[node name="Player" parent="MainLayer" instance=ExtResource("3_jc4ji")]
+[node name="Player" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("3_jc4ji")]
 position = Vector2(19, 293)
 
-[node name="Enemy" parent="MainLayer" instance=ExtResource("4_1p7qk")]
+[node name="Enemy" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("4_1p7qk")]
 position = Vector2(267, 147)
 
-[node name="FloorTileMapManager" parent="MainLayer" instance=ExtResource("5_qhb52")]
+[node name="FloorTileMapManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("5_qhb52")]
 tile_set = ExtResource("6_psj41")
 
-[node name="PlatformsManager" parent="MainLayer" instance=ExtResource("6_je2re")]
+[node name="PlatformsManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("6_je2re")]
 
-[node name="EnemyManager" parent="MainLayer" instance=ExtResource("7_hq48s")]
+[node name="EnemyManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("7_hq48s")]
 position = Vector2(267, 52)
 
-[node name="InvisibleWall" type="TileMap" parent="MainLayer"]
+[node name="InvisibleWall" type="TileMap" parent="MainLayer/SubViewportContainer/PixelViewport"]
 tile_set = ExtResource("8_4kewj")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 655359, 65536, 1, 720895, 65536, 1, 786431, 65536, 1, 851967, 65536, 1, 917503, 65536, 1, 983039, 65536, 1, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 1, 1310719, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 655358, 65536, 1, 720894, 65536, 1, 786430, 65536, 1, 851966, 65536, 1, 917502, 65536, 1, 983038, 65536, 1, 1048574, 65536, 1, 1114110, 65536, 1, 1179646, 65536, 1, 1245182, 65536, 1, 1310718, 65536, 1)
 
-[node name="InvisibleWall2" type="TileMap" parent="MainLayer"]
+[node name="InvisibleWall2" type="TileMap" parent="MainLayer/SubViewportContainer/PixelViewport"]
 position = Vector2(432, 2.08165e-12)
 tile_set = ExtResource("8_4kewj")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 655359, 65536, 1, 720895, 65536, 1, 786431, 65536, 1, 851967, 65536, 1, 917503, 65536, 1, 983039, 65536, 1, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 1, 1310719, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 655358, 65536, 1, 720894, 65536, 1, 786430, 65536, 1, 851966, 65536, 1, 917502, 65536, 1, 983038, 65536, 1, 1048574, 65536, 1, 1114110, 65536, 1, 1179646, 65536, 1, 1245182, 65536, 1, 1310718, 65536, 1)
 
-[node name="Camera2D" type="Camera2D" parent="MainLayer"]
-
 [node name="PlaxBG2" type="ParallaxBackground" parent="."]
 layer = 2
-offset = Vector2(0, 150)
-transform = Transform2D(1, 0, 0, 1, 0, 150)
+offset = Vector2(0, 620)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 620)
 follow_viewport_scale = 2.0
 scroll_base_scale = Vector2(1, 0)
 script = ExtResource("2_crxet")

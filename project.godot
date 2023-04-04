@@ -21,10 +21,9 @@ Global="*res://src/Autoloads/Global.gd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/size/viewport_width=1600
+window/size/viewport_height=1200
 window/stretch/mode="viewport"
-window/stretch/scale=2.0
 
 [editor]
 
