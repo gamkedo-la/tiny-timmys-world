@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dls505dxcxh8y"]
+[gd_scene load_steps=13 format=3 uid="uid://dls505dxcxh8y"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
-[ext_resource type="PackedScene" uid="uid://de5bboah7wgdr" path="res://src/Map Objects/Plax/plax_bg.tscn" id="2_kr3ou"]
+[ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
 [ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="2_uf821"]
 [ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="3_jc4ji"]
+[ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="3_tdai4"]
+[ext_resource type="Texture2D" uid="uid://cxwssukbdhg1b" path="res://src/Map Objects/Plax/rear_proto01.png" id="3_vwh07"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="4_1p7qk"]
 [ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="5_qhb52"]
 [ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="6_je2re"]
@@ -15,7 +17,59 @@
 script = ExtResource("1_m2rpn")
 level_completion_time = 60.0
 
-[node name="PlaxBG" parent="." instance=ExtResource("2_kr3ou")]
+[node name="PlaxBG" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 150)
+transform = Transform2D(1, 0, 0, 1, 0, 150)
+follow_viewport_scale = 2.0
+scroll_base_scale = Vector2(1, 0)
+script = ExtResource("2_crxet")
+
+[node name="Rear" type="ParallaxLayer" parent="PlaxBG"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(100, 0)
+motion_mirroring = Vector2(800, 0)
+
+[node name="ColorRect" type="ColorRect" parent="PlaxBG/Rear"]
+custom_minimum_size = Vector2(1600, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.054902, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Rear"]
+visible = false
+texture = ExtResource("3_vwh07")
+
+[node name="Mid2" type="ParallaxLayer" parent="PlaxBG"]
+position = Vector2(100, 0)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid2"]
+position = Vector2(0, 32)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_tdai4")
+
+[node name="Mid" type="ParallaxLayer" parent="PlaxBG"]
+position = Vector2(100, 0)
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(540, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid"]
+scale = Vector2(-0.8, 0.8)
+texture = ExtResource("3_tdai4")
+
+[node name="Fore" type="ParallaxLayer" parent="PlaxBG"]
+position = Vector2(0, -36)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Fore"]
+texture = ExtResource("3_tdai4")
+
+[node name="BackCamera2D" type="Camera2D" parent="PlaxBG"]
+position_smoothing_enabled = true
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
@@ -47,5 +101,24 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 655359, 65536, 1, 720895, 65536, 1, 786431, 65536, 1, 851967, 65536, 1, 917503, 65536, 1, 983039, 65536, 1, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 1, 1310719, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 655358, 65536, 1, 720894, 65536, 1, 786430, 65536, 1, 851966, 65536, 1, 917502, 65536, 1, 983038, 65536, 1, 1048574, 65536, 1, 1114110, 65536, 1, 1179646, 65536, 1, 1245182, 65536, 1, 1310718, 65536, 1)
 
 [node name="Camera2D" type="Camera2D" parent="MainLayer"]
+
+[node name="PlaxBG2" type="ParallaxBackground" parent="."]
+layer = 2
+offset = Vector2(0, 150)
+transform = Transform2D(1, 0, 0, 1, 0, 150)
+follow_viewport_scale = 2.0
+scroll_base_scale = Vector2(1, 0)
+script = ExtResource("2_crxet")
+
+[node name="Fore" type="ParallaxLayer" parent="PlaxBG2"]
+position = Vector2(0, -26)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG2/Fore"]
+texture = ExtResource("3_tdai4")
+flip_h = true
+
+[node name="BackCamera2D" type="Camera2D" parent="PlaxBG2"]
+position_smoothing_enabled = true
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

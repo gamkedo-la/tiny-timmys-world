@@ -23,6 +23,8 @@ Global="*res://src/Autoloads/Global.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
+window/size/window_width_override=1600
+window/size/window_height_override=1200
 window/stretch/mode="viewport"
 window/stretch/scale=2.0
 
