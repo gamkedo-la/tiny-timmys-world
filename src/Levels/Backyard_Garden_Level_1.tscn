@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dls505dxcxh8y"]
+[gd_scene load_steps=15 format=3 uid="uid://dls505dxcxh8y"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -13,6 +13,7 @@
 [ext_resource type="TileSet" uid="uid://bo31abhmofat" path="res://src/TileMaps/Backyard_Garden_Level_1.tres" id="6_psj41"]
 [ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="7_hq48s"]
 [ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="8_4kewj"]
+[ext_resource type="Script" path="res://src/Levels/Pause.gd" id="14_b66p6"]
 
 [node name="BackyardGarden" type="Node2D"]
 script = ExtResource("1_m2rpn")
@@ -137,5 +138,27 @@ flip_h = true
 
 [node name="BackCamera2D" type="Camera2D" parent="PlaxBG2"]
 position_smoothing_enabled = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause" type="Control" parent="PauseLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_b66p6")
+
+[node name="ColorRect" type="ColorRect" parent="PauseLayer/Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.352941)
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
