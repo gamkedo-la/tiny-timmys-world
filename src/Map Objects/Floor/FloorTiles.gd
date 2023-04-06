@@ -44,10 +44,12 @@ func _spawn_initial_random_floor() -> void:
 		print_debug("Adding cell to coords: ", Vector2i(n, max_coords_y))
 		new_floor.set_cell(0, Vector2i(n, max_coords_y), 0, Vector2(2, 0), 0)
 	
-	#TODO: Decoration tiles
+	var cells_coord_list = []
+	print_debug("Generating the list of cells to decorate")
 	for n in max_coords_x:
-		print_debug("Adding decoration cell to coords: ", Vector2i(n, max_coords_y))
-		new_floor.set_cell(0, Vector2i(n, max_coords_y - 1), 0, Vector2(6, 1), 0)
+		cells_coord_list.append(Vector2i(n, max_coords_y - 1))
+	
+	new_floor.set_cells_terrain_connect(0, cells_coord_list, 0, 1, true)
 		
 	add_child(new_floor)
 	
@@ -58,9 +60,12 @@ func _spawn_new_random_floor() -> void:
 	for n in max_coords_x:
 		new_floor.set_cell(0, Vector2i(n, max_coords_y), 0, Vector2(2, 0), 0)
 		
+	var cells_coord_list = []
+	print_debug("Generating the list of cells to decorate")
 	for n in max_coords_x:
-		print_debug("Adding decoration cell to coords: ", Vector2i(n, max_coords_y))
-		new_floor.set_cell(0, Vector2i(n, max_coords_y - 1), 0, Vector2(6, 1), 0)
+		cells_coord_list.append(Vector2i(n, max_coords_y - 1))
+	
+	new_floor.set_cells_terrain_connect(0, cells_coord_list, 0, 1, true)
 	
 	new_floor.position.x += get_viewport_rect().size.x
 	add_child(new_floor)	
