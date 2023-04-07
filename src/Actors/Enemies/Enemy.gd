@@ -4,7 +4,9 @@ extends Actor
 @export var score: int = 30
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var debug_label: Label = $DebugLabel
-@onready var sprite: Sprite2D = $Enemy
+@onready var sprite: Sprite2D = $Body/Enemy
+@onready var actor_body: Node2D = $Body
+@onready var stomp_detector: Area2D = $Body/StompDetector
 
 var dir = Vector2.LEFT
 
@@ -16,8 +18,8 @@ func _ready() -> void:
 func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 	print_debug("Stomped")
 	print_debug("body.global_position.y: ", body.global_position.y)
-	print_debug("get_node('StompDetector').global_position.y: ", get_node("StompDetector").global_position.y)
-	if(body.global_position.y > get_node("StompDetector").global_position.y) :
+	print_debug("stomp_detector.global_position.y: ", stomp_detector.global_position.y)
+	if(body.global_position.y > stomp_detector.global_position.y) :
 		return
 	anim_player.play("squish")
 #	queue_free()
@@ -36,10 +38,10 @@ func _physics_process(delta: float) -> void:
 	velocity.x = SPEED * dir.x
 	
 		
-	if dir.is_equal_approx(Vector2.LEFT) and sprite.scale.x < 0.0:
-		sprite.scale.x *= -1.0
-	if dir.is_equal_approx(Vector2.RIGHT) and sprite.scale.x > 0.0:
-		sprite.scale.x *= -1.0
+	if dir.is_equal_approx(Vector2.LEFT) and actor_body.scale.x < 0.0:
+		actor_body.scale.x *= -1.0
+	if dir.is_equal_approx(Vector2.RIGHT) and actor_body.scale.x > 0.0:
+		actor_body.scale.x *= -1.0
 		
 	move_and_slide()
 	if debug_label.visible:
