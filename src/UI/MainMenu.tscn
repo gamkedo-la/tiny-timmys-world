@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=7 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://dls505dxcxh8y" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
+[ext_resource type="Texture2D" uid="uid://cxwssukbdhg1b" path="res://src/Map Objects/Plax/rear_proto01.png" id="3_da3ux"]
+[ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="4_rsked"]
+[ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="5_54erd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y0dfi")
 
 [node name="Title" type="Label" parent="Panel"]
 layout_mode = 1
@@ -65,6 +71,53 @@ text = "Credits"
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+scroll_base_scale = Vector2(1, 2.08165e-12)
+
+[node name="Rear" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-204, 133)
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(100, 0)
+motion_mirroring = Vector2(800, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/Rear"]
+custom_minimum_size = Vector2(1600, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.054902, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rear"]
+visible = false
+texture = ExtResource("3_da3ux")
+
+[node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-204, 133)
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mid"]
+texture = ExtResource("5_54erd")
+
+[node name="Fore" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-204, 133)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fore"]
+texture = ExtResource("4_rsked")
+
+[node name="Fore2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-202, 133)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fore2"]
+texture = ExtResource("4_rsked")
+flip_h = true
 
 [connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="toggled" from="Panel/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
