@@ -3,9 +3,15 @@ extends Actor
 
 @export var score: int = 30
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var debug_label: Label = $DebugLabel
+@onready var sprite: Sprite2D = $Enemy
+
+var dir = Vector2.LEFT
 
 func _ready() -> void:
-	velocity.x = -SPEED
+	if !Global.show_debug_labels_enemies:
+		debug_label.visible = false
+	velocity.x = dir.x * SPEED
 
 func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 	print_debug("Stomped")
@@ -25,7 +31,25 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if is_on_wall():
-		SPEED *= -1.0
-		velocity.x = SPEED
+		dir.x *= -1.0
+#		SPEED *= -1.0
+	velocity.x = SPEED * dir.x
+	
+		
+	if dir.is_equal_approx(Vector2.LEFT) and sprite.scale.x < 0.0:
+		print_debug("Enemy ", self, " velocity: ", velocity.x)
+		sprite.scale.x *= -1.0
+	if dir.is_equal_approx(Vector2.RIGHT) and sprite.scale.x > 0.0:
+		sprite.scale.x *= -1.0
 		
 	move_and_slide()
+	if debug_label.visible:
+		_update_debug_label()
+
+
+func _update_debug_label() -> void:
+	debug_label.text = "Vel: " + var_to_str(velocity)
+	debug_label.text += "\ndir: " + var_to_str(dir)
+	debug_label.text += "\nsprite.scale.x " + var_to_str(sprite.scale.x)
+	
+	pass

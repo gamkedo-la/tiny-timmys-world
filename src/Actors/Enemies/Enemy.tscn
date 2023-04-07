@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c55cwuqj7ofxd"]
+[gd_scene load_steps=11 format=3 uid="uid://c55cwuqj7ofxd"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Enemy.gd" id="1_su7ia"]
 [ext_resource type="Texture2D" uid="uid://hp2dtncnhrp5" path="res://src/Sprites/Enemy_Beetle.png" id="2_3casd"]
@@ -312,6 +312,8 @@ _data = {
 "squish": SubResource("Animation_w1oyl")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_jceyq"]
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
@@ -354,6 +356,14 @@ shape = SubResource("RectangleShape2D_fkaph")
 libraries = {
 "": SubResource("AnimationLibrary_qxud0")
 }
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -85.0
+offset_right = 20.0
+offset_bottom = -59.0
+text = "Test"
+label_settings = SubResource("LabelSettings_jceyq")
 
 [connection signal="body_entered" from="StompDetector" to="." method="_on_stomp_detecter_body_entered"]
 [connection signal="area_entered" from="BulletDetector" to="." method="_on_bullet_detector_area_entered"]
