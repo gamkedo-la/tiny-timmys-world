@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj7oxi7rq8c31"]
+
+[ext_resource type="Script" path="res://src/Map Objects/Platforms/MovingPlatform.gd" id="1_o6fuc"]
+[ext_resource type="Texture2D" uid="uid://didmddly8jhei" path="res://src/Sprites/Garden_MidPlatform_2.png" id="2_62doi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv57p"]
+size = Vector2(32, 16)
+
+[node name="GardenMidPlatform" type="Node2D"]
+script = ExtResource("1_o6fuc")
+
+[node name="PlatformBody" type="CharacterBody2D" parent="."]
+position = Vector2(-321, -261)
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformBody"]
+texture_filter = 1
+position = Vector2(337, 253)
+texture = ExtResource("2_62doi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformBody"]
+position = Vector2(337, 253)
+shape = SubResource("RectangleShape2D_dv57p")

@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 
 func _on_platform_timer_timeout() -> void:
-	var random_platform = rng.randf_range(0, platforms.size() - 1)
+	var random_platform = rng.randf_range(0, platforms.size())
 	var platform_to_spawn = platforms[random_platform]
 	
 	var platform = platform_to_spawn.instantiate()
