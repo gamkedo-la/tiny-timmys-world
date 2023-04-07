@@ -3,7 +3,7 @@ extends Actor
 @export var stomp_impulse: = 1000.0
 @export var JUMP_VELOCITY: float
 @export var weapon: PackedScene
-
+@onready var sprite: Sprite2D = $Player
 
 func _on_enemy_detector_area_entered(area: Area2D) -> void:
 	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
@@ -29,6 +29,11 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if direction > 0.0 and sprite.scale.x < 0.0:
+		sprite.scale.x *= -1.0
+	if direction < 0.0 and sprite.scale.x > 0.0:
+		sprite.scale.x *= -1.0
 	
 	check_if_shooting()
 

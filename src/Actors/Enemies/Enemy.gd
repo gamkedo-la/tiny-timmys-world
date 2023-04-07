@@ -37,7 +37,6 @@ func _physics_process(delta: float) -> void:
 	
 		
 	if dir.is_equal_approx(Vector2.LEFT) and sprite.scale.x < 0.0:
-		print_debug("Enemy ", self, " velocity: ", velocity.x)
 		sprite.scale.x *= -1.0
 	if dir.is_equal_approx(Vector2.RIGHT) and sprite.scale.x > 0.0:
 		sprite.scale.x *= -1.0
