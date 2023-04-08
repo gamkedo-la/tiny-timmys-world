@@ -21,6 +21,7 @@ func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 	print_debug("stomp_detector.global_position.y: ", stomp_detector.global_position.y)
 	if(body.global_position.y > stomp_detector.global_position.y) :
 		return
+	Global.tween_eng_halftime()
 	anim_player.play("squish")
 #	queue_free()
 

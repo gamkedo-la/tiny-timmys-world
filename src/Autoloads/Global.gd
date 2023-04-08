@@ -17,3 +17,10 @@ func set_fullscreen(val: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func tween_eng_halftime() -> void:
+	var tween = create_tween()
+	tween.tween_property(Engine, "time_scale", 0.5, 0.2).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(Engine, "time_scale", 1.0, 0.05).set_trans(Tween.TRANS_EXPO)
+	
