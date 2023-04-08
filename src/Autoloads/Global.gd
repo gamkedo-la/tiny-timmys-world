@@ -1,5 +1,7 @@
 extends Node
 
+signal points_scored(val, pos)
+
 const LEVEL_SPEED: float = -20.0
 var show_debug_labels_enemies: bool = false
 
