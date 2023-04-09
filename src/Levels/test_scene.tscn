@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7xp872132wqk"]
+
+[ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="1_pphdk"]
+[ext_resource type="PackedScene" uid="uid://crgtl4kgquwaw" path="res://src/Actors/Enemies/forest_stalk.tscn" id="2_7kb01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v1bl"]
+size = Vector2(426, 20)
+
+[node name="TestScene" type="Node2D"]
+position = Vector2(196, 290)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_4v1bl")
+
+[node name="Player" parent="." instance=ExtResource("1_pphdk")]
+position = Vector2(-101, -30)
+
+[node name="ForestStalk" parent="." instance=ExtResource("2_7kb01")]
+position = Vector2(75, -10)
+
+[editable path="Player"]
+[editable path="ForestStalk"]
