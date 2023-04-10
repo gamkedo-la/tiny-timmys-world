@@ -1,6 +1,4 @@
 extends CharacterBody2D
-
-
 class_name Actor
 
 @export var SPEED = 100.0

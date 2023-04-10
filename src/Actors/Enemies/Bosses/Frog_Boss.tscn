@@ -1,7 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://b1jwx873qgfb2"]
+[gd_scene load_steps=37 format=3 uid="uid://b1jwx873qgfb2"]
 
 [ext_resource type="Texture2D" uid="uid://e4fhtmdkemm0" path="res://src/Sprites/FrogBoss-Idle-sprite_sheet.png" id="1_rn1xv"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Frog_Boss.gd" id="1_rqc32"]
+[ext_resource type="Script" path="res://src/Actors/FSM/AIFSM.gd" id="3_gs6nc"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogIdle.gd" id="4_scuj7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0eife"]
 atlas = ExtResource("1_rn1xv")
@@ -231,9 +233,31 @@ script = ExtResource("1_rqc32")
 position = Vector2(200, 150)
 sprite_frames = SubResource("SpriteFrames_irbtk")
 animation = &"Idle"
-frame_progress = 0.380611
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(344, 176)
 scale = Vector2(6.58811, 8.27383)
 shape = SubResource("CapsuleShape2D_iro8v")
+
+[node name="AIFSM" type="Node" parent="."]
+script = ExtResource("3_gs6nc")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="AIFSM"]
+script = ExtResource("4_scuj7")
+
+[node name="StompTell" type="Node" parent="AIFSM"]
+
+[node name="Stomp" type="Node" parent="AIFSM/StompTell"]
+
+[node name="RainStomp" type="Node" parent="AIFSM/StompTell"]
+
+[node name="TongueTell" type="Node" parent="AIFSM"]
+
+[node name="TongueAtk" type="Node" parent="AIFSM/TongueTell"]
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = 293.0
+offset_top = 24.0
+offset_right = 395.0
+offset_bottom = 47.0
