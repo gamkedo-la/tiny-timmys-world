@@ -23,6 +23,8 @@ func _init() -> void:
 func _ready() -> void:
 	await owner.ready
 	state.enter()
+	if state_label:
+		state_label.text = current_state
 
 
 func _unhandled_input(event: InputEvent) -> void:

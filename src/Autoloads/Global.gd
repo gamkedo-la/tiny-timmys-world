@@ -1,8 +1,9 @@
 extends Node
 
 signal points_scored(val, pos)
+signal screen_shake(val)
 
-const LEVEL_SPEED: float = -20.0
+var LEVEL_SPEED: float = -20.0
 var show_debug_labels_enemies: bool = false
 
 # Called when the node enters the scene tree for the first time.

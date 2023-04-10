@@ -1,9 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://b1jwx873qgfb2"]
+[gd_scene load_steps=39 format=3 uid="uid://b1jwx873qgfb2"]
 
 [ext_resource type="Texture2D" uid="uid://e4fhtmdkemm0" path="res://src/Sprites/FrogBoss-Idle-sprite_sheet.png" id="1_rn1xv"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Frog_Boss.gd" id="1_rqc32"]
 [ext_resource type="Script" path="res://src/Actors/FSM/AIFSM.gd" id="3_gs6nc"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogIdle.gd" id="4_scuj7"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogStompTell.gd" id="5_d2rco"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogRainStomp.gd" id="6_vi85q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0eife"]
 atlas = ExtResource("1_rn1xv")
@@ -227,6 +229,10 @@ animations = [{
 
 [node name="Frog_Boss" type="CharacterBody2D"]
 position = Vector2(0, 2)
+collision_layer = 0
+collision_mask = 0
+platform_floor_layers = 4294901792
+platform_wall_layers = 32
 script = ExtResource("1_rqc32")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -247,10 +253,12 @@ initial_state = NodePath("Idle")
 script = ExtResource("4_scuj7")
 
 [node name="StompTell" type="Node" parent="AIFSM"]
+script = ExtResource("5_d2rco")
 
 [node name="Stomp" type="Node" parent="AIFSM/StompTell"]
 
 [node name="RainStomp" type="Node" parent="AIFSM/StompTell"]
+script = ExtResource("6_vi85q")
 
 [node name="TongueTell" type="Node" parent="AIFSM"]
 

@@ -12,12 +12,12 @@ func physics_process(delta: float) -> void:
 
 
 func state_check()->void:
-	if time_in_state > 10.0:
-		_ai_state_machine.transition_to('StompTell', {})
+	if time_in_state > 2.0:
+		_ai_state_machine.transition_to('RainStomp', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
-	actor.ani_player_play("Idle")
+#	actor.ani_player_play("Idle")
 
 	time_in_state = 0.0
 	pass

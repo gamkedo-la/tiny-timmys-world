@@ -8,7 +8,7 @@ var max_coords_x: int
 var min_coords_y: int
 var max_coords_y: int
 
-const SPEED: float = Global.LEVEL_SPEED
+var SPEED: float = Global.LEVEL_SPEED
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_debug("Tile Set Size: ", tile_set.tile_size.x)

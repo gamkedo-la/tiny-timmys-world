@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://de5bboah7wgdr"]
+[gd_scene load_steps=6 format=3 uid="uid://de5bboah7wgdr"]
 
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="1_dbtgv"]
 [ext_resource type="Texture2D" uid="uid://cxwssukbdhg1b" path="res://src/Map Objects/Plax/rear_proto01.png" id="2_mdacb"]
 [ext_resource type="Texture2D" uid="uid://cerbthxar48lj" path="res://src/Map Objects/Plax/mid_proto01.png" id="3_3nv1v"]
 [ext_resource type="Texture2D" uid="uid://3n24ie74rlfr" path="res://src/Map Objects/Plax/fore_proto01.png" id="4_jmfgk"]
+[ext_resource type="Script" path="res://src/Levels/SceneCamera.gd" id="5_kqdc1"]
 
 [node name="PlaxBG" type="ParallaxBackground"]
 offset = Vector2(0, 150)
@@ -35,3 +36,4 @@ texture = ExtResource("4_jmfgk")
 
 [node name="BackCamera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+script = ExtResource("5_kqdc1")
