@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcujta6ejdh4e"]
+
+[ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="1_23naj"]
+[ext_resource type="PackedScene" uid="uid://b1jwx873qgfb2" path="res://src/Actors/Enemies/Bosses/Frog_Boss.tscn" id="1_xq8tp"]
+[ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="2_oq5ou"]
+[ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="3_g1fp0"]
+[ext_resource type="TileSet" uid="uid://bo31abhmofat" path="res://src/TileMaps/Backyard_Garden_Level_1.tres" id="4_tc7ji"]
+[ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="5_j5ki4"]
+[ext_resource type="PackedScene" uid="uid://dqjxnfjd4njhn" path="res://src/Map Objects/Platforms/Garden_Level/Garden_BigPlatform.tscn" id="6_gep7g"]
+[ext_resource type="PackedScene" uid="uid://cj7oxi7rq8c31" path="res://src/Map Objects/Platforms/Garden_Level/Garden_MidPlatform.tscn" id="7_abax1"]
+[ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="8_fcv8b"]
+[ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="9_fdw8o"]
+
+[node name="boss_fight_test_scene" type="Node2D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 1600.0
+offset_bottom = 1200.0
+
+[node name="PixelViewport" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+use_taa = true
+canvas_item_default_texture_filter = 3
+size = Vector2i(1600, 1200)
+size_2d_override = Vector2i(400, 300)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Player" parent="SubViewportContainer/PixelViewport" instance=ExtResource("1_23naj")]
+position = Vector2(19, 293)
+
+[node name="Enemy" parent="SubViewportContainer/PixelViewport" instance=ExtResource("2_oq5ou")]
+position = Vector2(267, 147)
+
+[node name="Frog_Boss" parent="SubViewportContainer/PixelViewport" groups=["enemy"] instance=ExtResource("1_xq8tp")]
+
+[node name="FloorTileMapManager" parent="SubViewportContainer/PixelViewport" instance=ExtResource("3_g1fp0")]
+tile_set = ExtResource("4_tc7ji")
+
+[node name="PlatformsManager" parent="SubViewportContainer/PixelViewport" instance=ExtResource("5_j5ki4")]
+platforms = Array[PackedScene]([ExtResource("6_gep7g"), ExtResource("7_abax1")])
+
+[node name="EnemyManager" parent="SubViewportContainer/PixelViewport" instance=ExtResource("8_fcv8b")]
+position = Vector2(267, 52)
+
+[node name="InvisibleWall" type="TileMap" parent="SubViewportContainer/PixelViewport"]
+tile_set = ExtResource("9_fdw8o")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 655359, 65536, 1, 720895, 65536, 1, 786431, 65536, 1, 851967, 65536, 1, 917503, 65536, 1, 983039, 65536, 1, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 1, 1310719, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 655358, 65536, 1, 720894, 65536, 1, 786430, 65536, 1, 851966, 65536, 1, 917502, 65536, 1, 983038, 65536, 1, 1048574, 65536, 1, 1114110, 65536, 1, 1179646, 65536, 1, 1245182, 65536, 1, 1310718, 65536, 1)
+
+[node name="InvisibleWall2" type="TileMap" parent="SubViewportContainer/PixelViewport"]
+position = Vector2(432, 2.08165e-12)
+tile_set = ExtResource("9_fdw8o")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 655359, 65536, 1, 720895, 65536, 1, 786431, 65536, 1, 851967, 65536, 1, 917503, 65536, 1, 983039, 65536, 1, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 1, 1310719, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 655358, 65536, 1, 720894, 65536, 1, 786430, 65536, 1, 851966, 65536, 1, 917502, 65536, 1, 983038, 65536, 1, 1048574, 65536, 1, 1114110, 65536, 1, 1179646, 65536, 1, 1245182, 65536, 1, 1310718, 65536, 1)
