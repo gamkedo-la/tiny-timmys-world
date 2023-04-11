@@ -23,6 +23,12 @@ func _init() -> void:
 func _ready() -> void:
 	await owner.ready
 	state.enter()
+	
+	if Global.show_AIFSM_labels:
+		state_label.visible = true
+	else:
+		state_label.visible = false
+		
 	if state_label:
 		state_label.text = current_state
 

@@ -5,6 +5,7 @@ signal screen_shake(val)
 
 var LEVEL_SPEED: float = -20.0
 var show_debug_labels_enemies: bool = false
+var show_AIFSM_labels: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
