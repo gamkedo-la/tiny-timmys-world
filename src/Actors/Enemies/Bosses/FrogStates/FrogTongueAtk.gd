@@ -1,7 +1,7 @@
 extends AIState
 
 var tongue_fired = false
-
+@onready var RNG = RandomNumberGenerator.new()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta: float) -> void:
 	state_check()
@@ -11,7 +11,15 @@ func process(delta: float) -> void:
 
 func physics_process(delta: float) -> void:
 	if !tongue_fired:
-		actor.fire_tongue(PlayerVars.player.global_position)
+		if actor.check_flies():
+			RNG.randomize()
+			var chance = RNG.randf_range(0.0, 1.0)
+			if chance > 0.4:
+				actor.eat_fly()
+			else:
+				actor.fire_tongue(PlayerVars.player.global_position)
+		else:
+			actor.fire_tongue(PlayerVars.player.global_position)
 		tongue_fired = true
 	actor.physics_process(delta)
 

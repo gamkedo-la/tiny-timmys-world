@@ -5,6 +5,8 @@ extends AIActor
 @onready var tongue_line: Line2D = $Tongue/TongueLine
 @onready var tongue_tip: Area2D = $Tongue/TongueTip
 
+@onready var flies: Node2D = $Flies
+
 func _ready():
 	tongue_base.visible = false
 	pass
@@ -46,3 +48,18 @@ func retract_tongue() -> void:
 func hide_tongue() -> void:
 	
 	tongue_base.visible = false
+
+func check_flies() -> bool:
+	if flies.get_child_count() > 0:
+		return true
+	else:
+		return false
+		
+func eat_fly() -> void:
+	var fly = flies.get_child(0)
+	var eat_tween = create_tween()
+	fire_tongue(fly.global_position)
+	
+	eat_tween.tween_callback(fly.queue_free).set_delay(0.3)
+
+	#ADD HP TO FROG BOSS HERE
