@@ -45,10 +45,11 @@ func enter(msg:Dictionary = {}) -> void:
 func exit() -> void:
 	pass
 
-
 func rain_storm() -> void:
 	if rain_drops > 0:
 		var new_drop: RigidBody2D = rain_drop.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
+		if start_x < 15.0:
+			start_x = 395.0
 		new_drop.top_level = true
 		add_child(new_drop)
 		new_drop.global_position = Vector2(start_x, 10)
