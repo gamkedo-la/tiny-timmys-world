@@ -11,7 +11,7 @@ func _physics_process(delta):
 #	print_debug(velocity)
 	# Add the gravity.
 	if not is_on_floor():
-		print_debug("Not on floor")
+#		print_debug("Not on floor")
 		velocity.y += gravity * delta
 	else:		
 		velocity.y = 0

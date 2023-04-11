@@ -16,9 +16,9 @@ func _ready() -> void:
 	velocity.x = dir.x * SPEED
 
 func _on_stomp_detecter_body_entered(body: Node2D) -> void:
-	print_debug("Stomped")
-	print_debug("body.global_position.y: ", body.global_position.y)
-	print_debug("stomp_detector.global_position.y: ", stomp_detector.global_position.y)
+#	print_debug("Stomped")
+#	print_debug("body.global_position.y: ", body.global_position.y)
+#	print_debug("stomp_detector.global_position.y: ", stomp_detector.global_position.y)
 	if(body.global_position.y > stomp_detector.global_position.y) :
 		return
 	Global.emit_signal("points_scored", score, (get_global_transform() * body.position))
@@ -28,7 +28,7 @@ func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
-	print_debug(area.name)
+#	print_debug(area.name)
 	Global.emit_signal("points_scored", score, (get_global_transform() * area.position))
 	anim_player.play("shot_pop")
 #	queue_free()

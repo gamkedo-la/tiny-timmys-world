@@ -1,6 +1,6 @@
 extends AIState
 
-@onready var RNG = RandomNumberGenerator.new()
+var tongue_fired = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta: float) -> void:
@@ -10,26 +10,23 @@ func process(delta: float) -> void:
 
 
 func physics_process(delta: float) -> void:
+	if !tongue_fired:
+		actor.fire_tongue(PlayerVars.player.global_position)
+		tongue_fired = true
 	actor.physics_process(delta)
 
 
 func state_check()->void:
-	if time_in_state > 2.0:
-		var chance = RNG.randf_range(0.0, 1.0)
-		if chance > 0.8:		
-			_ai_state_machine.transition_to('StompTell', {})
-		elif chance > 0.5:
-			_ai_state_machine.transition_to('TongueTell', {})
-		elif chance > 0.3:
-			_ai_state_machine.transition_to('SpawnFly', {})
+	if time_in_state > 3.0 && tongue_fired:
+		_ai_state_machine.transition_to('Idle', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
-	RNG.randomize()
-	actor.ani_player_play("Idle")
-
+#	actor.ani_player_play("Idle")
+	tongue_fired = false
 	time_in_state = 0.0
 	pass
 
 func exit() -> void:
+	actor.retract_tongue()
 	pass

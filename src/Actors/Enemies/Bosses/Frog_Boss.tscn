@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b1jwx873qgfb2"]
+[gd_scene load_steps=45 format=3 uid="uid://b1jwx873qgfb2"]
 
 [ext_resource type="Texture2D" uid="uid://e4fhtmdkemm0" path="res://src/Sprites/FrogBoss-Idle-sprite_sheet.png" id="1_rn1xv"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Frog_Boss.gd" id="1_rqc32"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogSpawnFly.gd" id="5_2akvq"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogStompTell.gd" id="5_d2rco"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogRainStomp.gd" id="6_vi85q"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogTongueTell.gd" id="8_2uava"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogTongueAtk.gd" id="9_gccf4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0eife"]
 atlas = ExtResource("1_rn1xv")
@@ -228,6 +230,14 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iro8v"]
 
+[sub_resource type="Curve" id="Curve_23qhl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.515571, 0.993865), 0.0, 0.0, 0, 0, Vector2(1, 0.239264), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wm0in"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyyfe"]
+
 [node name="Frog_Boss" type="CharacterBody2D"]
 position = Vector2(0, 2)
 collision_layer = 0
@@ -245,6 +255,22 @@ animation = &"Idle"
 position = Vector2(344, 176)
 scale = Vector2(6.58811, 8.27383)
 shape = SubResource("CapsuleShape2D_iro8v")
+
+[node name="Tongue" type="Node2D" parent="."]
+position = Vector2(336, 130)
+
+[node name="TongueLine" type="Line2D" parent="Tongue"]
+points = PackedVector2Array(0, 0)
+width_curve = SubResource("Curve_23qhl")
+texture = SubResource("PlaceholderTexture2D_wm0in")
+
+[node name="TongueTip" type="Area2D" parent="Tongue"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue/TongueTip"]
+shape = SubResource("CircleShape2D_lyyfe")
+debug_color = Color(0.792157, 0, 0.258824, 0.419608)
 
 [node name="AIFSM" type="Node" parent="."]
 script = ExtResource("3_gs6nc")
@@ -266,8 +292,10 @@ script = ExtResource("5_d2rco")
 script = ExtResource("6_vi85q")
 
 [node name="TongueTell" type="Node" parent="AIFSM"]
+script = ExtResource("8_2uava")
 
 [node name="TongueAtk" type="Node" parent="AIFSM/TongueTell"]
+script = ExtResource("9_gccf4")
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 293.0

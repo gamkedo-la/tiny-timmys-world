@@ -5,6 +5,10 @@ extends Actor
 @export var weapon: PackedScene
 @onready var sprite: Sprite2D = $Player
 
+
+func _ready() -> void:
+	PlayerVars.player = self
+	
 func _on_enemy_detector_area_entered(area: Area2D) -> void:
 	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 	
