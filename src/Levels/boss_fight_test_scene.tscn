@@ -1,10 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://duw5mf7qpl3u7"]
+[gd_scene load_steps=7 format=3 uid="uid://duw5mf7qpl3u7"]
 
 [ext_resource type="PackedScene" uid="uid://dqsam150if7hw" path="res://src/Levels/frog_boss_scene.tscn" id="1_pcf0h"]
+[ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="1_td8ya"]
+[ext_resource type="Texture2D" uid="uid://cxwssukbdhg1b" path="res://src/Map Objects/Plax/rear_proto01.png" id="2_nsdge"]
+[ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="3_5mqsw"]
+[ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="4_buyg5"]
+[ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="5_draky"]
 
 [node name="boss_fight_test_scene" type="Node2D"]
 
+[node name="PlaxBG" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 600)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 600)
+follow_viewport_scale = 2.0
+scroll_base_scale = Vector2(1, 0)
+script = ExtResource("1_td8ya")
+
+[node name="Rear" type="ParallaxLayer" parent="PlaxBG"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(100, 0)
+motion_mirroring = Vector2(800, 0)
+
+[node name="ColorRect" type="ColorRect" parent="PlaxBG/Rear"]
+custom_minimum_size = Vector2(1600, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.054902, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Rear"]
+visible = false
+texture = ExtResource("2_nsdge")
+
+[node name="Mid2" type="ParallaxLayer" parent="PlaxBG"]
+visible = false
+position = Vector2(100, 0)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid2"]
+position = Vector2(0, 32)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_5mqsw")
+
+[node name="Mid" type="ParallaxLayer" parent="PlaxBG"]
+position = Vector2(0, -32)
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid"]
+texture = ExtResource("4_buyg5")
+
+[node name="Fore" type="ParallaxLayer" parent="PlaxBG"]
+position = Vector2(0, -36)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Fore"]
+texture = ExtResource("3_5mqsw")
+
+[node name="BackCamera2D" type="Camera2D" parent="PlaxBG"]
+position_smoothing_enabled = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIManager" parent="CanvasLayer" instance=ExtResource("5_draky")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 offset_right = 1600.0

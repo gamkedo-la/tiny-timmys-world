@@ -23,18 +23,15 @@ position = Vector2(9, 7)
 rotation = -0.0665682
 
 [node name="FlyBody" type="Area2D" parent="FlyFollow"]
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyFollow/FlyBody"]
 position = Vector2(-8.51443, -7.58317)
 rotation = 0.0665682
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_h46lr")
 
 [node name="Sprite2D" type="Sprite2D" parent="FlyFollow/FlyBody"]
 position = Vector2(-8.51443, -7.58317)
 rotation = 0.0665682
-scale = Vector2(1, 1)
 texture = SubResource("PlaceholderTexture2D_fd41v")
