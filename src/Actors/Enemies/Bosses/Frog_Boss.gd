@@ -38,10 +38,11 @@ func update_tongue(new_pos: Vector2):
 
 func retract_tongue() -> void:
 	var tongue_tween = create_tween()
-	tongue_tween.tween_method(update_tongue, tongue_line.points[1], Vector2.ZERO, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tongue_tip.monitoring = false
+	tongue_tween.tween_method(update_tongue, tongue_line.points[1], Vector2.ZERO, 0.3).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tongue_tween.tween_property(tongue_tip, "position", Vector2.ZERO, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tongue_tween.chain().tween_callback(hide_tongue)
 
 func hide_tongue() -> void:
-	tongue_tip.monitoring = false
+	
 	tongue_base.visible = false
