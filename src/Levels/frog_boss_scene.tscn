@@ -16,15 +16,15 @@ size = Vector2(269, 20)
 
 [node name="FrogBossScene" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_3t1ec")]
-position = Vector2(19, 293)
+[node name="Frog_Boss" parent="." groups=["enemy"] instance=ExtResource("3_4e4o1")]
+position = Vector2(-1, -74)
+collision_layer = 32
 
 [node name="Enemy" parent="." instance=ExtResource("2_km20j")]
 position = Vector2(267, 147)
 
-[node name="Frog_Boss" parent="." groups=["enemy"] instance=ExtResource("3_4e4o1")]
-position = Vector2(-1, -74)
-collision_layer = 32
+[node name="Player" parent="." instance=ExtResource("1_3t1ec")]
+position = Vector2(19, 293)
 
 [node name="FloorTileMapManager" parent="." instance=ExtResource("4_skayq")]
 tile_set = ExtResource("5_i6cxw")

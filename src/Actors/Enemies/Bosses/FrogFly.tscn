@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1c3o4mjbswyu"]
+
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogFly.gd" id="1_r7y7t"]
+
+[sub_resource type="Curve2D" id="Curve2D_28b2v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 9, 7, 0, 0, 0, 0, 24, 6, 0, 0, 0, 0, 27, -10, 0, 0, 0, 0, 11, -25, 0, 0, 0, 0, -9, -20, 0, 0, 0, 0, -25, -4, 0, 0, 0, 0, -14, 13, 0, 0, 0, 0, 12, -14, 0, 0, 0, 0, 36, -23, 0, 0, 0, 0, 41, -7, 0, 0, 0, 0, 39, 13, 0, 0, 0, 0, 24, 24, 0, 0, 0, 0, 6, 16, 0, 0, 0, 0, -6, -10, 0, 0, 0, 0, -20, -22, 0, 0, 0, 0, -32, -18, 0, 0, 0, 0, -35, 8, 0, 0, 0, 0, -25, 19, 0, 0, 0, 0, -7, 20, 0, 0, 0, 0, 16, -30, 0, 0, 0, 0, 32, -33, 0, 0, 0, 0, 53, -29, 0, 0, 0, 0, 59, -8, 0, 0, 0, 0, 55, 19, 0, 0, 0, 0, 38, 29, 0, 0, 0, 0, 7, 28, 0, 0, 0, 0, 9, 7)
+}
+point_count = 27
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h46lr"]
+radius = 7.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fd41v"]
+size = Vector2(8, 8)
+
+[node name="Fly" type="Path2D"]
+curve = SubResource("Curve2D_28b2v")
+script = ExtResource("1_r7y7t")
+
+[node name="FlyFollow" type="PathFollow2D" parent="."]
+position = Vector2(9, 7)
+rotation = -0.0665682
+
+[node name="FlyBody" type="Area2D" parent="FlyFollow"]
+scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyFollow/FlyBody"]
+position = Vector2(-8.51443, -7.58317)
+rotation = 0.0665682
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_h46lr")
+
+[node name="Sprite2D" type="Sprite2D" parent="FlyFollow/FlyBody"]
+position = Vector2(-8.51443, -7.58317)
+rotation = 0.0665682
+scale = Vector2(1, 1)
+texture = SubResource("PlaceholderTexture2D_fd41v")

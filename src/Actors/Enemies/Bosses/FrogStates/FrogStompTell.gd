@@ -12,7 +12,7 @@ func physics_process(delta: float) -> void:
 
 
 func state_check()->void:
-	if time_in_state > 2.0:
+	if time_in_state > 1.0:
 		_ai_state_machine.transition_to('RainStomp', {})
 	pass
 

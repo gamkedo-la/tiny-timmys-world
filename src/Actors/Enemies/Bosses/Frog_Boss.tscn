@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://b1jwx873qgfb2"]
+[gd_scene load_steps=40 format=3 uid="uid://b1jwx873qgfb2"]
 
 [ext_resource type="Texture2D" uid="uid://e4fhtmdkemm0" path="res://src/Sprites/FrogBoss-Idle-sprite_sheet.png" id="1_rn1xv"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Frog_Boss.gd" id="1_rqc32"]
 [ext_resource type="Script" path="res://src/Actors/FSM/AIFSM.gd" id="3_gs6nc"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogIdle.gd" id="4_scuj7"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogSpawnFly.gd" id="5_2akvq"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogStompTell.gd" id="5_d2rco"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogRainStomp.gd" id="6_vi85q"]
 
@@ -252,6 +253,10 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="AIFSM"]
 script = ExtResource("4_scuj7")
 
+[node name="SpawnFly" type="Node" parent="AIFSM"]
+script = ExtResource("5_2akvq")
+fly_path = NodePath("../../Flies")
+
 [node name="StompTell" type="Node" parent="AIFSM"]
 script = ExtResource("5_d2rco")
 
@@ -269,3 +274,5 @@ offset_left = 293.0
 offset_top = 24.0
 offset_right = 395.0
 offset_bottom = 47.0
+
+[node name="Flies" type="Node2D" parent="."]
