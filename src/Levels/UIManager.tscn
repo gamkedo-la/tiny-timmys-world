@@ -36,3 +36,15 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Game Over"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 400.0
+offset_right = 800.0
+offset_bottom = 27.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="BossHealthBar" type="ProgressBar" parent="VBoxContainer2"]
+visible = false
+layout_mode = 2
+value = 100.0

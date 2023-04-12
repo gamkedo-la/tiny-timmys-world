@@ -9,6 +9,10 @@ var player: CharacterBody2D = null
 
 
 var player_health: int
+
+var has_boss: bool
+var boss_health: int
+var boss_max_health: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

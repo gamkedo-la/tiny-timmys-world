@@ -9,8 +9,14 @@ extends AIActor
 
 func _ready():
 	tongue_base.visible = false
+	PlayerVars.boss_health = 10000
+	PlayerVars.boss_max_health = 10000
+	PlayerVars.has_boss = true
 	pass
 
+func _process(delta: float) -> void:
+	# TODO: reduce health from attacks, not from time
+	PlayerVars.boss_health -= 1
 
 func physics_process(delta: float) -> void:
 	
@@ -63,3 +69,4 @@ func eat_fly() -> void:
 	eat_tween.tween_callback(fly.queue_free).set_delay(0.3)
 
 	#ADD HP TO FROG BOSS HERE
+	PlayerVars.boss_health += 1000

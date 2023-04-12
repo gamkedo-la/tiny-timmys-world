@@ -6,6 +6,7 @@ extends Node2D
 @onready var score_label = $VBoxContainer/ScoreText
 @onready var level_progress_bar = $VBoxContainer/LevelProgressBar
 @onready var endgame_text = $EndGameText
+@onready var boss_health_bar = $VBoxContainer2/BossHealthBar
 
 func _ready() -> void:
 	var con_res
@@ -21,6 +22,10 @@ func _process(delta: float) -> void:
 		endgame_text.visible = true
 		#This shouldn't be here
 		get_tree().paused = true
+		
+	if PlayerVars.has_boss:
+		boss_health_bar.visible = true
+		boss_health_bar.value = 100 * PlayerVars.boss_health / PlayerVars.boss_max_health
 
 
 func spawn_score(points: int, pos: Vector2) -> void:
