@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1c3o4mjbswyu"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogFly.gd" id="1_r7y7t"]
+[ext_resource type="Texture2D" uid="uid://d8knt6s3ffg1" path="res://src/Sprites/Wasp.png" id="2_5sngp"]
 
 [sub_resource type="Curve2D" id="Curve2D_28b2v"]
 _data = {
@@ -10,9 +11,6 @@ point_count = 27
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h46lr"]
 radius = 7.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fd41v"]
-size = Vector2(8, 8)
 
 [node name="Fly" type="Path2D"]
 curve = SubResource("Curve2D_28b2v")
@@ -34,4 +32,5 @@ shape = SubResource("CircleShape2D_h46lr")
 [node name="Sprite2D" type="Sprite2D" parent="FlyFollow/FlyBody"]
 position = Vector2(-8.51443, -7.58317)
 rotation = 0.0665682
-texture = SubResource("PlaceholderTexture2D_fd41v")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_5sngp")
