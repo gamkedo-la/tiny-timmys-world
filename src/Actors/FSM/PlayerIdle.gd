@@ -19,16 +19,16 @@ func physics_process(delta: float) -> void:
 func state_check()->void:
 	
 	if player.is_grounded:
-		pass
-	else:
 		if abs(player.direction) > 0.01:
 			_state_machine.transition_to('Run', {})
-			
-
+	else:
+		if player.is_jumping:
+			if player.jump:
+				_state_machine.transition_to('Jump', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
-
+	player.speed = player.run_speed
 #	player.ani_player_play("Idle")
 
 	
