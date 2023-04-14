@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	plax_cam.offset -= scroll_velo * delta
+	plax_cam.offset -= scroll_velo * delta 
 	pass

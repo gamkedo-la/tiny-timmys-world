@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcyxc5ba6pbfk"]
+[gd_scene load_steps=10 format=3 uid="uid://bcyxc5ba6pbfk"]
 
 [ext_resource type="Script" path="res://src/Actors/player.gd" id="1_is4vd"]
 [ext_resource type="PackedScene" uid="uid://br7vfr0bq2vlv" path="res://src/Weapons/Slingshot.tscn" id="2_vjs8h"]
 [ext_resource type="Texture2D" uid="uid://4xayca7qfjcw" path="res://src/Sprites/Timmy_Outline.png" id="3_buaxu"]
+[ext_resource type="Script" path="res://src/Actors/FSM/StateMachine.gd" id="4_pafag"]
+[ext_resource type="Script" path="res://src/Actors/FSM/PlayerIdle.gd" id="5_1403m"]
+[ext_resource type="Script" path="res://src/Actors/FSM/PlayerRun.gd" id="6_jscrr"]
+[ext_resource type="Script" path="res://src/Actors/FSM/PlayerJump.gd" id="7_3j7c6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
 size = Vector2(6, 13.2797)
@@ -17,6 +21,29 @@ stomp_impulse = 500.0
 JUMP_VELOCITY = -700.0
 weapon = ExtResource("2_vjs8h")
 SPEED = 200.0
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Grnd01" type="RayCast2D" parent="Body"]
+position = Vector2(-7, 0)
+target_position = Vector2(0, 7)
+collision_mask = 8
+
+[node name="Grnd02" type="RayCast2D" parent="Body"]
+position = Vector2(1, 0)
+target_position = Vector2(0, 7)
+collision_mask = 8
+
+[node name="Grnd03" type="RayCast2D" parent="Body"]
+position = Vector2(8, 0)
+target_position = Vector2(0, 7)
+collision_mask = 8
+
+[node name="LandSeek" type="RayCast2D" parent="Body"]
+position = Vector2(1, 0)
+enabled = false
+target_position = Vector2(0, 40)
+collision_mask = 8
 
 [node name="Player" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -38,6 +65,28 @@ collision_mask = 2
 position = Vector2(2.08165e-12, 0)
 scale = Vector2(2.24, 1)
 shape = SubResource("RectangleShape2D_cy01v")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_pafag")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_1403m")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("6_jscrr")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("7_3j7c6")
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -56.0
+offset_right = 19.0
+offset_bottom = -30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Idle"
 
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

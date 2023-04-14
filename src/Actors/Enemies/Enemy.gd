@@ -1,4 +1,4 @@
-extends Actor
+extends AIActor
 
 
 @export var score: int = 30
