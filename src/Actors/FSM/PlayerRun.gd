@@ -1,10 +1,7 @@
 extends PlayerState
 
 func unhandled_input(event:InputEvent) -> void:
-	if event.is_action_pressed("attack"):
-		_state_machine.transition_to("Attack")
-	else:
-		player.unhandled_input(event)
+	player.unhandled_input(event)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta: float) -> void:
