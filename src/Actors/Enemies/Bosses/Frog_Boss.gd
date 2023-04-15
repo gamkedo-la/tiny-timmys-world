@@ -38,17 +38,16 @@ func fire_tongue(pos: Vector2) -> void:
 #	print_debug("Tongue target local: ", loc_pos)
 #	print_debug("Tongue target global: ", pos)
 	tongue_tween.tween_method(update_tongue, tongue_line.points[1], loc_pos, 0.3).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
-	tongue_tween.tween_property(tongue_tip, "global_position", pos, 0.3).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	
 
 func update_tongue(new_pos: Vector2):
 	tongue_line.set_point_position(1, new_pos)
+	tongue_tip.position = new_pos
 
 func retract_tongue() -> void:
 	var tongue_tween = create_tween()
 	tongue_tip.monitoring = false
-	tongue_tween.tween_method(update_tongue, tongue_line.points[1], Vector2.ZERO, 0.3).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-	tongue_tween.tween_property(tongue_tip, "position", Vector2.ZERO, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tongue_tween.tween_method(update_tongue, tongue_line.points[1], Vector2.ZERO, 0.3).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)	
 	tongue_tween.chain().tween_callback(hide_tongue)
 
 func hide_tongue() -> void:
