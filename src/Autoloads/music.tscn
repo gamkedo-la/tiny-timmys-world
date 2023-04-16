@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://blnd1haejybka"]
+
+[ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="1_5yf5f"]
+[ext_resource type="Script" path="res://src/Autoloads/music.gd" id="1_7i11j"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_7i11j")
+
+[node name="LevelTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5yf5f")
+bus = &"Music"

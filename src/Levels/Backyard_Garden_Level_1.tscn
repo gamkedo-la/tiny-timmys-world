@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dls505dxcxh8y"]
+[gd_scene load_steps=18 format=3 uid="uid://dls505dxcxh8y"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
+[ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="2_li4cr"]
 [ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="2_uf821"]
 [ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="3_jc4ji"]
 [ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="3_tdai4"]
@@ -20,6 +21,7 @@
 [node name="BackyardGarden" type="Node2D"]
 script = ExtResource("1_m2rpn")
 level_completion_time = 60.0
+level_bgm = ExtResource("2_li4cr")
 
 [node name="PlaxBG" type="ParallaxBackground" parent="."]
 offset = Vector2(0, 600)

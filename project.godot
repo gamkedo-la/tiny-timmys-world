@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://src/Autoloads/Global.gd"
 PlayerVars="*res://src/Autoloads/PlayerVars.gd"
+Music="*res://src/Autoloads/music.tscn"
 
 [display]
 

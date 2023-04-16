@@ -1,0 +1,25 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://ditl7krtbyqkr"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_n0f58"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectNotchFilter" id="AudioEffectNotchFilter_ndljk"]
+resource_name = "NotchFilter"
+
+[resource]
+bus/1/name = &"PauseSideChain"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -10.2242
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_n0f58")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectNotchFilter_ndljk")
+bus/1/effect/1/enabled = true
+bus/2/name = &"Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -1.98142
+bus/2/send = &"Master"
