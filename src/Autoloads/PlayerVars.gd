@@ -9,6 +9,8 @@ var player: CharacterBody2D = null
 
 
 var player_health: int
+@export var player_slingshot_damage: int = 20
+@export var player_stomp_damage: int = 20
 
 var has_boss: bool
 var boss_health: int

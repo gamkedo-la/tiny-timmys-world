@@ -2,6 +2,7 @@ extends AIActor
 
 
 @export var score: int = 30
+@export var health: int = 30
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var debug_label: Label = $DebugLabel
 @onready var sprite: Sprite2D = $Body/Enemy
@@ -21,16 +22,23 @@ func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 #	print_debug("stomp_detector.global_position.y: ", stomp_detector.global_position.y)
 	if(body.global_position.y > stomp_detector.global_position.y) :
 		return
-	Global.emit_signal("points_scored", score, (get_global_transform() * body.position))
-	Global.tween_eng_halftime()
-	anim_player.play("squish")
+	
+	health -= PlayerVars.player_stomp_damage
+	
+	if health <= 0:
+		Global.emit_signal("points_scored", score, (get_global_transform() * body.position))
+		Global.tween_eng_halftime()
+		anim_player.play("squish")
 #	queue_free()
 
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
 #	print_debug(area.name)
-	Global.emit_signal("points_scored", score, (get_global_transform() * area.position))
-	anim_player.play("shot_pop")
+	health -= PlayerVars.player_slingshot_damage
+	
+	if health <= 0:
+		Global.emit_signal("points_scored", score, (get_global_transform() * area.position))
+		anim_player.play("shot_pop")
 #	queue_free()
 
 func _physics_process(delta: float) -> void:
