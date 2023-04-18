@@ -79,6 +79,8 @@ script = ExtResource("6_jscrr")
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("7_3j7c6")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Jump"]
+
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -21.0
 offset_top = -56.0

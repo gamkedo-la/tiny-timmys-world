@@ -1,6 +1,7 @@
 extends PlayerState
 
 var jump_top_threshold: float = 100.0
+@onready var player_jump_audio_stream: AudioStreamPlayer = $AudioStreamPlayer
 
 func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)
@@ -46,6 +47,8 @@ func predict_land() -> void:
 #	player.lndseek.enabled = false
 
 func enter(msg:Dictionary = {})->void:
+	player_jump_audio_stream.stream = PlayerVars.player_audio_jump
+	player_jump_audio_stream.play()
 	player.speed = player.run_speed
 #	player.ani_state_travel("jump_lift")
 
