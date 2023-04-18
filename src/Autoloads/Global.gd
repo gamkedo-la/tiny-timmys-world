@@ -1,6 +1,7 @@
 extends Node
 
 signal points_scored(val, pos)
+signal damage_taken(val, pos)
 signal screen_shake(val)
 
 var LEVEL_SPEED: float = -20.0
