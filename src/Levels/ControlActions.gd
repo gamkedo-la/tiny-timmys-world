@@ -8,3 +8,5 @@ func _input(event):
 		var is_paused = not get_tree().paused
 		get_tree().paused = is_paused
 		visible = is_paused
+	if event.is_action_pressed("mute"):
+		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
