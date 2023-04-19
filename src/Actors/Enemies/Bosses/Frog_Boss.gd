@@ -4,6 +4,7 @@ extends AIActor
 @onready var tongue_base: Node2D = $Tongue
 @onready var tongue_line: Line2D = $Tongue/TongueLine
 @onready var tongue_tip: Area2D = $Tongue/TongueTip
+@onready var bullet_detector: Area2D = $BulletDetector
 
 @onready var flies: Node2D = $Flies
 
@@ -13,10 +14,6 @@ func _ready():
 	PlayerVars.boss_max_health = 10000
 	PlayerVars.has_boss = true
 	pass
-
-func _process(delta: float) -> void:
-	# TODO: reduce health from attacks, not from time
-	PlayerVars.boss_health -= 1
 
 func physics_process(delta: float) -> void:
 	
@@ -69,3 +66,7 @@ func eat_fly() -> void:
 
 	#ADD HP TO FROG BOSS HERE
 	PlayerVars.boss_health += 1000
+
+func _on_bullet_detector_area_entered(area: Area2D) -> void:
+	PlayerVars.boss_health -= PlayerVars.player_slingshot_damage
+	Global.emit_signal("damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * (bullet_detector.position + Vector2(200, 30))))
