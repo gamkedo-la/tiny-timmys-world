@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3]
+[gd_scene load_steps=18 format=3 uid="uid://dsavu0r35dv3c"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="2_uf821"]
 [ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="3_jc4ji"]
 [ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="3_tdai4"]
-[ext_resource type="Texture2D" uid="uid://cxwssukbdhg1b" path="res://src/Map Objects/Plax/rear_proto01.png" id="3_vwh07"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="4_1p7qk"]
+[ext_resource type="Texture2D" uid="uid://krjsuta708dh" path="res://src/Map Objects/Plax/bg_garden.png" id="4_mdjka"]
 [ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="5_j4kxc"]
 [ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="5_qhb52"]
 [ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="6_je2re"]
@@ -37,6 +37,7 @@ motion_offset = Vector2(100, 0)
 motion_mirroring = Vector2(800, 0)
 
 [node name="ColorRect" type="ColorRect" parent="PlaxBG/Rear"]
+visible = false
 custom_minimum_size = Vector2(1600, 600)
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,8 +47,8 @@ grow_vertical = 2
 color = Color(0.00784314, 0.054902, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Rear"]
-visible = false
-texture = ExtResource("3_vwh07")
+position = Vector2(0, -32.75)
+texture = ExtResource("4_mdjka")
 
 [node name="Mid2" type="ParallaxLayer" parent="PlaxBG"]
 visible = false
