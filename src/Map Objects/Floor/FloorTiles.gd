@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var tile_set: TileSet
+@export var floor_hole_spawn_probability: float
 
 var min_coords_x: int
 var max_coords_x: int
@@ -9,6 +10,8 @@ var min_coords_y: int
 var max_coords_y: int
 
 var SPEED: float = Global.LEVEL_SPEED
+
+var rng: RandomNumberGenerator
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_debug("Tile Set Size: ", tile_set.tile_size.x)
@@ -22,9 +25,10 @@ func _ready() -> void:
 	max_coords_y = get_viewport_rect().size.y / tile_set.tile_size.y
 	print_debug("max_coords_y: ",max_coords_x)
 	
+	rng = RandomNumberGenerator.new()
+	
 	_spawn_initial_random_floor()
 	_spawn_new_random_floor()
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,6 +67,7 @@ func _spawn_new_random_floor() -> void:
 	var floor_cells_coord_list = []
 	print_debug("Generating the list of floor cells")
 	for n in max_coords_x:
+		# if rng.randf_range(0.0, 1.0) > floor_hole_spawn_probability:
 		floor_cells_coord_list.append(Vector2i(n, max_coords_y))
 	
 	new_floor.set_cells_terrain_connect(0, floor_cells_coord_list, 0, 0, true)
