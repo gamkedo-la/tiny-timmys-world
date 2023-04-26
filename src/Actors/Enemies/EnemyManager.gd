@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_enemy_timer_timeout() -> void:
-	var random_enemy = rng.randf_range(0, enemies.size() - 1)
+	var random_enemy = rng.randi_range(0, enemies.size() - 1)
 	var enemy_to_spawn = enemies[random_enemy]
 	
 	var enemy = enemy_to_spawn.instantiate()
