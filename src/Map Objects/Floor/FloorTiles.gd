@@ -80,6 +80,14 @@ func _spawn_new_random_floor() -> void:
 	
 	new_floor.set_cells_terrain_connect(0, decorator_cells_coord_list, 0, 1, true)
 	
+	var hazard_cells_coord_list = []
+	print_debug("Generating the list of cells to decorate")
+	for n in max_coords_x:
+		if (rng.randf_range(0.0, 1.0) > floor_hole_spawn_probability && floor_cells_coord_list.has(Vector2i(n, max_coords_y))): 
+			hazard_cells_coord_list.append(Vector2i(n, max_coords_y - 1))
+	
+	new_floor.set_cells_terrain_connect(0, hazard_cells_coord_list, 0, 2, true)
+	
 	new_floor.position.x += get_viewport_rect().size.x
 	add_child(new_floor)	
 

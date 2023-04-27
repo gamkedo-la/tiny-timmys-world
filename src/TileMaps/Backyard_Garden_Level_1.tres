@@ -155,6 +155,18 @@ texture = ExtResource("1_minad")
 1:6/0 = 0
 1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:6/0/physics_layer_0/angular_velocity = 0.0
+6:3/0 = 0
+6:3/0/terrain_set = 0
+6:3/0/terrain = 2
+6:3/0/probability = 0.1
+6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:3/0/physics_layer_0/angular_velocity = 0.0
+7:3/0 = 0
+7:3/0/terrain_set = 0
+7:3/0/terrain = 2
+7:3/0/probability = 0.1
+7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:3/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
 physics_layer_0/collision_layer = 8
@@ -164,4 +176,6 @@ terrain_set_0/terrain_0/name = "Floor"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 terrain_set_0/terrain_1/name = "Decoration 1"
 terrain_set_0/terrain_1/color = Color(0.231373, 0.431373, 0.768627, 1)
+terrain_set_0/terrain_2/name = "Hazard 2"
+terrain_set_0/terrain_2/color = Color(0.862745, 0.168627, 0.0941176, 1)
 sources/0 = SubResource("TileSetAtlasSource_tvpty")
