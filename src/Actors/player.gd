@@ -177,3 +177,13 @@ func shoot(direction: Vector2) -> void:
 	add_sibling(new_weapon)
 
 
+
+
+func _on_fall_detector_area_entered(area: Area2D) -> void:
+	print_debug("Fall detected")
+	queue_free()
+
+
+func _on_fall_detector_body_entered(body: Node2D) -> void:
+	print_debug("Fall detected")
+	queue_free()
