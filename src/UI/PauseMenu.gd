@@ -23,3 +23,8 @@ func _on_fullscreen_toggle_toggled(button_pressed: bool) -> void:
 
 func _on_credits_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_restart_level_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
