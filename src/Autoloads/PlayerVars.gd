@@ -8,7 +8,7 @@ var level_elapsed_time: float
 var player: CharacterBody2D = null
 
 
-var player_health: int
+var player_health: int = 6
 @export var player_slingshot_damage: int = 20
 @export var player_stomp_damage: int = 20
 

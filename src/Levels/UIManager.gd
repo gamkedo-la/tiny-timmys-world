@@ -14,8 +14,8 @@ func _ready() -> void:
 		con_res = Global.connect("points_scored", spawn_score)
 		assert(con_res == OK)
 	
-	if not Global.is_connected("damage_taken", spawn_damage_taken):
-		con_res = Global.connect("damage_taken", spawn_damage_taken)
+	if not Global.is_connected("enemy_damage_taken", spawn_enemy_damage_taken):
+		con_res = Global.connect("enemy_damage_taken", spawn_enemy_damage_taken)
 		assert(con_res == OK)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,7 +45,7 @@ func spawn_score(points: int, pos: Vector2) -> void:
 	lab_tween.chain().tween_callback(score_points.bind(points))
 	lab_tween.chain().tween_callback(new_label.queue_free)
 	
-func spawn_damage_taken(points: int, pos: Vector2) -> void:
+func spawn_enemy_damage_taken(points: int, pos: Vector2) -> void:
 	var new_label = Label.new()
 	var lab_tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT_IN).set_parallel(true)
 	add_child(new_label)

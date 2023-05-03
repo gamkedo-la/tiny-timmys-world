@@ -37,10 +37,17 @@ func _ready() -> void:
 	PlayerVars.player = self
 	
 func _on_enemy_detector_area_entered(area: Area2D) -> void:
-	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+	PlayerVars.player_health -= 1
+	Global.emit_signal("player_damage_taken", PlayerVars.player_health, (get_global_transform() * area.position))
+	if PlayerVars.player_health > 0:
+		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+	else:
+		pass
+		#Global.emit_signal("player_defeated")
 	
 func _on_enemy_detector_body_entered(body: Node2D) -> void:
 	#temporary behavior for the funs	
+	Global.emit_signal("player_damage_taken", 1, (get_global_transform() * body.position))
 	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 	#queue_free()
 
@@ -175,8 +182,6 @@ func shoot(direction: Vector2) -> void:
 	new_weapon.position = Vector2(position.x + player_size.x / 2, 
 		position.y - player_size.y / 2)
 	add_sibling(new_weapon)
-
-
 
 
 func _on_fall_detector_area_entered(area: Area2D) -> void:

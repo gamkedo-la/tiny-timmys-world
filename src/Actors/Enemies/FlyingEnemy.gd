@@ -24,7 +24,7 @@ func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 		return
 	
 	health -= PlayerVars.player_stomp_damage
-	Global.emit_signal("damage_taken", PlayerVars.player_stomp_damage, (get_global_transform() * body.position))
+	Global.emit_signal("enemy_damage_taken", PlayerVars.player_stomp_damage, (get_global_transform() * body.position))
 	
 	if health <= 0:
 		Global.emit_signal("points_scored", score, (get_global_transform() * body.position))
@@ -36,7 +36,7 @@ func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
 #	print_debug(area.name)
 	health -= PlayerVars.player_slingshot_damage
-	Global.emit_signal("damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * self.position))
+	Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * self.position))
 	
 	if health <= 0:
 		Global.emit_signal("points_scored", score, (get_global_transform() * area.position))

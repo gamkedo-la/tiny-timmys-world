@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6vsdmywkrf25"]
+[gd_scene load_steps=3 format=3 uid="uid://b6vsdmywkrf25"]
 
 [ext_resource type="Script" path="res://src/Levels/UIManager.gd" id="1_m2gkh"]
+[ext_resource type="PackedScene" uid="uid://bt8dg8gj0lc8w" path="res://src/UI/HealthBar.tscn" id="2_a4bfi"]
 
 [node name="UIManager" type="Node2D"]
 scale = Vector2(2, 2)
@@ -21,6 +22,9 @@ layout_mode = 2
 text = "Score:"
 fit_content = true
 scroll_active = false
+
+[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("2_a4bfi")]
+layout_mode = 2
 
 [node name="EndGameText" type="RichTextLabel" parent="."]
 visible = false
