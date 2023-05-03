@@ -15,7 +15,9 @@ func process(delta:float)->void:
 
 func state_check()->void:
 #	print("Grounded: ", player.is_grounded, " OnWall: ", player.is_onwall, " RayGround: ", player.RayGround)
-	if player.is_grounded:
+	if player.is_damaged:
+		_state_machine.transition_to('Damaged', {})
+	elif player.is_grounded:
 		if abs(player.direction) < 0.01:
 			_state_machine.transition_to("Idle")
 			return

@@ -18,11 +18,13 @@ func physics_process(delta: float) -> void:
 
 func state_check()->void:
 	
-	if player.is_grounded:
+	if player.is_damaged:
+		_state_machine.transition_to('Damaged', {})
+	
+	elif player.is_grounded:
 		if abs(player.direction) > 0.01:
 			_state_machine.transition_to('Run', {})
-	else:
-		if player.is_jumping:
+	elif player.is_jumping:
 			if player.jump:
 				_state_machine.transition_to('Jump', {})
 	pass

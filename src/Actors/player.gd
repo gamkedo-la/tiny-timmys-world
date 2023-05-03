@@ -16,6 +16,7 @@ var jump_release: = jump_speed * 2
 var is_jumping: bool = false
 var is_grounded: bool = false
 var is_onwall: bool = false
+var is_damaged: bool = false
 var jump: bool = false
 var is_atking: bool = false
 var is_combo: bool = false
@@ -37,18 +38,23 @@ func _ready() -> void:
 	PlayerVars.player = self
 	
 func _on_enemy_detector_area_entered(area: Area2D) -> void:
-	PlayerVars.player_health -= 1
-	Global.emit_signal("player_damage_taken", PlayerVars.player_health, (get_global_transform() * area.position))
-	if PlayerVars.player_health > 0:
-		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+	if is_damaged == false:
+		print_debug("Detected collision and is_damaged is false")
+		is_damaged = true
+		PlayerVars.player_health -= 1
+		Global.emit_signal("player_damage_taken", PlayerVars.player_health, (get_global_transform() * area.position))
+		if PlayerVars.player_health > 0:
+			velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+		else:
+			Global.emit_signal("player_defeated")
 	else:
 		pass
-		#Global.emit_signal("player_defeated")
 	
 func _on_enemy_detector_body_entered(body: Node2D) -> void:
 	#temporary behavior for the funs	
-	Global.emit_signal("player_damage_taken", 1, (get_global_transform() * body.position))
-	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+	pass
+	#Global.emit_signal("player_damage_taken", 1, (get_global_transform() * body.position))
+	#velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 	#queue_free()
 
 

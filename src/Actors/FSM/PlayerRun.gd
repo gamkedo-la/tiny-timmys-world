@@ -14,7 +14,9 @@ func physics_process(delta: float) -> void:
 func state_check()->void:
 #	print_debug(player.ani_get_current_node())
 
-	if player.is_grounded:
+	if player.is_damaged:
+		_state_machine.transition_to('Damaged', {})
+	elif player.is_grounded:
 		if player.down > 0.01:
 #			if player.jump:
 #				_state_machine.transition_to("Slide", {})

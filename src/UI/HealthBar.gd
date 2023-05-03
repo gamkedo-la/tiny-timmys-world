@@ -6,7 +6,7 @@ var heart_empty = preload("res://src/Sprites/Health/heart_empty_container.png")
 var heart_half = preload("res://src/Sprites/Health/heart_half.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	max_health = PlayerVars.player_health
+	max_health = PlayerVars.player_max_health
 	
 	var con_res
 	
@@ -32,5 +32,4 @@ func _update_health_bar(current_health):
 		
 	
 func _on_player_damage_taken(points: int, pos: Vector2):
-	print_debug("Player Damaged!!" , points)
 	_update_health_bar(points)

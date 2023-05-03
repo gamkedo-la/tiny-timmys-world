@@ -13,6 +13,7 @@ func _ready() -> void:
 	PlayerVars.level_progress = 0
 	PlayerVars.level_elapsed_time = 0
 	PlayerVars.level_completion_time = level_completion_time
+	PlayerVars.player_health = 6
 	if level_bgm:
 		Music.load_and_play_levelbgm(level_bgm)
 	
