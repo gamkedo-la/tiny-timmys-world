@@ -10,6 +10,12 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		quit_button.hide()
 		fullscreen_toggle.hide()
+	
+	var con_res
+	
+	if not Global.is_connected("player_defeated", _on_player_defeated):
+		con_res = Global.connect("player_defeated", _on_player_defeated)
+		assert(con_res == OK)
 
 func _on_play_pressed() -> void:
 	get_tree().paused = false
@@ -28,3 +34,7 @@ func _on_credits_pressed() -> void:
 func _on_restart_level_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+func _on_player_defeated() -> void:
+	get_tree().paused = true
+	get_parent().visible = true

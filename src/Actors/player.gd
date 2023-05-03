@@ -181,9 +181,11 @@ func shoot(direction: Vector2) -> void:
 
 func _on_fall_detector_area_entered(area: Area2D) -> void:
 	print_debug("Fall detected")
+	Global.emit_signal("player_defeated")
 	queue_free()
 
 
 func _on_fall_detector_body_entered(body: Node2D) -> void:
 	print_debug("Fall detected")
+	Global.emit_signal("player_defeated")
 	queue_free()
