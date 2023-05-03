@@ -317,7 +317,7 @@ _data = {
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 73
 script = ExtResource("1_su7ia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -365,6 +365,14 @@ offset_top = -85.0
 offset_right = 20.0
 offset_bottom = -59.0
 text = "Test"
+label_settings = SubResource("LabelSettings_jceyq")
+
+[node name="LeaveCounterDebugLabel" type="Label" parent="."]
+offset_left = -18.75
+offset_top = -53.75
+offset_right = 21.25
+offset_bottom = -27.75
+text = "n"
 label_settings = SubResource("LabelSettings_jceyq")
 
 [connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detecter_body_entered"]

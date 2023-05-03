@@ -8,8 +8,10 @@ extends AIActor
 @onready var sprite: Sprite2D = $Body/Enemy
 @onready var actor_body: Node2D = $Body
 @onready var stomp_detector: Area2D = $Body/StompDetector
+@onready var leave_counter_debug_label = $LeaveCounterDebugLabel
 
 var dir = Vector2.LEFT
+var leave_counter = 4
 
 func _ready() -> void:
 	if !Global.show_debug_labels_enemies:
@@ -45,8 +47,11 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	if is_on_wall():
+	if is_on_wall() and leave_counter > 0:
 		dir.x *= -1.0
+		leave_counter -= 1
+		if leave_counter == 0:
+			collision_mask = 9
 #		SPEED *= -1.0
 	velocity.x = SPEED * dir.x
 	
@@ -55,10 +60,11 @@ func _physics_process(delta: float) -> void:
 		actor_body.scale.x *= -1.0
 	if dir.is_equal_approx(Vector2.RIGHT) and actor_body.scale.x > 0.0:
 		actor_body.scale.x *= -1.0
-		
+	
 	move_and_slide()
 	if debug_label.visible:
 		_update_debug_label()
+	_update_leave_counter_debug_label()
 
 
 func _update_debug_label() -> void:
@@ -67,3 +73,6 @@ func _update_debug_label() -> void:
 	debug_label.text += "\nsprite.scale.x " + var_to_str(sprite.scale.x)
 	
 	pass
+	
+func _update_leave_counter_debug_label() -> void:
+	leave_counter_debug_label.text = var_to_str(leave_counter)

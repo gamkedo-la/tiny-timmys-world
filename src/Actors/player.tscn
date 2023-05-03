@@ -15,7 +15,7 @@ size = Vector2(6, 13.2797)
 size = Vector2(6, 30)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 8
+collision_mask = 72
 script = ExtResource("1_is4vd")
 stomp_impulse = 500.0
 JUMP_VELOCITY = -700.0
