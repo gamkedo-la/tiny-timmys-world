@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt8dg8gj0lc8w"]
+
+[ext_resource type="Texture2D" uid="uid://2qjxumq58ftw" path="res://src/Sprites/Health/heart_full-export.png" id="1_miitk"]
+
+[node name="HealthBar" type="HBoxContainer"]
+theme_override_constants/separation = 5
+
+[node name="Heart 1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_miitk")
+
+[node name="Heart 2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_miitk")
+
+[node name="Heart 3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_miitk")
