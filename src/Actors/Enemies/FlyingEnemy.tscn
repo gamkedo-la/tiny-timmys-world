@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0fkctkp6qwcs"]
+[gd_scene load_steps=12 format=3 uid="uid://b0fkctkp6qwcs"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/FlyingEnemy.gd" id="1_0uty3"]
 [ext_resource type="Texture2D" uid="uid://burkjodmo2v3y" path="res://src/Sprites/FireFly-Versions/firefly2ndFrame.png" id="2_pq60e"]
@@ -314,6 +314,8 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_jceyq"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_2oii6"]
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
@@ -366,6 +368,14 @@ offset_right = 20.0
 offset_bottom = -59.0
 text = "Test"
 label_settings = SubResource("LabelSettings_jceyq")
+
+[node name="LeaveCounterDebugLabel" type="Label" parent="."]
+offset_left = -18.75
+offset_top = -53.75
+offset_right = 21.25
+offset_bottom = -27.75
+text = "n"
+label_settings = SubResource("LabelSettings_2oii6")
 
 [connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detecter_body_entered"]
 [connection signal="area_entered" from="Body/BulletDetector" to="." method="_on_bullet_detector_area_entered"]
