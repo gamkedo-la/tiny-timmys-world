@@ -5,6 +5,7 @@ class_name Player
 @export var JUMP_VELOCITY: float
 @export var weapon: PackedScene
 @onready var sprite: Sprite2D = $Player
+@onready var animation_player = $AnimationPlayer
 var direction: float = 0.0
 
 #Lots of movement vars

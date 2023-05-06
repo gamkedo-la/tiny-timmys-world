@@ -46,4 +46,5 @@ func state_check()->void:
 			
 func enter(msg:Dictionary = {}) -> void:
 	player.speed = player.run_speed
+	player.animation_player.play("Walk")
 #	player.ani_state_travel("run")
