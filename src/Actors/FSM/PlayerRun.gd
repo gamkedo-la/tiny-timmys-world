@@ -48,3 +48,6 @@ func enter(msg:Dictionary = {}) -> void:
 	player.speed = player.run_speed
 	player.animation_player.play("Walk")
 #	player.ani_state_travel("run")
+
+func exit() -> void:
+	player.animation_player.stop()
