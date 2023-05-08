@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcyxc5ba6pbfk"]
+[gd_scene load_steps=17 format=3 uid="uid://bcyxc5ba6pbfk"]
 
 [ext_resource type="Script" path="res://src/Actors/player.gd" id="1_is4vd"]
 [ext_resource type="PackedScene" uid="uid://br7vfr0bq2vlv" path="res://src/Weapons/Slingshot.tscn" id="2_vjs8h"]
-[ext_resource type="Texture2D" uid="uid://cvslt1rlmtwrb" path="res://src/Sprites/Timmy 16px-Walk.png" id="3_1wfhk"]
+[ext_resource type="Texture2D" uid="uid://2exuct61wggk" path="res://src/Sprites/Timmy 16px-Animations.png" id="3_u4l7y"]
 [ext_resource type="Script" path="res://src/Actors/FSM/StateMachine.gd" id="4_pafag"]
 [ext_resource type="Script" path="res://src/Actors/FSM/PlayerIdle.gd" id="5_1403m"]
 [ext_resource type="Script" path="res://src/Actors/FSM/PlayerDamaged.gd" id="6_ip22y"]
@@ -23,6 +23,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(9, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_eojfj"]
 resource_name = "Walk"
@@ -38,11 +50,65 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_37an6"]
+resource_name = "Idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_h8fsk"]
+resource_name = "Jump"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_7w7so"]
+resource_name = "Damaged"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(9, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kx5by"]
 _data = {
+"Damaged": SubResource("Animation_7w7so"),
+"Idle": SubResource("Animation_37an6"),
+"Jump": SubResource("Animation_h8fsk"),
 "RESET": SubResource("Animation_8xbyf"),
 "Walk": SubResource("Animation_eojfj")
 }
@@ -87,8 +153,9 @@ collision_mask = 8
 [node name="Player" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -16)
-texture = ExtResource("3_1wfhk")
-hframes = 2
+texture = ExtResource("3_u4l7y")
+hframes = 10
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

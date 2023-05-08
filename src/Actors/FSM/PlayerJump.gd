@@ -49,10 +49,12 @@ func predict_land() -> void:
 #	player.lndseek.enabled = false
 
 func enter(msg:Dictionary = {})->void:
+	player.animation_player.play("Jump")
 	player_jump_audio_stream.stream = PlayerVars.player_audio_jump
 	player_jump_audio_stream.play()
 	player.speed = player.run_speed
 #	player.ani_state_travel("jump_lift")
 
 func exit() -> void:
+	player.animation_player.stop()
 	player.lndseek.enabled = false

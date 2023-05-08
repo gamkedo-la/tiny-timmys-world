@@ -30,6 +30,7 @@ func state_check()->void:
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
+	player.animation_player.play("Idle")
 	player.speed = player.run_speed
 #	player.ani_player_play("Idle")
 
@@ -37,4 +38,5 @@ func enter(msg:Dictionary = {}) -> void:
 	pass
 
 func exit() -> void:
+	player.animation_player.stop()
 	pass

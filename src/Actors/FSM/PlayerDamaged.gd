@@ -34,9 +34,11 @@ func state_check()->void:
 		pass
 
 func enter(msg:Dictionary = {}) -> void:
+	player.animation_player.play("Damaged")
 	print_debug("Entering damaged")
 	time_elapsed = 0
 
 func exit() -> void:
+	player.animation_player.stop()
 	print_debug("Exiting damaged")
 	player.is_damaged = false
