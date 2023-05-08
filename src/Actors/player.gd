@@ -7,6 +7,8 @@ class_name Player
 @onready var sprite: Sprite2D = $Player
 @onready var animation_player = $AnimationPlayer
 var direction: float = 0.0
+var sprite_width: float = 16.0
+var sprite_height: float = 18.0
 
 #Lots of movement vars
 var speed: float = 0.0
@@ -184,10 +186,9 @@ func check_if_shooting() -> void:
 
 func shoot(direction: Vector2) -> void:
 	var new_weapon = weapon.instantiate()
-	var player_size = get_node("Player").texture.get_size()
 	new_weapon.direction = Vector2(direction.x, direction.y)
-	new_weapon.position = Vector2(position.x + player_size.x / 2, 
-		position.y - player_size.y / 2)
+	new_weapon.position = Vector2(position.x + sprite_width / 2, 
+		position.y - sprite_height / 2)
 	add_sibling(new_weapon)
 
 

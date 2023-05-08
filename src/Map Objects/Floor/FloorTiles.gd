@@ -14,16 +14,13 @@ var SPEED: float = Global.LEVEL_SPEED
 var rng: RandomNumberGenerator
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print_debug("Tile Set Size: ", tile_set.tile_size.x)
 	
 	min_coords_x = 0
 	max_coords_x = get_viewport_rect().size.x / tile_set.tile_size.x
 	
-	print_debug("max_coords_x: ",max_coords_x)
 
 	min_coords_y = 0
 	max_coords_y = get_viewport_rect().size.y / tile_set.tile_size.y
-	print_debug("max_coords_y: ",max_coords_x)
 	
 	rng = RandomNumberGenerator.new()
 	
@@ -45,14 +42,12 @@ func _spawn_initial_random_floor() -> void:
 	new_floor.tile_set = tile_set
 	
 	var floor_cells_coord_list = []
-	print_debug("Generating the list of floor cells")
 	for n in max_coords_x:
 		floor_cells_coord_list.append(Vector2i(n, max_coords_y))
 	
 	new_floor.set_cells_terrain_connect(0, floor_cells_coord_list, 0, 0, true)
 	
 	var decorator_cells_coord_list = []
-	print_debug("Generating the list of cells to decorate")
 	for n in max_coords_x:
 		decorator_cells_coord_list.append(Vector2i(n, max_coords_y - 1))
 	
@@ -65,7 +60,6 @@ func _spawn_new_random_floor() -> void:
 	new_floor.tile_set = tile_set
 	
 	var floor_cells_coord_list = []
-	print_debug("Generating the list of floor cells")
 	for n in max_coords_x:
 		if rng.randf_range(0.0, 1.0) > floor_hole_spawn_probability:
 			floor_cells_coord_list.append(Vector2i(n, max_coords_y))
@@ -73,7 +67,6 @@ func _spawn_new_random_floor() -> void:
 	new_floor.set_cells_terrain_connect(0, floor_cells_coord_list, 0, 0, true)
 		
 	var decorator_cells_coord_list = []
-	print_debug("Generating the list of cells to decorate")
 	for n in max_coords_x:
 		if (floor_cells_coord_list.has(Vector2i(n, max_coords_y))):
 			decorator_cells_coord_list.append(Vector2i(n, max_coords_y - 1))
@@ -81,7 +74,6 @@ func _spawn_new_random_floor() -> void:
 	new_floor.set_cells_terrain_connect(0, decorator_cells_coord_list, 0, 1, true)
 	
 	var hazard_cells_coord_list = []
-	print_debug("Generating the list of cells to decorate")
 	for n in max_coords_x:
 		if (rng.randf_range(0.0, 1.0) < floor_hole_spawn_probability && floor_cells_coord_list.has(Vector2i(n, max_coords_y))): 
 			hazard_cells_coord_list.append(Vector2i(n, max_coords_y - 1))

@@ -21,6 +21,5 @@ func _on_platform_timer_timeout() -> void:
 	var platform = platform_to_spawn.instantiate()
 	var height = viewport.size.y - cell_size * heights[randi() % heights.size()]
 	platform.position = Vector2(viewport.size.x, height)
-	print_debug("New position: ", platform.position)
 	add_child(platform)
 
