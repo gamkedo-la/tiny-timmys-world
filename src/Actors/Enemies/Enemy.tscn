@@ -7,7 +7,7 @@
 size = Vector2(17.5, 8.94738)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0twr"]
-size = Vector2(20.1992, 8.125)
+size = Vector2(21.3044, 7.80853)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkaph"]
 size = Vector2(10.2273, 5.79711)
@@ -354,6 +354,18 @@ position = Vector2(2.68221e-06, -0.499999)
 scale = Vector2(4.39999, 3.44999)
 shape = SubResource("RectangleShape2D_fkaph")
 
+[node name="TurnDetector" type="Area2D" parent="Body"]
+modulate = Color(0, 0.207843, 1, 1)
+position = Vector2(0, -17.5)
+scale = Vector2(2.11, 1)
+collision_layer = 2
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/TurnDetector"]
+position = Vector2(-5.12007e-07, 2.3416)
+scale = Vector2(1.00106, 1.00106)
+shape = SubResource("RectangleShape2D_r0twr")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qxud0")
@@ -377,3 +389,4 @@ label_settings = SubResource("LabelSettings_jceyq")
 
 [connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detecter_body_entered"]
 [connection signal="area_entered" from="Body/BulletDetector" to="." method="_on_bullet_detector_area_entered"]
+[connection signal="body_entered" from="Body/TurnDetector" to="." method="_on_turn_detecter_body_entered"]

@@ -45,13 +45,16 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 		anim_player.play("shot_pop")
 #	queue_free()
 
-func _physics_process(delta: float) -> void:
-	super(delta)
-	if is_on_wall() and leave_counter > 0:
-		dir.x *= -1.0
+func _on_turn_detecter_body_entered(body: Node2D) -> void:
+	if leave_counter > 0:
 		leave_counter -= 1
 		if leave_counter == 0:
 			collision_mask = 9
+
+func _physics_process(delta: float) -> void:
+	super(delta)
+	if is_on_wall():
+		dir.x *= -1.0
 #		SPEED *= -1.0
 	velocity.x = SPEED * dir.x
 	
