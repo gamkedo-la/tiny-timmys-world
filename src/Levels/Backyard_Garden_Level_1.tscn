@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsavu0r35dv3c"]
+[gd_scene load_steps=23 format=3 uid="uid://dsavu0r35dv3c"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -20,6 +20,10 @@
 [ext_resource type="Script" path="res://src/Levels/ControlActions.gd" id="14_b66p6"]
 [ext_resource type="PackedScene" uid="uid://dahja1hbgv1ul" path="res://src/Map Objects/Utils/FallDetection.tscn" id="17_a60eb"]
 [ext_resource type="PackedScene" uid="uid://b55bw7bvfwbtg" path="res://src/UI/PauseMenu.tscn" id="18_uqjcu"]
+[ext_resource type="PackedScene" uid="uid://b1jwx873qgfb2" path="res://src/Actors/Enemies/Bosses/Frog_Boss.tscn" id="19_457qc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m10tk"]
+size = Vector2(269, 20)
 
 [node name="BackyardGarden" type="Node2D"]
 script = ExtResource("1_m2rpn")
@@ -134,6 +138,22 @@ layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 
 
 [node name="FallDetection" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("17_a60eb")]
 position = Vector2(-10, 400)
+
+[node name="Frog_Boss" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("19_457qc")]
+position = Vector2(230, -10)
+collision_layer = 32
+collision_mask = 32
+SPEED = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MainLayer/SubViewportContainer/PixelViewport"]
+position = Vector2(173, 300)
+scale = Vector2(5, 1)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainLayer/SubViewportContainer/PixelViewport/StaticBody2D"]
+position = Vector2(124.5, 0)
+shape = SubResource("RectangleShape2D_m10tk")
 
 [node name="PlaxBG2" type="ParallaxBackground" parent="."]
 layer = 2
