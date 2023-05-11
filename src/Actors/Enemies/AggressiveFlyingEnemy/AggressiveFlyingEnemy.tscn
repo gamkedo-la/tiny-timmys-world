@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://cx2mog32vlxi4"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/AggressiveFlyingEnemy.gd" id="1_4fflr"]
-[ext_resource type="Texture2D" uid="uid://burkjodmo2v3y" path="res://src/Sprites/FireFly-Versions/firefly2ndFrame.png" id="2_lqnq5"]
+[ext_resource type="Texture2D" uid="uid://burkjodmo2v3y" path="res://src/Sprites/AggressiveFly/AggressiveFly2ndFrame.png" id="2_b817i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
 size = Vector2(17.5, 8.94738)
@@ -314,10 +314,12 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_jceyq"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_2oii6"]
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 73
 script = ExtResource("1_4fflr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -330,7 +332,7 @@ shape = SubResource("RectangleShape2D_u60ad")
 [node name="Enemy" type="Sprite2D" parent="Body"]
 texture_filter = 1
 position = Vector2(0, -13.25)
-texture = ExtResource("2_lqnq5")
+texture = ExtResource("2_b817i")
 
 [node name="StompDetector" type="Area2D" parent="Body"]
 modulate = Color(0, 0.207843, 1, 1)
@@ -366,6 +368,14 @@ offset_right = 20.0
 offset_bottom = -59.0
 text = "Test"
 label_settings = SubResource("LabelSettings_jceyq")
+
+[node name="LeaveCounterDebugLabel" type="Label" parent="."]
+offset_left = -18.75
+offset_top = -53.75
+offset_right = 21.25
+offset_bottom = -27.75
+text = "n"
+label_settings = SubResource("LabelSettings_2oii6")
 
 [connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detecter_body_entered"]
 [connection signal="area_entered" from="Body/BulletDetector" to="." method="_on_bullet_detector_area_entered"]
