@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cx2mog32vlxi4"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/AggressiveFlyingEnemy.gd" id="1_4fflr"]
-[ext_resource type="Texture2D" uid="uid://cgrs1cm7bvqsr" path="res://src/Sprites/AggressiveFly/AggressiveFly1stFrame.png" id="2_ue6lt"]
+[ext_resource type="Texture2D" uid="uid://bkjdy8ra1tlvw" path="res://src/Sprites/FireFly-Versions/firefly4thframe.png" id="2_llyoj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
 size = Vector2(17.5, 8.94738)
@@ -332,7 +332,7 @@ shape = SubResource("RectangleShape2D_u60ad")
 [node name="Enemy" type="Sprite2D" parent="Body"]
 texture_filter = 1
 position = Vector2(0, -13.25)
-texture = ExtResource("2_ue6lt")
+texture = ExtResource("2_llyoj")
 
 [node name="StompDetector" type="Area2D" parent="Body"]
 modulate = Color(0, 0.207843, 1, 1)
