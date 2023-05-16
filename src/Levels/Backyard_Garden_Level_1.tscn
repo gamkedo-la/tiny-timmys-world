@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dsavu0r35dv3c"]
+[gd_scene load_steps=23 format=3 uid="uid://juubjo5hbwl0"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -14,7 +14,7 @@
 [ext_resource type="TileSet" uid="uid://bo31abhmofat" path="res://src/TileMaps/Backyard_Garden_Level_1.tres" id="6_psj41"]
 [ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="7_hq48s"]
 [ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="8_4kewj"]
-[ext_resource type="PackedScene" uid="uid://7slpdll5l374" path="res://src/Actors/Pickups/Coin.tscn" id="10_s6u3e"]
+[ext_resource type="PackedScene" uid="uid://hocoq2h6sbf5" path="res://src/Actors/Pickups/Coin.tscn" id="10_s6u3e"]
 [ext_resource type="PackedScene" uid="uid://dqjxnfjd4njhn" path="res://src/Map Objects/Platforms/Garden_Level/Garden_BigPlatform.tscn" id="12_eu5we"]
 [ext_resource type="PackedScene" uid="uid://cj7oxi7rq8c31" path="res://src/Map Objects/Platforms/Garden_Level/Garden_MidPlatform.tscn" id="13_ijpdy"]
 [ext_resource type="Script" path="res://src/Levels/ControlActions.gd" id="14_b66p6"]

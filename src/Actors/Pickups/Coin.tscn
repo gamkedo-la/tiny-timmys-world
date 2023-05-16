@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://7slpdll5l374"]
+[gd_scene load_steps=4 format=3 uid="uid://hocoq2h6sbf5"]
 
 [ext_resource type="Texture2D" uid="uid://de7y4h5febu7t" path="res://src/Sprites/Pickups/coin.png" id="1_ildtc"]
 [ext_resource type="Script" path="res://src/Actors/Pickups/Coin.gd" id="1_mej48"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbine"]
-size = Vector2(10.7143, 18)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veuvd"]
+size = Vector2(9.82143, 16)
 
-[node name="Coin" type="Node2D"]
+[node name="Coin" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_mej48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.98023e-07, 0)
+scale = Vector2(2.24, 1)
+shape = SubResource("RectangleShape2D_veuvd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ildtc")
@@ -18,8 +24,8 @@ position = Vector2(0, -16)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(0, 16)
-scale = Vector2(2.24, 1)
-shape = SubResource("RectangleShape2D_bbine")
+position = Vector2(0, 15.8125)
+scale = Vector2(2.5, 1.5)
+shape = SubResource("RectangleShape2D_veuvd")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
