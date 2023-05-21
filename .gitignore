@@ -10,3 +10,6 @@ export_presets.cfg
 
 # Mac OSX
 .DS_Store
+
+# Exported resources (builds)
+exports/
