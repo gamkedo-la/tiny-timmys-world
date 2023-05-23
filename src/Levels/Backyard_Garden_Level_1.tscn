@@ -143,7 +143,6 @@ position = Vector2(-10, 400)
 position = Vector2(230, -10)
 collision_layer = 32
 collision_mask = 32
-SPEED = 100.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MainLayer/SubViewportContainer/PixelViewport"]
 position = Vector2(173, 300)
