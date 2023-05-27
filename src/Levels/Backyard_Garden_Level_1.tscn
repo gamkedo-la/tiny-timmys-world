@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://juubjo5hbwl0"]
+[gd_scene load_steps=24 format=3 uid="uid://juubjo5hbwl0"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dahja1hbgv1ul" path="res://src/Map Objects/Utils/FallDetection.tscn" id="17_a60eb"]
 [ext_resource type="PackedScene" uid="uid://b55bw7bvfwbtg" path="res://src/UI/PauseMenu.tscn" id="18_uqjcu"]
 [ext_resource type="PackedScene" uid="uid://b1jwx873qgfb2" path="res://src/Actors/Enemies/Bosses/Frog_Boss.tscn" id="19_457qc"]
+[ext_resource type="PackedScene" uid="uid://qobe6hi48tk2" path="res://src/Actors/Pickups/Heart.tscn" id="22_5eoki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m10tk"]
 size = Vector2(269, 20)
@@ -115,6 +116,12 @@ position = Vector2(267, 147)
 [node name="Coin" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("10_s6u3e")]
 position = Vector2(329, 182)
 
+[node name="Heart" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("22_5eoki")]
+position = Vector2(250, 0)
+collision_layer = 0
+collision_mask = 8
+lock_rotation = true
+
 [node name="FloorTileMapManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("5_qhb52")]
 tile_set = ExtResource("6_psj41")
 floor_hole_spawn_probability = 0.1
@@ -200,3 +207,5 @@ color = Color(1, 1, 1, 0.352941)
 layout_mode = 1
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+
+[editable path="MainLayer/SubViewportContainer/PixelViewport/Heart"]
