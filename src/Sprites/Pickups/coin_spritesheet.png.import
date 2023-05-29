@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxwtxa060pbs2"
-path="res://.godot/imported/01-Standingl-BucketWithFist.png-66028f5ef3c0ccb804c368ec986b7908.ctex"
+uid="uid://c6cgfp0cd2bn1"
+path="res://.godot/imported/coin_spritesheet.png-f7fd8f7f2b8f65cb381c0cb1a7ee2e67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Sprites/BucketWithFist/01-Standingl-BucketWithFist.png"
-dest_files=["res://.godot/imported/01-Standingl-BucketWithFist.png-66028f5ef3c0ccb804c368ec986b7908.ctex"]
+source_file="res://src/Sprites/Pickups/coin_spritesheet.png"
+dest_files=["res://.godot/imported/coin_spritesheet.png-f7fd8f7f2b8f65cb381c0cb1a7ee2e67.ctex"]
 
 [params]
 
