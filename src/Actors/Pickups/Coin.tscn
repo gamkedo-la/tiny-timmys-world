@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6cgfp0cd2bn1" path="res://src/Sprites/Pickups/coin_spritesheet.png" id="2_ap88q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veuvd"]
-size = Vector2(9.82143, 16)
+size = Vector2(9.82143, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_72tvd"]
 atlas = ExtResource("2_ap88q")
@@ -224,19 +224,21 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Coin" type="CharacterBody2D"]
+[node name="Coin" type="RigidBody2D"]
 collision_layer = 0
+collision_mask = 8
+lock_rotation = true
 script = ExtResource("1_mej48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.98023e-07, 0)
+position = Vector2(-2.98023e-07, 6)
 scale = Vector2(2.24, 1)
 shape = SubResource("RectangleShape2D_veuvd")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vua3g")
 autoplay = "default"
-frame_progress = 0.656435
+frame_progress = 0.00331184
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 modulate = Color(0.152941, 0.188235, 1, 1)
@@ -244,6 +246,7 @@ position = Vector2(0, -16)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+visible = false
 position = Vector2(0, 15.8125)
 scale = Vector2(2.5, 1.5)
 shape = SubResource("RectangleShape2D_veuvd")

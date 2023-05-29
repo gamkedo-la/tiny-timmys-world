@@ -227,7 +227,8 @@ size = Vector2(42, 39)
 size = Vector2(9.82143, 25)
 
 [node name="Heart" type="RigidBody2D"]
-collision_layer = 72
+collision_layer = 0
+collision_mask = 8
 
 [node name="HeartAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_asxd5")
@@ -242,7 +243,7 @@ shape = SubResource("RectangleShape2D_hy1a6")
 [node name="PlayerDetector" type="Area2D" parent="."]
 modulate = Color(0.152941, 0.188235, 1, 1)
 position = Vector2(0, -16)
-collision_layer = 4
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 visible = false
