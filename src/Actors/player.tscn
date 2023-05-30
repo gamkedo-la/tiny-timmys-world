@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcyxc5ba6pbfk"]
+[gd_scene load_steps=18 format=3 uid="uid://bcyxc5ba6pbfk"]
 
 [ext_resource type="Script" path="res://src/Actors/player.gd" id="1_is4vd"]
 [ext_resource type="PackedScene" uid="uid://br7vfr0bq2vlv" path="res://src/Weapons/Slingshot.tscn" id="2_vjs8h"]
 [ext_resource type="Texture2D" uid="uid://2exuct61wggk" path="res://src/Sprites/Timmy 16px-Animations.png" id="3_u4l7y"]
 [ext_resource type="Script" path="res://src/Actors/FSM/StateMachine.gd" id="4_pafag"]
 [ext_resource type="Script" path="res://src/Actors/FSM/PlayerIdle.gd" id="5_1403m"]
+[ext_resource type="Script" path="res://src/Actors/FSM/PlayerStomp.gd" id="6_0fbnn"]
 [ext_resource type="Script" path="res://src/Actors/FSM/PlayerDamaged.gd" id="6_ip22y"]
 [ext_resource type="Script" path="res://src/Actors/FSM/PlayerRun.gd" id="6_jscrr"]
 [ext_resource type="Script" path="res://src/Actors/FSM/PlayerJump.gd" id="7_3j7c6"]
@@ -150,6 +151,12 @@ enabled = false
 target_position = Vector2(0, 40)
 collision_mask = 8
 
+[node name="StompChk" type="RayCast2D" parent="Body"]
+position = Vector2(0, -2)
+enabled = false
+target_position = Vector2(0, 7)
+collision_mask = 2
+
 [node name="Player" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -16)
@@ -195,6 +202,9 @@ initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_1403m")
+
+[node name="Stomp" type="Node" parent="StateMachine"]
+script = ExtResource("6_0fbnn")
 
 [node name="Damaged" type="Node" parent="StateMachine"]
 script = ExtResource("6_ip22y")

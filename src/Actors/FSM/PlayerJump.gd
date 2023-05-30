@@ -15,6 +15,8 @@ func process(delta:float)->void:
 
 func state_check()->void:
 #	print("Grounded: ", player.is_grounded, " OnWall: ", player.is_onwall, " RayGround: ", player.RayGround)
+	if player.is_stomping:
+		_state_machine.transition_to('Stomp', {})
 	if player.is_damaged:
 		_state_machine.transition_to('Damaged', {})
 	elif player.is_grounded:
