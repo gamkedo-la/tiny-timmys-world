@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://pkah2emfinne"]
+
+[ext_resource type="Script" path="res://src/Actors/Pickups/PickupManager.gd" id="1_3tj68"]
+[ext_resource type="PackedScene" uid="uid://hocoq2h6sbf5" path="res://src/Actors/Pickups/Coin.tscn" id="2_8tet5"]
+[ext_resource type="PackedScene" uid="uid://qobe6hi48tk2" path="res://src/Actors/Pickups/Heart.tscn" id="3_5hkss"]
+
+[node name="PickupManager" type="Node2D"]
+script = ExtResource("1_3tj68")
+pickups = Array[PackedScene]([ExtResource("2_8tet5"), ExtResource("3_5hkss")])
+timer_time = 3.0
+
+[node name="PickupTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="PickupTimer" to="." method="_on_spawn_timer_timeout"]

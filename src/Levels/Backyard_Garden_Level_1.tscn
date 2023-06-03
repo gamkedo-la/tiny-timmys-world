@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://juubjo5hbwl0"]
+[gd_scene load_steps=25 format=3 uid="uid://juubjo5hbwl0"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cj7oxi7rq8c31" path="res://src/Map Objects/Platforms/Garden_Level/Garden_MidPlatform.tscn" id="13_ijpdy"]
 [ext_resource type="Script" path="res://src/Levels/ControlActions.gd" id="14_b66p6"]
 [ext_resource type="PackedScene" uid="uid://dahja1hbgv1ul" path="res://src/Map Objects/Utils/FallDetection.tscn" id="17_a60eb"]
+[ext_resource type="PackedScene" uid="uid://pkah2emfinne" path="res://src/Actors/Pickups/PickupManager.tscn" id="18_48dq1"]
 [ext_resource type="PackedScene" uid="uid://b55bw7bvfwbtg" path="res://src/UI/PauseMenu.tscn" id="18_uqjcu"]
 [ext_resource type="PackedScene" uid="uid://b1jwx873qgfb2" path="res://src/Actors/Enemies/Bosses/Frog_Boss.tscn" id="19_457qc"]
 [ext_resource type="PackedScene" uid="uid://qobe6hi48tk2" path="res://src/Actors/Pickups/Heart.tscn" id="22_5eoki"]
@@ -128,6 +129,9 @@ floor_hole_spawn_probability = 0.1
 platforms = Array[PackedScene]([ExtResource("12_eu5we"), ExtResource("13_ijpdy")])
 
 [node name="EnemyManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("7_hq48s")]
+position = Vector2(267, 52)
+
+[node name="PickupManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("18_48dq1")]
 position = Vector2(267, 52)
 
 [node name="InvisibleWall" type="TileMap" parent="MainLayer/SubViewportContainer/PixelViewport"]
