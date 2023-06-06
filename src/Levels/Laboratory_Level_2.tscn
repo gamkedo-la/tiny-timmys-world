@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="12_r5iw8"]
 [ext_resource type="TileSet" uid="uid://dpfa171uvg8sr" path="res://src/TileMaps/Lab_Level_2.tres" id="13_kvbx1"]
 [ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="14_ac35q"]
-[ext_resource type="PackedScene" uid="uid://dqjxnfjd4njhn" path="res://src/Map Objects/Platforms/Garden_Level/Garden_BigPlatform.tscn" id="15_swuy4"]
-[ext_resource type="PackedScene" uid="uid://cj7oxi7rq8c31" path="res://src/Map Objects/Platforms/Garden_Level/Garden_MidPlatform.tscn" id="16_iabf8"]
+[ext_resource type="PackedScene" uid="uid://0rsx7h8oi6ou" path="res://src/Map Objects/Platforms/Lab Level/Lab_BigPlatform.tscn" id="15_oimkr"]
+[ext_resource type="PackedScene" uid="uid://qlfrs4ec1mw8" path="res://src/Map Objects/Platforms/Lab Level/Lab_MidPlatform.tscn" id="16_k8r7n"]
 [ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="17_j7ey5"]
 [ext_resource type="PackedScene" uid="uid://pkah2emfinne" path="res://src/Actors/Pickups/PickupManager.tscn" id="18_vpkr4"]
 [ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="19_d1u6o"]
@@ -126,7 +126,7 @@ tile_set = ExtResource("13_kvbx1")
 floor_hole_spawn_probability = 0.1
 
 [node name="PlatformsManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("14_ac35q")]
-platforms = Array[PackedScene]([ExtResource("15_swuy4"), ExtResource("16_iabf8")])
+platforms = Array[PackedScene]([ExtResource("15_oimkr"), ExtResource("16_k8r7n")])
 
 [node name="EnemyManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("17_j7ey5")]
 position = Vector2(267, 52)
