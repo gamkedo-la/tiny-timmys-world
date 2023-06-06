@@ -4,6 +4,7 @@ signal points_scored(val, pos)
 signal enemy_damage_taken(val, pos)
 signal screen_shake(val)
 signal player_damage_taken(val, pos)
+signal player_health_restored(val, pos)
 signal player_defeated()
 
 var LEVEL_SPEED: float = -20.0

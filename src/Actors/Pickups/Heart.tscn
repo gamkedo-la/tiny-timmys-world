@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://qobe6hi48tk2"]
+[gd_scene load_steps=36 format=3 uid="uid://qobe6hi48tk2"]
 
 [ext_resource type="Texture2D" uid="uid://bmh8tqs6psf7y" path="res://src/Sprites/Pickups/heart/spinning_heart.png" id="1_onds7"]
+[ext_resource type="Script" path="res://src/Actors/Pickups/Heart.gd" id="1_yw55j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r56vr"]
 atlas = ExtResource("1_onds7")
@@ -229,6 +230,7 @@ size = Vector2(9.82143, 25)
 [node name="Heart" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 8
+script = ExtResource("1_yw55j")
 
 [node name="HeartAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_asxd5")

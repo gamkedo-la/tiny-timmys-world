@@ -9,9 +9,14 @@ func _ready():
 	max_health = PlayerVars.player_max_health
 	
 	var con_res
+	var con_res_player_health_restored
 	
 	if not Global.is_connected("player_damage_taken", _on_player_damage_taken):
 		con_res = Global.connect("player_damage_taken", _on_player_damage_taken)
+		assert(con_res == OK)
+	
+	if not Global.is_connected("player_health_restored", _on_player_health_restored):
+		con_res_player_health_restored = Global.connect("player_health_restored", _on_player_health_restored)
 		assert(con_res == OK)
 	
 	_update_health_bar(max_health)
@@ -32,4 +37,7 @@ func _update_health_bar(current_health):
 		
 	
 func _on_player_damage_taken(points: int, pos: Vector2):
+	_update_health_bar(points)
+	
+func _on_player_health_restored(points: int, pos: Vector2):
 	_update_health_bar(points)
