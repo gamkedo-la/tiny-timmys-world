@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c33xtnrahwnke"]
+[gd_scene load_steps=26 format=3 uid="uid://c33xtnrahwnke"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_n1f7x"]
 [ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="2_0fvy6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="5_1omby"]
 [ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="6_l56rw"]
 [ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="7_5j7ba"]
+[ext_resource type="Texture2D" uid="uid://de5wyq7vlu8ns" path="res://src/Map Objects/Plax/fore_lab.png" id="7_wc6qu"]
 [ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="8_662yb"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="9_vpclf"]
 [ext_resource type="PackedScene" uid="uid://hocoq2h6sbf5" path="res://src/Actors/Pickups/Coin.tscn" id="10_tb1xy"]
@@ -71,6 +72,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_1omby")
 
 [node name="Mid" type="ParallaxLayer" parent="PlaxBG"]
+visible = false
 position = Vector2(0, -32)
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(800, 0)
@@ -83,7 +85,7 @@ position = Vector2(0, -36)
 motion_mirroring = Vector2(800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Fore"]
-texture = ExtResource("5_1omby")
+texture = ExtResource("7_wc6qu")
 
 [node name="BackCamera2D" type="Camera2D" parent="PlaxBG"]
 position_smoothing_enabled = true
@@ -177,7 +179,7 @@ position = Vector2(0, -24)
 motion_mirroring = Vector2(800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlaxBG2/Fore"]
-texture = ExtResource("5_1omby")
+texture = ExtResource("7_wc6qu")
 flip_h = true
 
 [node name="BackCamera2D" type="Camera2D" parent="PlaxBG2"]
