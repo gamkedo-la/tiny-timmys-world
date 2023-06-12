@@ -4,7 +4,7 @@ extends AIActor
 @export var score: int = 30
 @export var health: int = 30
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@onready var debug_label: Label = $DebugLabel
+@onready var debug_label: Label = $StateLabel
 @onready var sprite: Sprite2D = $Body/Enemy
 @onready var actor_body: Node2D = $Body
 @onready var stomp_detector: Area2D = $Body/StompDetector
@@ -14,8 +14,8 @@ var dir = Vector2.LEFT
 var leave_counter = 4
 
 func _ready() -> void:
-	if !Global.show_debug_labels_enemies:
-		debug_label.visible = false
+	#if !Global.show_debug_labels_enemies:
+	debug_label.visible = false
 	velocity.x = dir.x * SPEED
 
 func _on_stomp_detecter_body_entered(body: Node2D) -> void:
@@ -45,7 +45,7 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 		anim_player.play("shot_pop")
 #	queue_free()
 
-func _physics_process(delta: float) -> void:
+func physics_process(delta: float) -> void:
 	#super(delta)
 	if is_on_wall() and leave_counter > 0:
 		dir.x *= -1.0
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			collision_mask = 9
 #		SPEED *= -1.0
 	velocity.x = SPEED * dir.x
-	
+	velocity.y = 0
 		
 	if dir.is_equal_approx(Vector2.LEFT) and actor_body.scale.x < 0.0:
 		actor_body.scale.x *= -1.0

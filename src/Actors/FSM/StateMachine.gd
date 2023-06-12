@@ -43,7 +43,6 @@ func transition_to(target_state: String, msg: Dictionary = {}) -> void:
 	if not states.has(target_state):
 		print("there's no state: ", target_state)
 		return
-
 	state.exit()
 	
 	set_state(states[target_state])
