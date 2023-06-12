@@ -18,7 +18,7 @@ func state_check()->void:
 		var chance = RNG.randf_range(0.0, 1.0)
 		if chance > 0.8:
 			print_debug("Transition soon")
-			#_ai_state_machine.transition_to('Attack', {})
+			_state_machine.transition_to('Attack', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
