@@ -46,22 +46,6 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 #	queue_free()
 
 func physics_process(delta: float) -> void:
-	#super(delta)
-	if is_on_wall() and leave_counter > 0:
-		dir.x *= -1.0
-		leave_counter -= 1
-		if leave_counter == 0:
-			collision_mask = 9
-#		SPEED *= -1.0
-	velocity.x = SPEED * dir.x
-	velocity.y = 0
-		
-	if dir.is_equal_approx(Vector2.LEFT) and actor_body.scale.x < 0.0:
-		actor_body.scale.x *= -1.0
-	if dir.is_equal_approx(Vector2.RIGHT) and actor_body.scale.x > 0.0:
-		actor_body.scale.x *= -1.0
-		
-	move_and_slide()
 	if debug_label.visible:
 		_update_debug_label()
 	_update_leave_counter_debug_label()

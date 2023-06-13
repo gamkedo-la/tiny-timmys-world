@@ -10,6 +10,21 @@ func process(delta: float) -> void:
 
 
 func physics_process(delta: float) -> void:
+	if actor.is_on_wall() and actor.leave_counter > 0:
+		actor.dir.x *= -1.0
+		actor.leave_counter -= 1
+		if actor.leave_counter == 0:
+			actor.collision_mask = 9
+#		SPEED *= -1.0
+	actor.velocity.x = actor.SPEED * actor.dir.x
+	actor.velocity.y = 0
+		
+	if actor.dir.is_equal_approx(Vector2.LEFT) and actor.actor_body.scale.x < 0.0:
+		actor.actor_body.scale.x *= -1.0
+	if actor.dir.is_equal_approx(Vector2.RIGHT) and actor.actor_body.scale.x > 0.0:
+		actor.actor_body.scale.x *= -1.0
+		
+	actor.move_and_slide()
 	actor.physics_process(delta)
 
 

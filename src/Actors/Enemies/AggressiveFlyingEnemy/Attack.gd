@@ -10,6 +10,13 @@ func process(delta: float) -> void:
 
 
 func physics_process(delta: float) -> void:
+	var player_position = PlayerVars.player.position
+	var actor_position = actor.position
+	var normalized_direction = (player_position - actor_position).normalized()
+	actor.velocity.x = actor.SPEED * normalized_direction.x
+	actor.velocity.y = actor.SPEED * normalized_direction.y
+	actor.move_and_slide()
+		
 	actor.physics_process(delta)
 
 
@@ -28,3 +35,5 @@ func enter(msg:Dictionary = {}) -> void:
 
 func exit() -> void:
 	pass
+	
+		
