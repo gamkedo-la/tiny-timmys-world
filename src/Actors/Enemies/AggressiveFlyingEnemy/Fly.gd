@@ -32,7 +32,6 @@ func state_check()->void:
 	if time_in_state > 2.0:
 		var chance = RNG.randf_range(0.0, 1.0)
 		if chance > 0.8:
-			print_debug("Transition soon")
 			_state_machine.transition_to('Attack', {})
 	pass
 
