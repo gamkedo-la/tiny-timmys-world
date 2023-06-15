@@ -1,0 +1,54 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmv8vccv23fih"]
+
+[ext_resource type="PackedScene" uid="uid://tacsbvhvcb28" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.tscn" id="1_r7qmr"]
+[ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="2_31pvq"]
+[ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="3_r6wa5"]
+[ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="4_r3q3w"]
+[ext_resource type="TileSet" uid="uid://bo31abhmofat" path="res://src/TileMaps/Backyard_Garden_Level_1.tres" id="5_fqsuh"]
+[ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="6_hvmw3"]
+[ext_resource type="PackedScene" uid="uid://dqjxnfjd4njhn" path="res://src/Map Objects/Platforms/Garden_Level/Garden_BigPlatform.tscn" id="7_ln8qd"]
+[ext_resource type="PackedScene" uid="uid://cj7oxi7rq8c31" path="res://src/Map Objects/Platforms/Garden_Level/Garden_MidPlatform.tscn" id="8_fp10v"]
+[ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="9_mvmi8"]
+[ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="10_m23q8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoi2e"]
+size = Vector2(269, 20)
+
+[node name="RobotBossScene" type="Node2D"]
+
+[node name="Robot_Boss" parent="." instance=ExtResource("1_r7qmr")]
+
+[node name="Enemy" parent="." instance=ExtResource("2_31pvq")]
+position = Vector2(267, 147)
+
+[node name="Player" parent="." instance=ExtResource("3_r6wa5")]
+position = Vector2(19, 293)
+
+[node name="FloorTileMapManager" parent="." instance=ExtResource("4_r3q3w")]
+tile_set = ExtResource("5_fqsuh")
+
+[node name="PlatformsManager" parent="." instance=ExtResource("6_hvmw3")]
+platforms = Array[PackedScene]([ExtResource("7_ln8qd"), ExtResource("8_fp10v")])
+
+[node name="EnemyManager" parent="." instance=ExtResource("9_mvmi8")]
+position = Vector2(267, 52)
+
+[node name="InvisibleWall" type="TileMap" parent="."]
+tile_set = ExtResource("10_m23q8")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 655359, 65536, 1, 720895, 65536, 1, 786431, 65536, 1, 851967, 65536, 1, 917503, 65536, 1, 983039, 65536, 1, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 1, 1310719, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 655358, 65536, 1, 720894, 65536, 1, 786430, 65536, 1, 851966, 65536, 1, 917502, 65536, 1, 983038, 65536, 1, 1048574, 65536, 1, 1114110, 65536, 1, 1179646, 65536, 1, 1245182, 65536, 1, 1310718, 65536, 1)
+
+[node name="InvisibleWall2" type="TileMap" parent="."]
+position = Vector2(432, 2.08165e-12)
+tile_set = ExtResource("10_m23q8")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 655359, 65536, 1, 720895, 65536, 1, 786431, 65536, 1, 851967, 65536, 1, 917503, 65536, 1, 983039, 65536, 1, 1048575, 65536, 1, 1114111, 65536, 1, 1179647, 65536, 1, 1245183, 65536, 1, 1310719, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 655358, 65536, 1, 720894, 65536, 1, 786430, 65536, 1, 851966, 65536, 1, 917502, 65536, 1, 983038, 65536, 1, 1048574, 65536, 1, 1114110, 65536, 1, 1179646, 65536, 1, 1245182, 65536, 1, 1310718, 65536, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(173, 300)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(124.5, 0)
+shape = SubResource("RectangleShape2D_yoi2e")

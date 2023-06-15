@@ -17,11 +17,14 @@ func state_check()->void:
 	if time_in_state > 2.0:
 		var chance = RNG.randf_range(0.0, 1.0)
 		if chance > 0.8:		
-			_ai_state_machine.transition_to('StompTell', {})
+			pass
+			#_ai_state_machine.transition_to('StompTell', {})
 		elif chance > 0.5:
-			_ai_state_machine.transition_to('TongueTell', {})
+			pass
+			#_ai_state_machine.transition_to('TongueTell', {})
 		elif chance > 0.3:
-			_ai_state_machine.transition_to('SpawnFly', {})
+			pass
+			#_ai_state_machine.transition_to('SpawnFly', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:

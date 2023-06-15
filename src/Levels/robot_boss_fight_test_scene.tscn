@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://jr6xnjgolsfa"]
+
+[ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="1_5nihg"]
+[ext_resource type="Texture2D" uid="uid://cxwssukbdhg1b" path="res://src/Map Objects/Plax/rear_proto01.png" id="2_s5fob"]
+[ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="3_qwfpr"]
+[ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="4_ibqc2"]
+[ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="5_j3pnk"]
+[ext_resource type="PackedScene" uid="uid://cmv8vccv23fih" path="res://src/Levels/robot_boss_scene.tscn" id="6_ieooy"]
+
+[node name="boss_fight_test_scene" type="Node2D"]
+
+[node name="PlaxBG" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 600)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 600)
+follow_viewport_scale = 2.0
+scroll_base_scale = Vector2(1, 0)
+script = ExtResource("1_5nihg")
+
+[node name="Rear" type="ParallaxLayer" parent="PlaxBG"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(100, 0)
+motion_mirroring = Vector2(800, 0)
+
+[node name="ColorRect" type="ColorRect" parent="PlaxBG/Rear"]
+custom_minimum_size = Vector2(1600, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.054902, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Rear"]
+visible = false
+texture = ExtResource("2_s5fob")
+
+[node name="Mid2" type="ParallaxLayer" parent="PlaxBG"]
+visible = false
+position = Vector2(100, 0)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid2"]
+position = Vector2(0, 32)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_qwfpr")
+
+[node name="Mid" type="ParallaxLayer" parent="PlaxBG"]
+position = Vector2(0, -32)
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Mid"]
+texture = ExtResource("4_ibqc2")
+
+[node name="Fore" type="ParallaxLayer" parent="PlaxBG"]
+position = Vector2(0, -36)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlaxBG/Fore"]
+texture = ExtResource("3_qwfpr")
+
+[node name="BackCamera2D" type="Camera2D" parent="PlaxBG"]
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIManager" parent="CanvasLayer" instance=ExtResource("5_j3pnk")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+offset_right = 1600.0
+offset_bottom = 1200.0
+
+[node name="PixelViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+use_taa = true
+canvas_item_default_texture_filter = 3
+size = Vector2i(1600, 1200)
+size_2d_override = Vector2i(400, 300)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="RobotBossScene" parent="CanvasLayer/SubViewportContainer/PixelViewport" instance=ExtResource("6_ieooy")]
+
+[node name="Robot_Boss" parent="CanvasLayer/SubViewportContainer/PixelViewport/RobotBossScene" index="0"]
+z_index = -2
+
+[editable path="CanvasLayer/SubViewportContainer/PixelViewport/RobotBossScene"]
