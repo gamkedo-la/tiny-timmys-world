@@ -17,5 +17,6 @@ func _on_enemy_timer_timeout() -> void:
 	var enemy_to_spawn = enemies[random_enemy]
 	
 	var enemy = enemy_to_spawn.instantiate()
-	enemy.position = Vector2(position.x, position.y)
+	enemy.position = Vector2(rng.randi_range(0, get_viewport_rect().size.x), 
+		rng.randi_range(0, get_viewport_rect().size.y - 30))
 	add_sibling(enemy)
