@@ -7,7 +7,7 @@ extends Node2D
 #var level_elapsed_time: float
 
 @onready var ui_manager: Node2D = $MainLayer/UIManager
-@onready var boss_frog: Node2D = $MainLayer/SubViewportContainer/PixelViewport/Frog_Boss
+@onready var boss: Node2D = $MainLayer/SubViewportContainer/PixelViewport/Boss
 
 func _ready() -> void:
 	PlayerVars.level_score = 0
@@ -17,7 +17,7 @@ func _ready() -> void:
 	PlayerVars.player_health = 6
 	if level_bgm:
 		Music.load_and_play_levelbgm(level_bgm)
-	boss_frog.process_mode = Node.PROCESS_MODE_DISABLED
+	boss.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func _process(delta: float) -> void:
 	_update_elapsed_time(delta)
@@ -26,10 +26,10 @@ func _process(delta: float) -> void:
 	
 #	ui_manager.score = level_score
 #	ui_manager.progress = level_progress
-	if PlayerVars.level_progress >= 75:
+	if PlayerVars.level_progress >= 20:
 		#Time for the boss to spawn
 		#ui_manager.level_won = true
-		boss_frog.process_mode = Node.PROCESS_MODE_INHERIT
+		boss.process_mode = Node.PROCESS_MODE_INHERIT
 
 #func _on_child_exiting_tree(node: Node) -> void:
 #	if node.is_in_group("enemy"):

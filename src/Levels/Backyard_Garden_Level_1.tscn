@@ -148,7 +148,7 @@ layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 
 [node name="FallDetection" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("17_a60eb")]
 position = Vector2(-10, 400)
 
-[node name="Frog_Boss" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("19_457qc")]
+[node name="Boss" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("19_457qc")]
 position = Vector2(230, -10)
 collision_layer = 32
 collision_mask = 32

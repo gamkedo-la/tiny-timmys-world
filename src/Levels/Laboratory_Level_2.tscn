@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://pkah2emfinne" path="res://src/Actors/Pickups/PickupManager.tscn" id="18_vpkr4"]
 [ext_resource type="TileSet" uid="uid://bl7mxprxeltam" path="res://src/TileMaps/Prototyp_TileMap_16x16.tres" id="19_d1u6o"]
 [ext_resource type="PackedScene" uid="uid://dahja1hbgv1ul" path="res://src/Map Objects/Utils/FallDetection.tscn" id="20_qrko8"]
-[ext_resource type="PackedScene" uid="uid://b1jwx873qgfb2" path="res://src/Actors/Enemies/Bosses/Frog_Boss.tscn" id="21_mksvh"]
+[ext_resource type="PackedScene" uid="uid://tacsbvhvcb28" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.tscn" id="22_34gis"]
 [ext_resource type="Script" path="res://src/Levels/ControlActions.gd" id="22_qbsqo"]
 [ext_resource type="PackedScene" uid="uid://b55bw7bvfwbtg" path="res://src/UI/PauseMenu.tscn" id="23_1tioy"]
 
@@ -150,10 +150,8 @@ layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 131071, 65536, 1, 196607, 
 [node name="FallDetection" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("20_qrko8")]
 position = Vector2(-10, 400)
 
-[node name="Frog_Boss" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("21_mksvh")]
-position = Vector2(230, -10)
-collision_layer = 32
-collision_mask = 32
+[node name="Boss" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("22_34gis")]
+position = Vector2(450, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MainLayer/SubViewportContainer/PixelViewport"]
 position = Vector2(173, 300)
