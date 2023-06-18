@@ -339,8 +339,8 @@ scale = Vector2(2.11, 1)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/StompDetector"]
-position = Vector2(-1.42109e-14, -3.75)
-scale = Vector2(1.00106, 1.00106)
+position = Vector2(0, -3.75)
+scale = Vector2(1.07215, 1.07215)
 shape = SubResource("RectangleShape2D_r0twr")
 
 [node name="BulletDetector" type="Area2D" parent="Body"]
