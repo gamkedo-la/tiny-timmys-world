@@ -3,6 +3,11 @@ class_name Player
 
 @export var stomp_impulse: = 1000.0
 @export var JUMP_VELOCITY: float
+@export var TIME_BETWEEN_SHOTS: float
+
+var time_elapsed_between_shots: float
+var can_shoot: bool
+
 @export var weapon: PackedScene
 @onready var sprite: Sprite2D = $Player
 @onready var animation_player = $AnimationPlayer
@@ -41,6 +46,8 @@ var RayGround: bool = false
 
 func _ready() -> void:
 	PlayerVars.player = self
+	can_shoot = true
+	time_elapsed_between_shots = 0
 	
 func _on_enemy_detector_area_entered(area: Area2D) -> void:
 	if is_damaged == false:
@@ -100,7 +107,7 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta):	
 	velocity_logic(delta)
 	gravity_logic(delta)
-	check_if_shooting()
+	check_if_shooting(delta)
 	collision_logic()
 	ground_update_logic(delta)
 	
@@ -181,12 +188,18 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 	is_stomping = true
 	return new_velocity
 	
-func check_if_shooting() -> void:
-	if Input.is_action_just_pressed("shoot"):
+func check_if_shooting(delta:float) -> void:
+	if Input.is_action_just_pressed("shoot") && can_shoot:
 		var mouse_position = get_viewport().get_mouse_position()
 		var player_position = position
 		var normalized_direction = (mouse_position - player_position).normalized()
 		shoot(normalized_direction)
+		time_elapsed_between_shots = 0
+		can_shoot = false
+	elif time_elapsed_between_shots > TIME_BETWEEN_SHOTS:
+		can_shoot = true
+	else:
+		time_elapsed_between_shots+=delta
 		
 
 func shoot(direction: Vector2) -> void:
