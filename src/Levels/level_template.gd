@@ -52,4 +52,5 @@ func spawn_heart_on_enemy_defeat(position: Vector2) -> void:
 	if chance > 0.8:
 		var new_heart = heart.instantiate()
 		new_heart.position = position;
+		new_heart.rotation = 0.0;
 		pixel_viewport.add_child(new_heart)
