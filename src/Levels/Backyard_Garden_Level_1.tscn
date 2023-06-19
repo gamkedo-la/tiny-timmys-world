@@ -31,6 +31,7 @@ size = Vector2(269, 20)
 script = ExtResource("1_m2rpn")
 level_completion_time = 60.0
 level_bgm = ExtResource("2_li4cr")
+heart = ExtResource("22_5eoki")
 
 [node name="PlaxBG" type="ParallaxBackground" parent="."]
 offset = Vector2(0, 600)
@@ -116,10 +117,6 @@ position = Vector2(267, 147)
 
 [node name="Coin" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("10_s6u3e")]
 position = Vector2(329, 182)
-
-[node name="Heart" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("22_5eoki")]
-position = Vector2(250, 0)
-lock_rotation = true
 
 [node name="FloorTileMapManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("5_qhb52")]
 tile_set = ExtResource("6_psj41")
@@ -209,5 +206,3 @@ color = Color(1, 1, 1, 0.352941)
 layout_mode = 1
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
-
-[editable path="MainLayer/SubViewportContainer/PixelViewport/Heart"]

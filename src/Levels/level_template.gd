@@ -8,6 +8,9 @@ extends Node2D
 
 @onready var ui_manager: Node2D = $MainLayer/UIManager
 @onready var boss: Node2D = $MainLayer/SubViewportContainer/PixelViewport/Boss
+@onready var pixel_viewport: SubViewport = $MainLayer/SubViewportContainer/PixelViewport
+@export var heart: PackedScene
+@onready var RNG = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	PlayerVars.level_score = 0
@@ -18,6 +21,11 @@ func _ready() -> void:
 	if level_bgm:
 		Music.load_and_play_levelbgm(level_bgm)
 	boss.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	var con_res
+	if not Global.is_connected("enemy_defeated", spawn_heart_on_enemy_defeat):
+		con_res = Global.connect("enemy_defeated", spawn_heart_on_enemy_defeat)
+		assert(con_res == OK)
 	
 func _process(delta: float) -> void:
 	_update_elapsed_time(delta)
@@ -38,3 +46,10 @@ func _process(delta: float) -> void:
 		
 func _update_elapsed_time(delta: float) -> void:
 	PlayerVars.level_elapsed_time += delta
+
+func spawn_heart_on_enemy_defeat(position: Vector2) -> void:
+	var chance = RNG.randf_range(0.0, 1.0)
+	if chance > 0.8:
+		var new_heart = heart.instantiate()
+		new_heart.position = position;
+		pixel_viewport.add_child(new_heart)

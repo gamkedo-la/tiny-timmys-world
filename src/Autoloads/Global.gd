@@ -1,6 +1,7 @@
 extends Node
 
 signal points_scored(val, pos)
+signal enemy_defeated(val, pos)
 signal enemy_damage_taken(val, pos)
 signal screen_shake(val)
 signal player_damage_taken(val, pos)
