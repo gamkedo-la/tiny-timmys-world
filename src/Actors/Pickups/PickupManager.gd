@@ -14,5 +14,6 @@ func _on_spawn_timer_timeout() -> void:
 	var class_to_spawn = pickups[random_index]
 	
 	var object = class_to_spawn.instantiate()
-	object.position = Vector2(position.x, position.y)
+	object.position = Vector2(rng.randi_range(0, get_viewport_rect().size.x), 
+		rng.randi_range(0, get_viewport_rect().size.y - 30))
 	add_sibling(object)

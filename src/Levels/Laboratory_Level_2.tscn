@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c33xtnrahwnke"]
+[gd_scene load_steps=25 format=3 uid="uid://c33xtnrahwnke"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_n1f7x"]
 [ext_resource type="AudioStream" uid="uid://cx0hvlg6vd7ld" path="res://src/Audio/TinyTimmyLabSongVersions/TinyTimmyLabSongV3.mp3" id="2_8wc1q"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://de5wyq7vlu8ns" path="res://src/Map Objects/Plax/fore_lab.png" id="7_wc6qu"]
 [ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="8_662yb"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="9_vpclf"]
-[ext_resource type="PackedScene" uid="uid://hocoq2h6sbf5" path="res://src/Actors/Pickups/Coin.tscn" id="10_tb1xy"]
 [ext_resource type="PackedScene" uid="uid://qobe6hi48tk2" path="res://src/Actors/Pickups/Heart.tscn" id="11_ou750"]
 [ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="12_r5iw8"]
 [ext_resource type="TileSet" uid="uid://dpfa171uvg8sr" path="res://src/TileMaps/Lab_Level_2.tres" id="13_kvbx1"]
@@ -116,9 +115,6 @@ position = Vector2(19, 293)
 
 [node name="Enemy" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("9_vpclf")]
 position = Vector2(267, 147)
-
-[node name="Coin" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("10_tb1xy")]
-position = Vector2(329, 182)
 
 [node name="FloorTileMapManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("12_r5iw8")]
 tile_set = ExtResource("13_kvbx1")
