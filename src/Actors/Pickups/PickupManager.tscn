@@ -6,7 +6,7 @@
 [node name="PickupManager" type="Node2D"]
 script = ExtResource("1_3tj68")
 pickups = Array[PackedScene]([ExtResource("2_8tet5")])
-timer_time = 3.0
+timer_time = 4.0
 
 [node name="PickupTimer" type="Timer" parent="."]
 wait_time = 3.0
