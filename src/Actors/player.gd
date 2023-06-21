@@ -50,26 +50,17 @@ func _ready() -> void:
 	time_elapsed_between_shots = 0
 	
 func _on_enemy_detector_area_entered(area: Area2D) -> void:
-	if is_damaged == false:
-		print_debug("Detected collision and is_damaged is false")
-		stompchk.force_raycast_update()
-		if stompchk.is_colliding():
-			velocity = calculate_stomp_velocity(velocity, stomp_impulse)
-		else:
-			is_damaged = true
-			PlayerVars.player_health -= 1
-			Global.emit_signal("player_damage_taken", PlayerVars.player_health, (get_global_transform() * area.position))
-		if PlayerVars.player_health <= 0:
-			Global.emit_signal("player_defeated")
-	else:
-		pass
+	_damage_player(area.position)
 	
 func _on_enemy_detector_body_entered(body: Node2D) -> void:
 	#temporary behavior for the funs	
-	pass
-	#Global.emit_signal("player_damage_taken", 1, (get_global_transform() * body.position))
-	#velocity = calculate_stomp_velocity(velocity, stomp_impulse)
-	#queue_free()
+	print_debug(body.name)
+	if(body.name.contains('@@')):
+		print_debug('Tilemap collision')
+		_damage_player(body.position)
+		jump = true
+	else:
+		pass
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -220,3 +211,17 @@ func _on_fall_detector_body_entered(body: Node2D) -> void:
 	print_debug("Fall detected")
 	Global.emit_signal("player_defeated")
 	queue_free()
+	
+func _damage_player(position) -> void:
+	if is_damaged == false:
+		stompchk.force_raycast_update()
+		if stompchk.is_colliding():
+			velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+		else:
+			is_damaged = true
+			PlayerVars.player_health -= 1
+			Global.emit_signal("player_damage_taken", PlayerVars.player_health, (get_global_transform() * position))
+		if PlayerVars.player_health <= 0:
+			Global.emit_signal("player_defeated")
+	else:
+		pass
