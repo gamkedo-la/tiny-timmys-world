@@ -1,0 +1,142 @@
+[gd_scene load_steps=3 format=3 uid="uid://drth8ww75s12g"]
+
+[ext_resource type="Script" path="res://src/UI/GameOverMenu.gd" id="1_vjn45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjn45")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.505882)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y0dfi")
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.356863)
+
+[node name="Inner Panel" type="Panel" parent="Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.333333
+anchor_right = 0.625
+anchor_bottom = 0.666667
+offset_top = -1.19209e-05
+offset_bottom = -2.38419e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y0dfi")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Inner Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -0.999573
+offset_right = -1.0
+offset_bottom = -0.999573
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.247059, 0.85098)
+
+[node name="Title" type="Label" parent="Panel/Inner Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -164.0
+offset_right = 80.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="Panel/Inner Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -135.0
+offset_right = 80.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Inner Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -70.0004
+offset_right = 64.0
+offset_bottom = 98.9996
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart Level" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+layout_mode = 2
+text = "Restart Level"
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Inner Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.156863, 0.156863, 0.156863, 0.792157)
+
+[node name="FullscreenToggle" type="CheckButton" parent="Panel/Inner Panel/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -15.5
+offset_right = 63.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fullscreen"
+
+[node name="Credits" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
+[connection signal="toggled" from="Panel/Inner Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

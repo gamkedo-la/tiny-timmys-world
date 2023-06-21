@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://juubjo5hbwl0"]
+[gd_scene load_steps=26 format=3 uid="uid://juubjo5hbwl0"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://b55bw7bvfwbtg" path="res://src/UI/PauseMenu.tscn" id="18_uqjcu"]
 [ext_resource type="PackedScene" uid="uid://b1jwx873qgfb2" path="res://src/Actors/Enemies/Bosses/Frog_Boss.tscn" id="19_457qc"]
 [ext_resource type="PackedScene" uid="uid://qobe6hi48tk2" path="res://src/Actors/Pickups/Heart.tscn" id="22_5eoki"]
+[ext_resource type="PackedScene" uid="uid://drth8ww75s12g" path="res://src/UI/GameOverMenu.tscn" id="23_jf7ic"]
+[ext_resource type="Script" path="res://src/Levels/GameOverControlActions.gd" id="23_ytey4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m10tk"]
 size = Vector2(269, 20)
@@ -199,6 +201,28 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.352941)
 
 [node name="PauseMenu" parent="PauseLayer/Pause" instance=ExtResource("18_uqjcu")]
+layout_mode = 1
+
+[node name="GameOver" type="Control" parent="PauseLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("23_ytey4")
+
+[node name="ColorRect" type="ColorRect" parent="PauseLayer/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.352941)
+
+[node name="GameOverMenu" parent="PauseLayer/GameOver" instance=ExtResource("23_jf7ic")]
 layout_mode = 1
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

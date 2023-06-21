@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c33xtnrahwnke"]
+[gd_scene load_steps=27 format=3 uid="uid://c33xtnrahwnke"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_n1f7x"]
 [ext_resource type="AudioStream" uid="uid://cx0hvlg6vd7ld" path="res://src/Audio/TinyTimmyLabSongVersions/TinyTimmyLabSongV3.mp3" id="2_8wc1q"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://tacsbvhvcb28" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.tscn" id="22_34gis"]
 [ext_resource type="Script" path="res://src/Levels/ControlActions.gd" id="22_qbsqo"]
 [ext_resource type="PackedScene" uid="uid://b55bw7bvfwbtg" path="res://src/UI/PauseMenu.tscn" id="23_1tioy"]
+[ext_resource type="Script" path="res://src/Levels/GameOverControlActions.gd" id="24_xs8gd"]
+[ext_resource type="PackedScene" uid="uid://drth8ww75s12g" path="res://src/UI/GameOverMenu.tscn" id="25_vrhcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m10tk"]
 size = Vector2(269, 20)
@@ -199,6 +201,28 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.352941)
 
 [node name="PauseMenu" parent="PauseLayer/Pause" instance=ExtResource("23_1tioy")]
+layout_mode = 1
+
+[node name="GameOver" type="Control" parent="PauseLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("24_xs8gd")
+
+[node name="ColorRect" type="ColorRect" parent="PauseLayer/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.352941)
+
+[node name="GameOverMenu" parent="PauseLayer/GameOver" instance=ExtResource("25_vrhcd")]
 layout_mode = 1
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

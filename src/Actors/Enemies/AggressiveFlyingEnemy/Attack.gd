@@ -10,6 +10,9 @@ func process(delta: float) -> void:
 
 
 func physics_process(delta: float) -> void:
+	# Prevent crash when AggressiveFlyingEnemy is on screen when restarting level
+	if !PlayerVars.player:
+		return
 	var player_position = PlayerVars.player.position
 	var actor_position = actor.position
 	var normalized_direction = (player_position - actor_position).normalized()

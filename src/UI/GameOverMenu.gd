@@ -4,6 +4,7 @@ extends Control
 @onready var quit_button = $"Panel/Inner Panel/VBoxContainer/Quit"
 @onready var fullscreen_toggle = $"Panel/Inner Panel/VBoxContainer/FullscreenToggle"
 @onready var credits_button = $"Panel/Inner Panel/VBoxContainer/Credits"
+@onready var score_label = $"Panel/Inner Panel/ScoreLabel"
 
 func _ready() -> void:
 	# Hide the Quit button if the game runs in a web browser
@@ -12,10 +13,10 @@ func _ready() -> void:
 		fullscreen_toggle.hide()
 	
 	var con_res
-
-func _on_play_pressed() -> void:
-	get_tree().paused = false
-	get_parent().visible = false
+	
+	if not Global.is_connected("player_defeated", _on_player_defeated):
+		con_res = Global.connect("player_defeated", _on_player_defeated)
+		assert(con_res == OK)
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
@@ -30,3 +31,8 @@ func _on_credits_pressed() -> void:
 func _on_restart_level_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+func _on_player_defeated() -> void:
+	score_label.text = "Score: " + var_to_str(PlayerVars.level_score)
+	get_tree().paused = true
+	get_parent().visible = true
