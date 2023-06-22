@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://tacsbvhvcb28"]
+[gd_scene load_steps=17 format=3 uid="uid://tacsbvhvcb28"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.gd" id="1_dmrst"]
 [ext_resource type="Texture2D" uid="uid://bnjc1yj4gflpy" path="res://src/Sprites/LabBoss_Head.png" id="2_ucwdv"]
 [ext_resource type="Texture2D" uid="uid://d1xhappbfypjy" path="res://src/Sprites/LabBoss-LeftHand.png" id="3_bkrh5"]
 [ext_resource type="Texture2D" uid="uid://c2xs04rhbtow8" path="res://src/Sprites/LabBoss-RightHand.png" id="3_d2nke"]
 [ext_resource type="Script" path="res://src/Actors/FSM/AIFSM.gd" id="3_wi13v"]
-[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogIdle.gd" id="4_g7mjl"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightHand.gd" id="4_1rkhc"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RobotIdle.gd" id="6_gshw5"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistTell.gd" id="7_r0f43"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistAttack.gd" id="8_c0xud"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistReturn.gd" id="10_6xxhf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_irbtk"]
 animations = [{
@@ -79,6 +83,7 @@ shape = SubResource("CapsuleShape2D_c6bvj")
 
 [node name="RightHand" type="CharacterBody2D" parent="."]
 position = Vector2(277, 1)
+script = ExtResource("4_1rkhc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RightHand"]
 position = Vector2(59, 44)
@@ -100,7 +105,16 @@ script = ExtResource("3_wi13v")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="AIFSM"]
-script = ExtResource("4_g7mjl")
+script = ExtResource("6_gshw5")
+
+[node name="RightFistTell" type="Node" parent="AIFSM"]
+script = ExtResource("7_r0f43")
+
+[node name="RightFistAttack" type="Node" parent="AIFSM/RightFistTell"]
+script = ExtResource("8_c0xud")
+
+[node name="RightFistReturn" type="Node" parent="AIFSM/RightFistTell/RightFistAttack"]
+script = ExtResource("10_6xxhf")
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 293.0

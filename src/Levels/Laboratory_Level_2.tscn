@@ -226,3 +226,5 @@ color = Color(1, 1, 1, 0.352941)
 layout_mode = 1
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+
+[editable path="MainLayer/SubViewportContainer/PixelViewport/Boss"]

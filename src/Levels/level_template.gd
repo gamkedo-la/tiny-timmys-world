@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	
 #	ui_manager.score = level_score
 #	ui_manager.progress = level_progress
-	if PlayerVars.level_progress >= 75:
+	if PlayerVars.level_progress >= 0:
 		#Time for the boss to spawn
 		#ui_manager.level_won = true
 		boss.process_mode = Node.PROCESS_MODE_INHERIT
