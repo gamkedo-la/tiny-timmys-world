@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://tacsbvhvcb28"]
+[gd_scene load_steps=20 format=3 uid="uid://tacsbvhvcb28"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.gd" id="1_dmrst"]
 [ext_resource type="Texture2D" uid="uid://bnjc1yj4gflpy" path="res://src/Sprites/LabBoss_Head.png" id="2_ucwdv"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistTell.gd" id="7_r0f43"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistAttack.gd" id="8_c0xud"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistReturn.gd" id="10_6xxhf"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistTell.gd" id="11_1oef4"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistAttack.gd" id="12_rtmkk"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistReturn.gd" id="13_ey4kr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_irbtk"]
 animations = [{
@@ -70,6 +73,7 @@ animation = &"Idle"
 frame_progress = 0.748476
 
 [node name="LeftHand" type="CharacterBody2D" parent="."]
+script = ExtResource("4_1rkhc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftHand"]
 position = Vector2(70, 44)
@@ -115,6 +119,15 @@ script = ExtResource("8_c0xud")
 
 [node name="RightFistReturn" type="Node" parent="AIFSM/RightFistTell/RightFistAttack"]
 script = ExtResource("10_6xxhf")
+
+[node name="LeftFistTell" type="Node" parent="AIFSM"]
+script = ExtResource("11_1oef4")
+
+[node name="LeftFistAttack" type="Node" parent="AIFSM/LeftFistTell"]
+script = ExtResource("12_rtmkk")
+
+[node name="LeftFistReturn" type="Node" parent="AIFSM/LeftFistTell/LeftFistAttack"]
+script = ExtResource("13_ey4kr")
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 293.0
