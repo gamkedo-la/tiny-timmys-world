@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://tacsbvhvcb28"]
+[gd_scene load_steps=24 format=3 uid="uid://tacsbvhvcb28"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.gd" id="1_dmrst"]
 [ext_resource type="Texture2D" uid="uid://bnjc1yj4gflpy" path="res://src/Sprites/LabBoss_Head.png" id="2_ucwdv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2xs04rhbtow8" path="res://src/Sprites/LabBoss-RightHand.png" id="3_d2nke"]
 [ext_resource type="Script" path="res://src/Actors/FSM/AIFSM.gd" id="3_wi13v"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightHand.gd" id="4_1rkhc"]
+[ext_resource type="Texture2D" uid="uid://6i6amfk57ujl" path="res://src/Sprites/laser.png" id="6_4rspb"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RobotIdle.gd" id="6_gshw5"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistTell.gd" id="7_r0f43"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistAttack.gd" id="8_c0xud"]
@@ -109,10 +110,15 @@ position = Vector2(202, 39)
 [node name="LaserLeftLine" type="Line2D" parent="Laser"]
 position = Vector2(-24, -2)
 default_color = Color(0.956863, 0.87451, 0.290196, 1)
+texture = ExtResource("6_4rspb")
+texture_mode = 1
 
 [node name="LaserRightLine" type="Line2D" parent="Laser"]
 position = Vector2(18, -2)
 default_color = Color(0.956863, 0.87451, 0.290196, 1)
+texture = ExtResource("6_4rspb")
+texture_mode = 1
+joint_mode = 2
 
 [node name="LaserRightTip" type="Area2D" parent="Laser"]
 position = Vector2(18, -2)
