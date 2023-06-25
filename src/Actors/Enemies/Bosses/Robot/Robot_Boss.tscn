@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://tacsbvhvcb28"]
+[gd_scene load_steps=23 format=3 uid="uid://tacsbvhvcb28"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.gd" id="1_dmrst"]
 [ext_resource type="Texture2D" uid="uid://bnjc1yj4gflpy" path="res://src/Sprites/LabBoss_Head.png" id="2_ucwdv"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistTell.gd" id="11_1oef4"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistAttack.gd" id="12_rtmkk"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistReturn.gd" id="13_ey4kr"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LaserTell.gd" id="14_03vck"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LaserAttack.gd" id="15_1eiql"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_irbtk"]
 animations = [{
@@ -50,6 +52,8 @@ animations = [{
 "name": &"Idle",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04t2a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iro8v"]
 radius = 6.28488
@@ -100,10 +104,27 @@ scale = Vector2(1.16436, 1.54531)
 shape = SubResource("CapsuleShape2D_c6bvj")
 
 [node name="Laser" type="Node2D" parent="."]
+position = Vector2(202, 39)
 
-[node name="LayerLeftLine" type="Line2D" parent="Laser"]
+[node name="LaserLeftLine" type="Line2D" parent="Laser"]
+position = Vector2(-24, -2)
+default_color = Color(0.956863, 0.87451, 0.290196, 1)
 
 [node name="LaserRightLine" type="Line2D" parent="Laser"]
+position = Vector2(18, -2)
+default_color = Color(0.956863, 0.87451, 0.290196, 1)
+
+[node name="LaserRightTip" type="Area2D" parent="Laser"]
+position = Vector2(18, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserRightTip"]
+shape = SubResource("CircleShape2D_04t2a")
+
+[node name="LaserLeftTip" type="Area2D" parent="Laser"]
+position = Vector2(-24, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserLeftTip"]
+shape = SubResource("CircleShape2D_04t2a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(199, 39)
@@ -135,13 +156,17 @@ script = ExtResource("12_rtmkk")
 [node name="LeftFistReturn" type="Node" parent="AIFSM/LeftFistTell/LeftFistAttack"]
 script = ExtResource("13_ey4kr")
 
+[node name="LaserTell" type="Node" parent="AIFSM"]
+script = ExtResource("14_03vck")
+
+[node name="LaserAttack" type="Node" parent="AIFSM/LaserTell"]
+script = ExtResource("15_1eiql")
+
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 293.0
 offset_top = 24.0
 offset_right = 395.0
 offset_bottom = 47.0
-
-[node name="Flies" type="Node2D" parent="."]
 
 [node name="BulletDetector" type="Area2D" parent="."]
 position = Vector2(358, 70)

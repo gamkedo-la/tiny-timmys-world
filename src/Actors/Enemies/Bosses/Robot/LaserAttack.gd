@@ -1,7 +1,7 @@
 extends AIState
 
+var laser_fired = false
 @onready var RNG = RandomNumberGenerator.new()
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta: float) -> void:
 	state_check()
@@ -10,26 +10,23 @@ func process(delta: float) -> void:
 
 
 func physics_process(delta: float) -> void:
+	if !laser_fired:
+		actor.fire_laser(PlayerVars.player.global_position)
+		laser_fired = true
 	actor.physics_process(delta)
 
 
 func state_check()->void:
-	if time_in_state > 2.0:
-		var chance = RNG.randf_range(0.0, 1.0)
-		if chance > 0.75:		
-			_ai_state_machine.transition_to('RightFistTell', {})
-		elif chance > 0.5 :		
-			_ai_state_machine.transition_to('LeftFistTell', {})
-		elif chance > 0.25:
-			_ai_state_machine.transition_to('LaserTell', {})
+	if time_in_state > 3.0 && laser_fired:
+		_ai_state_machine.transition_to('Idle', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
-	RNG.randomize()
-	actor.ani_player_play("Idle")
-
+#	actor.ani_player_play("Idle")
+	laser_fired = false
 	time_in_state = 0.0
 	pass
 
 func exit() -> void:
+	actor.retract_laser()
 	pass
