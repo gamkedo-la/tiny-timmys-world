@@ -1,6 +1,7 @@
 extends Control
 
 @export var level_scene: PackedScene
+@export var level_selection_scene: PackedScene
 @onready var quit_button = $Panel/VBoxContainer/Quit
 @onready var fullscreen_toggle = $Panel/VBoxContainer/FullscreenToggle
 @onready var credits_button = $Panel/VBoxContainer/Credits
@@ -27,3 +28,7 @@ func _on_fullscreen_toggle_toggled(button_pressed: bool) -> void:
 
 func _on_credits_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_level_selection_pressed():
+	get_tree().change_scene_to_packed(level_selection_scene)

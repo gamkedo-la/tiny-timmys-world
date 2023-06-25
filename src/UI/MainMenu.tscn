@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=8 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
+[ext_resource type="PackedScene" uid="uid://dkx53enp42505" path="res://src/UI/LevelSelection.tscn" id="3_i4pdq"]
 [ext_resource type="Texture2D" uid="uid://krjsuta708dh" path="res://src/Map Objects/Plax/bg_garden.png" id="3_s5i17"]
 [ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="4_rsked"]
 [ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="5_54erd"]
@@ -17,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c6sew")
 level_scene = ExtResource("2_gg8ts")
+level_selection_scene = ExtResource("3_i4pdq")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
