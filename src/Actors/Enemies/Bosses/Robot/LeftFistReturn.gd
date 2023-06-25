@@ -34,7 +34,7 @@ func state_check()->void:
 
 func enter(msg:Dictionary = {}) -> void:
 	RNG.randomize()
-
+	is_back_in_position = false	
 	time_in_state = 0.0
 	pass
 
