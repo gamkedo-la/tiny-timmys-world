@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwhdrgb7sd3pd"]
+
+[ext_resource type="Texture2D" uid="uid://6i6amfk57ujl" path="res://src/Sprites/laser.png" id="1_k6u6g"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e7h08"]
+diffuse_texture = ExtResource("1_k6u6g")
+texture_repeat = 2
+
+[node name="Laser" type="Node2D"]
+position = Vector2(202, 39)
+
+[node name="LaserLeftLine" type="Line2D" parent="."]
+position = Vector2(-24, -2)
+rotation = -0.127409
+points = PackedVector2Array(2.6723, 18.4894, 0, -6, -1, -13, -2, -19, 17.4197, -17.9319, 45.6764, -10.2795, 49.9759, 3.37755)
+texture = SubResource("CanvasTexture_e7h08")
+texture_mode = 1
+joint_mode = 2
