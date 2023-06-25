@@ -6,6 +6,7 @@ extends AIActor
 @onready var ai_finite_state_machine = $AIFSM
 
 var is_in_position: bool = false
+var fist_is_back_in_position: bool = false
 var get_in_position_speed = 1000.0
 
 func _ready():
@@ -30,7 +31,9 @@ func physics_process(delta: float) -> void:
 		else:
 			velocity.x = get_in_position_speed * delta
 	velocity.y = 0
-	move_and_slide()
+	
+	if not is_in_position:
+		move_and_slide()
 	
 	is_in_position = (round(position.x) == 0)
 		
@@ -38,6 +41,28 @@ func physics_process(delta: float) -> void:
 
 func ani_player_play(anim: String) -> void:
 	_animated_sprite.play(anim)
+	
+
+func fist_launch(fist: String) -> void:
+	var player_position = PlayerVars.player.position
+	var hand = get_node(fist)
+	var hand_position = hand.position
+	var normalized_direction = (player_position - hand_position).normalized()
+	hand.velocity.x = hand.SPEED * normalized_direction.x
+	hand.velocity.y = hand.SPEED * normalized_direction.y
+	hand.move_and_slide()
+	
+func fist_return(fist: String) -> void:
+	var hand = get_node(fist)
+	var hand_initial_position = hand.initial_position
+	var hand_position = hand.position
+	var normalized_direction = (hand_initial_position - hand_position).normalized()
+	hand.velocity.x = hand.SPEED * normalized_direction.x
+	hand.velocity.y = hand.SPEED * normalized_direction.y
+	hand.move_and_slide()
+	
+	if(round(hand_position.y) == hand_initial_position.y):
+		fist_is_back_in_position = true
 
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:

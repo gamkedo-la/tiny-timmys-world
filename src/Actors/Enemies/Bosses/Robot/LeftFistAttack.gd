@@ -12,13 +12,7 @@ func process(delta: float) -> void:
 func physics_process(delta: float) -> void:
 	if !PlayerVars.player:
 		return
-	var player_position = PlayerVars.player.position
-	var hand = actor.get_node("LeftHand")
-	var hand_position = hand.position
-	var normalized_direction = (player_position - hand_position).normalized()
-	hand.velocity.x = hand.SPEED * normalized_direction.x
-	hand.velocity.y = hand.SPEED * normalized_direction.y
-	hand.move_and_slide()
+	actor.fist_launch("LeftHand")
 		
 	actor.physics_process(delta)
 

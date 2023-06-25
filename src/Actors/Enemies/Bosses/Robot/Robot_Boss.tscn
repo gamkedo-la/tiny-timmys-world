@@ -99,6 +99,12 @@ position = Vector2(64, 39)
 scale = Vector2(1.16436, 1.54531)
 shape = SubResource("CapsuleShape2D_c6bvj")
 
+[node name="Laser" type="Node2D" parent="."]
+
+[node name="LayerLeftLine" type="Line2D" parent="Laser"]
+
+[node name="LaserRightLine" type="Line2D" parent="Laser"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(199, 39)
 scale = Vector2(6.58811, 8.27383)
