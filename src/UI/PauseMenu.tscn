@@ -125,6 +125,11 @@ text = "Credits"
 layout_mode = 2
 text = "Quit"
 
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1440.0
+
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Resume Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
 [connection signal="toggled" from="Panel/Inner Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
