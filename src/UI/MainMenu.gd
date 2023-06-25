@@ -5,7 +5,6 @@ extends Control
 @onready var fullscreen_toggle = $Panel/VBoxContainer/FullscreenToggle
 @onready var credits_button = $Panel/VBoxContainer/Credits
 @onready var parallax = $ParallaxBackground
-@onready var play_pressed_button = "res://src/UI/play_button_pressed.png"
 var parallax_bg_velocity = 1
 
 func _ready() -> void:
@@ -18,7 +17,6 @@ func _process(delta: float) -> void:
 	parallax.scroll_base_offset.x -= parallax_bg_velocity
 
 func _on_play_pressed() -> void:
-	$Panel/VBoxContainer/Play.icon = play_pressed_button
 	get_tree().change_scene_to_packed(level_scene)
 
 func _on_quit_pressed() -> void:
