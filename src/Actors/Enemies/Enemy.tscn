@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://c55cwuqj7ofxd"]
+[gd_scene load_steps=13 format=3 uid="uid://c55cwuqj7ofxd"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Enemy.gd" id="1_su7ia"]
 [ext_resource type="Texture2D" uid="uid://hp2dtncnhrp5" path="res://src/Sprites/Enemy_Beetle.png" id="2_3casd"]
+[ext_resource type="Shader" path="res://src/Shaders/passthrough.gdshader" id="2_wkjvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
 size = Vector2(17.5, 8.94738)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evq8g"]
+shader = ExtResource("2_wkjvm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0twr"]
 size = Vector2(21.3044, 7.80853)
@@ -329,6 +333,7 @@ shape = SubResource("RectangleShape2D_u60ad")
 
 [node name="Enemy" type="Sprite2D" parent="Body"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_evq8g")
 position = Vector2(0, -13.25)
 texture = ExtResource("2_3casd")
 
