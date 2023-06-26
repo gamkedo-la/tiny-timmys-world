@@ -75,7 +75,12 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Tiny Timmy's World"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Inner Panel"]
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1440.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,20 +94,20 @@ offset_bottom = 98.9996
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume Play" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="Resume Play" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Resume Play"
 
-[node name="Restart Level" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="Restart Level" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Restart Level"
 
-[node name="ColorRect" type="ColorRect" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(0.156863, 0.156863, 0.156863, 0.792157)
 
-[node name="FullscreenToggle" type="CheckButton" parent="Panel/Inner Panel/VBoxContainer/ColorRect"]
+[node name="FullscreenToggle" type="CheckButton" parent="Panel/VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -117,21 +122,16 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Fullscreen"
 
-[node name="Credits" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="Credits" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Quit" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1440.0
-
-[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Resume Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
-[connection signal="toggled" from="Panel/Inner Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
-[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Resume Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
+[connection signal="toggled" from="Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
