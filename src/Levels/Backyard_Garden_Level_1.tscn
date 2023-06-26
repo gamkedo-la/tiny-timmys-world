@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
 [ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="2_li4cr"]
 [ext_resource type="PackedScene" uid="uid://b6vsdmywkrf25" path="res://src/Levels/UIManager.tscn" id="2_uf821"]
-[ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="3_jc4ji"]
+[ext_resource type="PackedScene" uid="uid://dc3cv7tfrx24v" path="res://src/Actors/player.tscn" id="3_jc4ji"]
 [ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="3_tdai4"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="4_1p7qk"]
 [ext_resource type="Texture2D" uid="uid://krjsuta708dh" path="res://src/Map Objects/Plax/bg_garden.png" id="4_mdjka"]
