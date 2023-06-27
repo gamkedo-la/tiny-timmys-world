@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://hymhaj8chdx2"]
+[gd_scene load_steps=7 format=3 uid="uid://hymhaj8chdx2"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/EnemyManager.gd" id="1_ny2sp"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="2_he7db"]
 [ext_resource type="PackedScene" uid="uid://b0fkctkp6qwcs" path="res://src/Actors/Enemies/FlyingEnemy.tscn" id="3_xgnck"]
 [ext_resource type="PackedScene" uid="uid://cx2mog32vlxi4" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/AggressiveFlyingEnemy.tscn" id="4_7wpdq"]
+[ext_resource type="PackedScene" uid="uid://wem84dkt02sc" path="res://src/Actors/Enemies/RedAnt.tscn" id="5_v80ak"]
+[ext_resource type="PackedScene" uid="uid://yljn1kjipesb" path="res://src/Actors/Enemies/BlackAnt.tscn" id="6_vo8y7"]
 
 [node name="EnemyManager" type="Node2D"]
 script = ExtResource("1_ny2sp")
-enemies = Array[PackedScene]([ExtResource("2_he7db"), ExtResource("3_xgnck"), ExtResource("4_7wpdq")])
+enemies = Array[PackedScene]([ExtResource("2_he7db"), ExtResource("3_xgnck"), ExtResource("4_7wpdq"), ExtResource("5_v80ak"), ExtResource("6_vo8y7")])
 timer_time = 4.0
 
 [node name="EnemyTimer" type="Timer" parent="."]
