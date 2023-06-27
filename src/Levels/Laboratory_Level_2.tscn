@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c33xtnrahwnke"]
+[gd_scene load_steps=31 format=3 uid="uid://c33xtnrahwnke"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_n1f7x"]
 [ext_resource type="AudioStream" uid="uid://cx0hvlg6vd7ld" path="res://src/Audio/TinyTimmyLabSongVersions/TinyTimmyLabSongV3.mp3" id="2_8wc1q"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dise18b0038d7" path="res://src/Map Objects/Platforms/PlatformsManager.tscn" id="14_ac35q"]
 [ext_resource type="PackedScene" uid="uid://0rsx7h8oi6ou" path="res://src/Map Objects/Platforms/Lab Level/Lab_BigPlatform.tscn" id="15_oimkr"]
 [ext_resource type="PackedScene" uid="uid://qlfrs4ec1mw8" path="res://src/Map Objects/Platforms/Lab Level/Lab_MidPlatform.tscn" id="16_k8r7n"]
+[ext_resource type="PackedScene" uid="uid://xtf2drh4t6n8" path="res://src/Actors/Enemies/Lab_Enemies/AggressiveFlyingRobot.tscn" id="17_alqga"]
 [ext_resource type="PackedScene" uid="uid://hymhaj8chdx2" path="res://src/Actors/Enemies/EnemyManager.tscn" id="17_j7ey5"]
 [ext_resource type="PackedScene" uid="uid://m7m6v6rcn4mv" path="res://src/Actors/Enemies/Lab_Enemies/PassiveRobot_2.tscn" id="18_7mav8"]
 [ext_resource type="PackedScene" uid="uid://b2hqdy1pq7eiq" path="res://src/Actors/Enemies/Lab_Enemies/PassiveRobot.tscn" id="18_ohlfr"]
@@ -127,7 +128,7 @@ platforms = Array[PackedScene]([ExtResource("15_oimkr"), ExtResource("16_k8r7n")
 
 [node name="EnemyManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("17_j7ey5")]
 position = Vector2(267, 52)
-enemies = Array[PackedScene]([ExtResource("19_x8sbj"), ExtResource("18_ohlfr"), ExtResource("18_7mav8")])
+enemies = Array[PackedScene]([ExtResource("17_alqga"), ExtResource("19_x8sbj"), ExtResource("18_ohlfr"), ExtResource("18_7mav8")])
 
 [node name="PickupManager" parent="MainLayer/SubViewportContainer/PixelViewport" instance=ExtResource("18_vpkr4")]
 position = Vector2(267, 52)
