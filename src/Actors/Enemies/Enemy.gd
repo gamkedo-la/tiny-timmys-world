@@ -18,7 +18,7 @@ func _ready() -> void:
 		debug_label.visible = false
 	velocity.x = dir.x * SPEED
 
-func _on_stomp_detecter_body_entered(body: Node2D) -> void:
+func _on_stomp_detector_body_entered(body: Node2D) -> void:
 	print_debug("Stomped")
 	print_debug("body global position ", body.global_position.y, " stomp_detector y ", stomp_detector.global_position.y)
 #	print_debug("body.global_position.y: ", body.global_position.y)
@@ -48,7 +48,8 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 		Global.emit_signal("enemy_defeated", position)
 		anim_player.play("shot_pop")
 
-func _on_turn_detecter_body_entered(body: Node2D) -> void:
+func _on_turn_detector_body_entered(body: Node2D) -> void:
+	print_debug("turn")
 	if leave_counter > 0:
 		leave_counter -= 1
 		if leave_counter == 0:

@@ -391,3 +391,7 @@ offset_right = 21.25
 offset_bottom = -27.75
 text = "n"
 label_settings = SubResource("LabelSettings_2jiq5")
+
+[connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detector_body_entered"]
+[connection signal="area_entered" from="Body/BulletDetector" to="." method="_on_bullet_detector_area_entered"]
+[connection signal="body_entered" from="Body/TurnDetector" to="." method="_on_turn_detector_body_entered"]
