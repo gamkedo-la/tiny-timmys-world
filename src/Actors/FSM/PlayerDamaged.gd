@@ -36,11 +36,9 @@ func state_check()->void:
 func enter(msg:Dictionary = {}) -> void:
 	player.animation_player.play("Damaged")
 	player.sprite.material.shader = load("res://src/Shaders/RedShader.gdshader")
-	print_debug("Entering damaged")
 	time_elapsed = 0
 
 func exit() -> void:
 	player.animation_player.stop()
 	player.sprite.material.shader = load("res://src/Shaders/player.gdshader")
-	print_debug("Exiting damaged")
 	player.is_damaged = false

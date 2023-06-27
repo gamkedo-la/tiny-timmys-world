@@ -19,7 +19,8 @@ func _ready() -> void:
 	velocity.x = dir.x * SPEED
 
 func _on_stomp_detecter_body_entered(body: Node2D) -> void:
-#	print_debug("Stomped")
+	print_debug("Stomped")
+	print_debug("body global position ", body.global_position.y, " stomp_detector y ", stomp_detector.global_position.y)
 #	print_debug("body.global_position.y: ", body.global_position.y)
 #	print_debug("stomp_detector.global_position.y: ", stomp_detector.global_position.y)
 	if(body.global_position.y > stomp_detector.global_position.y) :
@@ -38,6 +39,7 @@ func _on_stomp_detecter_body_entered(body: Node2D) -> void:
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
 #	print_debug(area.name)
+	print_debug("Bullet")
 	health -= PlayerVars.player_slingshot_damage
 	Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * self.position))
 	

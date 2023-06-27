@@ -47,10 +47,7 @@ func predict_land() -> void:
 #	player.lndseek.enabled = false
 
 func enter(msg:Dictionary = {}) -> void:
-	print_debug("Entering Stomp")
 	time_elapsed = 0
 
 func exit() -> void:
-
-	print_debug("Exiting Stomp")
 	player.is_stomping = false
