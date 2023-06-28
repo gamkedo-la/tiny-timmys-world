@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=11 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
 [ext_resource type="PackedScene" uid="uid://dkx53enp42505" path="res://src/UI/LevelSelection.tscn" id="3_i4pdq"]
 [ext_resource type="Texture2D" uid="uid://krjsuta708dh" path="res://src/Map Objects/Plax/bg_garden.png" id="3_s5i17"]
+[ext_resource type="Texture2D" uid="uid://t4uj5x4ppsw6" path="res://src/UI/play_button.png" id="4_h8edh"]
 [ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="4_rsked"]
 [ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="5_54erd"]
+[ext_resource type="Texture2D" uid="uid://cfj8rasfkp8x" path="res://src/UI/play_button_pressed.png" id="5_fjbfa"]
+[ext_resource type="Texture2D" uid="uid://cynu6r2l6m1ej" path="res://src/UI/play_button_hover.png" id="6_po3om"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
@@ -77,6 +80,12 @@ text = "Credits"
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_h8edh")
+texture_pressed = ExtResource("5_fjbfa")
+texture_hover = ExtResource("6_po3om")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(4, 4)
