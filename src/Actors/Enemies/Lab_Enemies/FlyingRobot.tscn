@@ -12,6 +12,22 @@ size = Vector2(20.1992, 8.125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkaph"]
 size = Vector2(12.5001, 7.24639)
 
+[sub_resource type="Animation" id="Animation_mfecw"]
+resource_name = "Flying"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Enemy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="Animation" id="Animation_i1uf8"]
 length = 0.001
 tracks/0/type = "value"
@@ -315,22 +331,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_mfecw"]
-resource_name = "Flying"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Enemy:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qxud0"]
