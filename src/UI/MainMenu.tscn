@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=14 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="5_54erd"]
 [ext_resource type="Texture2D" uid="uid://cfj8rasfkp8x" path="res://src/UI/play_button_pressed.png" id="5_fjbfa"]
 [ext_resource type="Texture2D" uid="uid://cynu6r2l6m1ej" path="res://src/UI/play_button_hover.png" id="6_po3om"]
+[ext_resource type="Texture2D" uid="uid://yd0prh2qrpw3" path="res://src/UI/levels_button.png" id="7_7bigp"]
+[ext_resource type="Texture2D" uid="uid://ccmjv6opindxg" path="res://src/UI/levels_button_hover.png" id="8_lxqrc"]
+[ext_resource type="Texture2D" uid="uid://bv7hxqpwoc7ir" path="res://src/UI/levels_button_pressed.png" id="8_ufe5l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
@@ -61,13 +64,17 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Button" parent="Panel/VBoxContainer"]
+[node name="Play" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Play"
+texture_normal = ExtResource("4_h8edh")
+texture_pressed = ExtResource("5_fjbfa")
+texture_hover = ExtResource("6_po3om")
 
-[node name="LevelSelection" type="Button" parent="Panel/VBoxContainer"]
+[node name="LevelSelection" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Level Selection"
+texture_normal = ExtResource("7_7bigp")
+texture_pressed = ExtResource("8_ufe5l")
+texture_hover = ExtResource("8_lxqrc")
 
 [node name="FullscreenToggle" type="CheckButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -80,12 +87,6 @@ text = "Credits"
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("4_h8edh")
-texture_pressed = ExtResource("5_fjbfa")
-texture_hover = ExtResource("6_po3om")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(4, 4)
