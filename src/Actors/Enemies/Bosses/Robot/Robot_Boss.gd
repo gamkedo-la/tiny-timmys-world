@@ -15,8 +15,8 @@ var fist_is_back_in_position: bool = false
 var get_in_position_speed = 1000.0
 
 func _ready():
-	PlayerVars.boss_health = 10000
-	PlayerVars.boss_max_health = 10000
+	PlayerVars.boss_health = 2000
+	PlayerVars.boss_max_health = 2000
 	PlayerVars.has_boss = true
 	velocity.y = 0
 	is_in_position = (round(position.x) == 0)
