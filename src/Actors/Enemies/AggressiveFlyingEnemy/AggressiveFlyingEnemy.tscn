@@ -7,13 +7,13 @@
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/Attack.gd" id="5_4x7cm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
-size = Vector2(17.5, 8.94738)
+size = Vector2(26.9738, 15.1316)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0twr"]
-size = Vector2(20.1992, 8.125)
+size = Vector2(24.8943, 8.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkaph"]
-size = Vector2(10.2273, 5.79711)
+size = Vector2(11.9318, 9.05799)
 
 [sub_resource type="Animation" id="Animation_i1uf8"]
 length = 0.001
@@ -326,7 +326,7 @@ collision_mask = 73
 script = ExtResource("1_4fflr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8.5)
+position = Vector2(0.625002, -14.375)
 scale = Vector2(1.89999, 1.9)
 shape = SubResource("RectangleShape2D_u60ad")
 
@@ -344,7 +344,7 @@ scale = Vector2(2.11, 1)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/StompDetector"]
-position = Vector2(-1.42109e-14, -3.75)
+position = Vector2(-0.0196068, -10)
 scale = Vector2(1.00106, 1.00106)
 shape = SubResource("RectangleShape2D_r0twr")
 
@@ -355,7 +355,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/BulletDetector"]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(2.68221e-06, -0.499999)
+position = Vector2(-4.76837e-06, -1.12499)
 scale = Vector2(4.39999, 3.44999)
 shape = SubResource("RectangleShape2D_fkaph")
 

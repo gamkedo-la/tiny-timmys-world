@@ -10,7 +10,7 @@ size = Vector2(42.1055, 21.0526)
 size = Vector2(31.9211, 15.5631)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkaph"]
-size = Vector2(18.75, 6.52176)
+size = Vector2(19.3182, 9.42032)
 
 [sub_resource type="Animation" id="Animation_i1uf8"]
 length = 0.001
@@ -185,7 +185,6 @@ shape = SubResource("RectangleShape2D_u60ad")
 
 [node name="Enemy" type="Sprite2D" parent="Body"]
 position = Vector2(10, -31.25)
-scale = Vector2(1, 1)
 texture = ExtResource("2_pv4o5")
 
 [node name="StompDetector" type="Area2D" parent="Body"]
@@ -195,8 +194,8 @@ scale = Vector2(2.11, 1)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/StompDetector"]
-position = Vector2(0.592417, -25)
-scale = Vector2(1.30912, 1.07215)
+position = Vector2(0.592417, -28.75)
+scale = Vector2(1.38021, 1.07215)
 shape = SubResource("RectangleShape2D_r0twr")
 
 [node name="BulletDetector" type="Area2D" parent="Body"]
@@ -206,7 +205,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/BulletDetector"]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(1.24999, -26.75)
+position = Vector2(-4.94718e-05, -21.75)
 scale = Vector2(4.39999, 3.44999)
 shape = SubResource("RectangleShape2D_fkaph")
 
@@ -244,6 +243,6 @@ text = "n"
 label_settings = SubResource("LabelSettings_jceyq")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detecter_body_entered"]
+[connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detector_body_entered"]
 [connection signal="area_entered" from="Body/BulletDetector" to="." method="_on_bullet_detector_area_entered"]
 [connection signal="body_entered" from="Body/TurnDetector" to="." method="_on_turn_detecter_body_entered"]
