@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=14 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://yd0prh2qrpw3" path="res://src/UI/levels_button.png" id="7_7bigp"]
 [ext_resource type="Texture2D" uid="uid://ccmjv6opindxg" path="res://src/UI/levels_button_hover.png" id="8_lxqrc"]
 [ext_resource type="Texture2D" uid="uid://bv7hxqpwoc7ir" path="res://src/UI/levels_button_pressed.png" id="8_ufe5l"]
+[ext_resource type="Texture2D" uid="uid://b06h2tmyb1kfc" path="res://src/UI/credits_button.png" id="11_5hpfk"]
 [ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="11_bai26"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
@@ -73,9 +74,9 @@ texture_hover = ExtResource("8_lxqrc")
 layout_mode = 2
 text = "Fullscreen"
 
-[node name="Credits" type="Button" parent="Panel/VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Credits"
+texture_normal = ExtResource("11_5hpfk")
 
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
