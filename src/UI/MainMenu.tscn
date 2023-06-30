@@ -43,21 +43,6 @@ offset_bottom = 1399.0
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("4_4p7we")
 
-[node name="Title" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -164.0
-offset_right = 80.0
-offset_bottom = -138.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Tiny Timmy's World"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
