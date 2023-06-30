@@ -7,6 +7,7 @@ signal screen_shake(val)
 signal player_damage_taken(val, pos)
 signal player_health_restored(val, pos)
 signal player_defeated()
+signal player_victorious()
 
 var LEVEL_SPEED: float = -20.0
 var show_debug_labels_enemies: bool = false

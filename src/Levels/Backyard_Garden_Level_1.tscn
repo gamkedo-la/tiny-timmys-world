@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://juubjo5hbwl0"]
+[gd_scene load_steps=28 format=3 uid="uid://juubjo5hbwl0"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://qobe6hi48tk2" path="res://src/Actors/Pickups/Heart.tscn" id="22_5eoki"]
 [ext_resource type="PackedScene" uid="uid://drth8ww75s12g" path="res://src/UI/GameOverMenu.tscn" id="23_jf7ic"]
 [ext_resource type="Script" path="res://src/Levels/GameOverControlActions.gd" id="23_ytey4"]
+[ext_resource type="Script" path="res://src/Levels/VictoryControl.gd" id="25_kcesf"]
+[ext_resource type="PackedScene" uid="uid://c6hl3n4acijf1" path="res://src/UI/VictoryMenu.tscn" id="26_1qf3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m10tk"]
 size = Vector2(269, 20)
@@ -223,6 +225,28 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.352941)
 
 [node name="GameOverMenu" parent="PauseLayer/GameOver" instance=ExtResource("23_jf7ic")]
+layout_mode = 1
+
+[node name="Victory" type="Control" parent="PauseLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25_kcesf")
+
+[node name="ColorRect" type="ColorRect" parent="PauseLayer/Victory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.352941)
+
+[node name="VictoryMenu" parent="PauseLayer/Victory" instance=ExtResource("26_1qf3y")]
 layout_mode = 1
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

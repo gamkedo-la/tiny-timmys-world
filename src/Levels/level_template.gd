@@ -27,6 +27,10 @@ func _ready() -> void:
 	if not Global.is_connected("enemy_defeated", spawn_heart_on_enemy_defeat):
 		con_res = Global.connect("enemy_defeated", spawn_heart_on_enemy_defeat)
 		assert(con_res == OK)
+		
+	if not Global.is_connected("enemy_defeated", spawn_heart_on_enemy_defeat):
+		con_res = Global.connect("enemy_defeated", spawn_heart_on_enemy_defeat)
+		assert(con_res == OK)
 	
 func _process(delta: float) -> void:
 	_update_elapsed_time(delta)
@@ -43,7 +47,8 @@ func _process(delta: float) -> void:
 	
 	if PlayerVars.boss_health <= 0:
 		print_debug("Victory!")
-	
+		Global.emit_signal("player_victorious")
+		
 
 #func _on_child_exiting_tree(node: Node) -> void:
 #	if node.is_in_group("enemy"):
