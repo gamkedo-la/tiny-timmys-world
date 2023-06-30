@@ -9,6 +9,7 @@ extends Node2D
 @onready var ui_manager: Node2D = $MainLayer/UIManager
 @onready var boss: Node2D = $MainLayer/SubViewportContainer/PixelViewport/Boss
 @onready var pixel_viewport: SubViewport = $MainLayer/SubViewportContainer/PixelViewport
+@onready var enemy_manager_timer: Timer = $MainLayer/SubViewportContainer/PixelViewport/EnemyManager/EnemyTimer
 @export var heart: PackedScene
 @onready var RNG = RandomNumberGenerator.new()
 
@@ -34,10 +35,15 @@ func _process(delta: float) -> void:
 	
 #	ui_manager.score = level_score
 #	ui_manager.progress = level_progress
-	if PlayerVars.level_progress >= 0:
+	if PlayerVars.level_progress >= 75:
 		#Time for the boss to spawn
 		#ui_manager.level_won = true
 		boss.process_mode = Node.PROCESS_MODE_INHERIT
+		enemy_manager_timer.wait_time = 5.0
+	
+	if PlayerVars.boss_health <= 0:
+		print_debug("Victory!")
+	
 
 #func _on_child_exiting_tree(node: Node) -> void:
 #	if node.is_in_group("enemy"):

@@ -11,10 +11,10 @@ size = Vector2(17.5, 8.94738)
 shader = ExtResource("2_wkjvm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0twr"]
-size = Vector2(21.3044, 7.80853)
+size = Vector2(16.2911, 7.80853)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkaph"]
-size = Vector2(10.2273, 5.79711)
+size = Vector2(10.7955, 5.79711)
 
 [sub_resource type="Animation" id="Animation_i1uf8"]
 length = 0.001
@@ -344,7 +344,7 @@ scale = Vector2(2.11, 1)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/StompDetector"]
-position = Vector2(0, -3.75)
+position = Vector2(2.11865e-07, -5)
 scale = Vector2(1.30912, 1.07215)
 shape = SubResource("RectangleShape2D_r0twr")
 
@@ -355,7 +355,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/BulletDetector"]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(2.68221e-06, -0.499999)
+position = Vector2(3.76254e-06, -0.5)
 scale = Vector2(4.39999, 3.44999)
 shape = SubResource("RectangleShape2D_fkaph")
 
@@ -367,7 +367,7 @@ collision_layer = 2
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/TurnDetector"]
-position = Vector2(-5.12007e-07, 2.3416)
+position = Vector2(0, 6.25)
 scale = Vector2(1.00106, 1.00106)
 shape = SubResource("RectangleShape2D_r0twr")
 
