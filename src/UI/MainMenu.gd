@@ -5,17 +5,17 @@ extends Control
 @onready var quit_button = $Panel/VBoxContainer/Quit
 @onready var fullscreen_toggle = $Panel/VBoxContainer/FullscreenToggle
 @onready var credits_button = $Panel/VBoxContainer/Credits
-@onready var parallax = $ParallaxBackground
-var parallax_bg_velocity = 1
+@onready var audio_stream_player = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	# Hide the Quit button if the game runs in a web browser
 	if OS.has_feature("web"):
 		quit_button.hide()
 		fullscreen_toggle.hide()
+	audio_stream_player.play()
 
 func _process(delta: float) -> void:
-	parallax.scroll_base_offset.x -= parallax_bg_velocity
+	pass
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(level_scene)

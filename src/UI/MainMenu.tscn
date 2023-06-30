@@ -1,17 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=13 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
 [ext_resource type="PackedScene" uid="uid://dkx53enp42505" path="res://src/UI/LevelSelection.tscn" id="3_i4pdq"]
-[ext_resource type="Texture2D" uid="uid://krjsuta708dh" path="res://src/Map Objects/Plax/bg_garden.png" id="3_s5i17"]
+[ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="4_4p7we"]
 [ext_resource type="Texture2D" uid="uid://t4uj5x4ppsw6" path="res://src/UI/play_button.png" id="4_h8edh"]
-[ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="4_rsked"]
-[ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="5_54erd"]
 [ext_resource type="Texture2D" uid="uid://cfj8rasfkp8x" path="res://src/UI/play_button_pressed.png" id="5_fjbfa"]
 [ext_resource type="Texture2D" uid="uid://cynu6r2l6m1ej" path="res://src/UI/play_button_hover.png" id="6_po3om"]
 [ext_resource type="Texture2D" uid="uid://yd0prh2qrpw3" path="res://src/UI/levels_button.png" id="7_7bigp"]
 [ext_resource type="Texture2D" uid="uid://ccmjv6opindxg" path="res://src/UI/levels_button_hover.png" id="8_lxqrc"]
 [ext_resource type="Texture2D" uid="uid://bv7hxqpwoc7ir" path="res://src/UI/levels_button_pressed.png" id="8_ufe5l"]
+[ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="11_bai26"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
@@ -34,6 +33,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y0dfi")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -56.0
+offset_top = -41.0
+offset_right = 1864.0
+offset_bottom = 1399.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_4p7we")
 
 [node name="Title" type="Label" parent="Panel"]
 layout_mode = 1
@@ -88,43 +96,8 @@ text = "Credits"
 layout_mode = 2
 text = "Quit"
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scale = Vector2(4, 4)
-transform = Transform2D(4, 0, 0, 4, 0, 0)
-scroll_base_scale = Vector2(1, 2.08165e-12)
-
-[node name="Rear" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-204, 133)
-motion_scale = Vector2(0.5, 0.5)
-motion_offset = Vector2(100, 0)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rear"]
-position = Vector2(0, -32.75)
-texture = ExtResource("3_s5i17")
-
-[node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-204, 133)
-motion_scale = Vector2(0.75, 0.75)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mid"]
-texture = ExtResource("5_54erd")
-
-[node name="Fore" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-204, 133)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fore"]
-texture = ExtResource("4_rsked")
-
-[node name="Fore2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-202, 133)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fore2"]
-texture = ExtResource("4_rsked")
-flip_h = true
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_bai26")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/LevelSelection" to="." method="_on_level_selection_pressed"]
