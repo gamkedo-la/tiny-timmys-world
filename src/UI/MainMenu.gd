@@ -12,7 +12,7 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		quit_button.hide()
 		fullscreen_toggle.hide()
-	audio_stream_player.play()
+	#audio_stream_player.play()
 
 func _process(delta: float) -> void:
 	pass

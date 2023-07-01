@@ -8,7 +8,9 @@ func _ready() -> void:
 	if not level_bgm.is_connected("finished", restart_bgm):
 		con_res = level_bgm.connect("finished", restart_bgm)
 		assert(con_res == OK)
-	pass # Replace with function body.
+	
+	if (level_bgm):
+		level_bgm.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
