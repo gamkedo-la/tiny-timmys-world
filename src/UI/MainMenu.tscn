@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=19 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
@@ -14,6 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="11_bai26"]
 [ext_resource type="Texture2D" uid="uid://ltlnnk1yvltt" path="res://src/UI/credits_button_pressed.png" id="12_ta6cj"]
 [ext_resource type="Texture2D" uid="uid://jdrir31ephk6" path="res://src/UI/credits_button_hover.png" id="13_fbb4u"]
+[ext_resource type="Texture2D" uid="uid://d0vub352250oh" path="res://src/UI/quit_button.png" id="14_3x06v"]
+[ext_resource type="Texture2D" uid="uid://d1mdg1f64poqr" path="res://src/UI/quit_button_pressed.png" id="15_n12s1"]
+[ext_resource type="Texture2D" uid="uid://dnkest8gfuara" path="res://src/UI/quit_button_hover.png" id="16_5fkmv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
@@ -82,9 +85,11 @@ texture_normal = ExtResource("11_5hpfk")
 texture_pressed = ExtResource("12_ta6cj")
 texture_hover = ExtResource("13_fbb4u")
 
-[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+texture_normal = ExtResource("14_3x06v")
+texture_pressed = ExtResource("15_n12s1")
+texture_hover = ExtResource("16_5fkmv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_bai26")
