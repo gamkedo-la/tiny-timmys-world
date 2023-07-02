@@ -31,6 +31,8 @@ func _ready() -> void:
 	if not Global.is_connected("enemy_defeated", spawn_heart_on_enemy_defeat):
 		con_res = Global.connect("enemy_defeated", spawn_heart_on_enemy_defeat)
 		assert(con_res == OK)
+		
+	enemy_manager_timer.wait_time = 5.0
 	
 func _process(delta: float) -> void:
 	_update_elapsed_time(delta)
@@ -44,6 +46,10 @@ func _process(delta: float) -> void:
 		#ui_manager.level_won = true
 		boss.process_mode = Node.PROCESS_MODE_INHERIT
 		enemy_manager_timer.wait_time = 5.0
+	elif PlayerVars.level_progress >=50:
+		enemy_manager_timer.wait_time = 3.0
+	elif PlayerVars.level_progress >=25:
+		enemy_manager_timer.wait_time = 4.0
 	
 	if PlayerVars.boss_health <= 0:
 		print_debug("Victory!")
