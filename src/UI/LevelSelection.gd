@@ -3,14 +3,12 @@ extends Control
 @export var garden_level: PackedScene
 @export var lab_level: PackedScene
 @export var return_to_main_menu: PackedScene
-@onready var parallax = $ParallaxBackground
-var parallax_bg_velocity = 1
 
 func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	parallax.scroll_base_offset.x -= parallax_bg_velocity
+	pass
 
 func _on_garden_pressed():
 	queue_free()

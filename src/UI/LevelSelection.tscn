@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkx53enp42505"]
+[gd_scene load_steps=9 format=3 uid="uid://dkx53enp42505"]
 
 [ext_resource type="Script" path="res://src/UI/LevelSelection.gd" id="1_mgu72"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_0p85a"]
 [ext_resource type="PackedScene" uid="uid://c33xtnrahwnke" path="res://src/Levels/Laboratory_Level_2.tscn" id="3_axuio"]
-[ext_resource type="Texture2D" uid="uid://krjsuta708dh" path="res://src/Map Objects/Plax/bg_garden.png" id="3_ggsle"]
-[ext_resource type="Texture2D" uid="uid://c1pac3pkbwpkp" path="res://src/Map Objects/Plax/mid1_garden.png" id="4_3hwwh"]
-[ext_resource type="Texture2D" uid="uid://ddqcftyibjjpg" path="res://src/Map Objects/Plax/fore_garden.png" id="5_2mdm5"]
+[ext_resource type="Texture2D" uid="uid://c335qsrfalx0q" path="res://src/UI/return_button.png" id="4_ifo8p"]
+[ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="4_xryii"]
+[ext_resource type="Texture2D" uid="uid://b4dk35vgassdt" path="res://src/UI/return_button_pressed.png" id="5_jk1rx"]
+[ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="6_102l4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6c00"]
 
@@ -44,6 +45,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Tiny Timmy's World"
 
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+offset_left = -16.0
+offset_top = -13.0
+offset_right = 1904.0
+offset_bottom = 1427.0
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("4_xryii")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -66,47 +75,11 @@ text = "Garden"
 layout_mode = 2
 text = "Laboratory"
 
-[node name="Return" type="Button" parent="Panel/VBoxContainer"]
+[node name="Return" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Return"
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scale = Vector2(4, 4)
-transform = Transform2D(4, 0, 0, 4, 0, 0)
-scroll_base_scale = Vector2(1, 2.08165e-12)
-
-[node name="Rear" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-204, 133)
-motion_scale = Vector2(0.5, 0.5)
-motion_offset = Vector2(100, 0)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rear"]
-position = Vector2(0, -32.75)
-texture = ExtResource("3_ggsle")
-
-[node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-204, 133)
-motion_scale = Vector2(0.75, 0.75)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mid"]
-texture = ExtResource("4_3hwwh")
-
-[node name="Fore" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-204, 133)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fore"]
-texture = ExtResource("5_2mdm5")
-
-[node name="Fore2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-202, 133)
-motion_mirroring = Vector2(800, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fore2"]
-texture = ExtResource("5_2mdm5")
-flip_h = true
+texture_normal = ExtResource("4_ifo8p")
+texture_pressed = ExtResource("5_jk1rx")
+texture_hover = ExtResource("6_102l4")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Garden" to="." method="_on_garden_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Laboratory" to="." method="_on_laboratory_pressed"]
