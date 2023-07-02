@@ -1,12 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkx53enp42505"]
+[gd_scene load_steps=12 format=3 uid="uid://dkx53enp42505"]
 
 [ext_resource type="Script" path="res://src/UI/LevelSelection.gd" id="1_mgu72"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_0p85a"]
 [ext_resource type="PackedScene" uid="uid://c33xtnrahwnke" path="res://src/Levels/Laboratory_Level_2.tscn" id="3_axuio"]
 [ext_resource type="Texture2D" uid="uid://c335qsrfalx0q" path="res://src/UI/return_button.png" id="4_ifo8p"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="4_xryii"]
+[ext_resource type="Texture2D" uid="uid://5inb1bvhls7q" path="res://src/UI/garden_button.png" id="5_hiv5e"]
 [ext_resource type="Texture2D" uid="uid://b4dk35vgassdt" path="res://src/UI/return_button_pressed.png" id="5_jk1rx"]
+[ext_resource type="Texture2D" uid="uid://dnd4sh1ffdfsv" path="res://src/UI/garden_button_pressed.png" id="6_3iae6"]
 [ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="6_102l4"]
+[ext_resource type="Texture2D" uid="uid://dlste24088fvp" path="res://src/UI/garden_button_hover.png" id="6_a7gb4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6c00"]
 
@@ -67,9 +70,11 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Garden" type="Button" parent="Panel/VBoxContainer"]
+[node name="Garden" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Garden"
+texture_normal = ExtResource("5_hiv5e")
+texture_pressed = ExtResource("6_3iae6")
+texture_hover = ExtResource("6_a7gb4")
 
 [node name="Laboratory" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
