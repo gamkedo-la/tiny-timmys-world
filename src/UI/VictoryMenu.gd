@@ -29,7 +29,6 @@ func _on_restart_level_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_player_victorious() -> void:
-	print_debug("On player victorious")
 	score_label.text = "Score: " + var_to_str(PlayerVars.level_score)
 	get_tree().paused = true
 	get_parent().visible = true
@@ -41,3 +40,6 @@ func _on_next_level_pressed():
 
 func _on_back_to_menu_pressed():
 	pass # Replace with function body.
+	
+func _input(event):
+	pass
