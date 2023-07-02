@@ -23,10 +23,10 @@ func _on_quit_pressed() -> void:
 func _on_fullscreen_toggle_toggled(button_pressed: bool) -> void:
 	Global.set_fullscreen(button_pressed)
 
-func _on_credits_pressed() -> void:
-	pass # Replace with function body.
-
-
 func _on_restart_level_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+func _on_back_to_menu_pressed():
+	get_tree().change_scene_to_file("res://src/UI/MainMenu.tscn") 

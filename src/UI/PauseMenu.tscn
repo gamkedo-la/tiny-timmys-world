@@ -1,6 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b55bw7bvfwbtg"]
+[gd_scene load_steps=16 format=3 uid="uid://b55bw7bvfwbtg"]
 
 [ext_resource type="Script" path="res://src/UI/PauseMenu.gd" id="1_0n6hu"]
+[ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="2_3f4kl"]
+[ext_resource type="Texture2D" uid="uid://c2323h7e10iiw" path="res://src/UI/resume_button.png" id="2_dlasj"]
+[ext_resource type="Texture2D" uid="uid://ci0at3tv7xyxd" path="res://src/UI/resume_button_pressed.png" id="3_nxqax"]
+[ext_resource type="Texture2D" uid="uid://dfc2y1j1vfokc" path="res://src/UI/resume_button_hover.png" id="4_0rglb"]
+[ext_resource type="Texture2D" uid="uid://cnvkfv77nr5a7" path="res://src/UI/restart_button.png" id="5_3m2ux"]
+[ext_resource type="Texture2D" uid="uid://cbl8eablscjxi" path="res://src/UI/restart_button_pressed.png" id="6_cyruj"]
+[ext_resource type="Texture2D" uid="uid://cyg6pgh2g6lfb" path="res://src/UI/restart_button_hover.png" id="7_wfm3i"]
+[ext_resource type="Texture2D" uid="uid://d266p0jeanoyf" path="res://src/UI/back_to_menu_button.png" id="8_kf0oi"]
+[ext_resource type="Texture2D" uid="uid://cs65yvg65miqd" path="res://src/UI/back_to_menu_button_pressed.png" id="9_orjvq"]
+[ext_resource type="Texture2D" uid="uid://cyjvmq37j2y34" path="res://src/UI/back_to_menu_button_hover.png" id="10_hfbd6"]
+[ext_resource type="Texture2D" uid="uid://d0vub352250oh" path="res://src/UI/quit_button.png" id="11_vvo54"]
+[ext_resource type="Texture2D" uid="uid://d1mdg1f64poqr" path="res://src/UI/quit_button_pressed.png" id="12_homvo"]
+[ext_resource type="Texture2D" uid="uid://dnkest8gfuara" path="res://src/UI/quit_button_hover.png" id="13_vuu3m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
@@ -47,6 +60,15 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y0dfi")
 metadata/_edit_use_anchors_ = true
 
+[node name="TextureRect" type="TextureRect" parent="Panel/Inner Panel"]
+layout_mode = 0
+offset_left = -85.0
+offset_top = -0.999634
+offset_right = 1835.0
+offset_bottom = 1439.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_3f4kl")
+
 [node name="ColorRect" type="ColorRect" parent="Panel/Inner Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -73,12 +95,8 @@ offset_right = 80.0
 offset_bottom = -138.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Tiny Timmy's World"
-
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1440.0
+text = "Game Paused"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -94,18 +112,22 @@ offset_bottom = 98.9996
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume Play" type="Button" parent="Panel/VBoxContainer"]
+[node name="Resume Play" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Resume Play"
+texture_normal = ExtResource("2_dlasj")
+texture_pressed = ExtResource("3_nxqax")
+texture_hover = ExtResource("4_0rglb")
 
-[node name="Restart Level" type="Button" parent="Panel/VBoxContainer"]
+[node name="Restart Level" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Restart Level"
+texture_normal = ExtResource("5_3m2ux")
+texture_pressed = ExtResource("6_cyruj")
+texture_hover = ExtResource("7_wfm3i")
 
 [node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.156863, 0.156863, 0.156863, 0.792157)
+color = Color(0.156863, 0.156863, 0.156863, 0)
 
 [node name="FullscreenToggle" type="CheckButton" parent="Panel/VBoxContainer/ColorRect"]
 layout_mode = 1
@@ -122,16 +144,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Fullscreen"
 
-[node name="Credits" type="Button" parent="Panel/VBoxContainer"]
+[node name="Back to Menu" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Credits"
+texture_normal = ExtResource("8_kf0oi")
+texture_pressed = ExtResource("9_orjvq")
+texture_hover = ExtResource("10_hfbd6")
 
-[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+texture_normal = ExtResource("11_vvo54")
+texture_pressed = ExtResource("12_homvo")
+texture_hover = ExtResource("13_vuu3m")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Resume Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
 [connection signal="toggled" from="Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
-[connection signal="pressed" from="Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Back to Menu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

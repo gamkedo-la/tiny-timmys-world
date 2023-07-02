@@ -52,6 +52,7 @@ grow_vertical = 2
 text = "Tiny Timmy's World"
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_left = -16.0
 offset_top = -13.0
 offset_right = 1904.0
