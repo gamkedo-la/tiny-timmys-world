@@ -25,3 +25,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _input(event):
+	if event.is_action_pressed("mute"):
+		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
