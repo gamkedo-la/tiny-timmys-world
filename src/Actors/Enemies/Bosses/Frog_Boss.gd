@@ -3,6 +3,7 @@ extends AIActor
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var tongue_base: Node2D = $Tongue
 @onready var tongue_line: Line2D = $Tongue/TongueLine
+@onready var tongue_line_collision: CollisionShape2D = $Tongue/TongueLine/Area2D/CollisionShape2D
 @onready var tongue_tip: Area2D = $Tongue/TongueTip
 @onready var bullet_detector: Area2D = $BulletDetector
 
@@ -59,6 +60,7 @@ func fire_tongue(pos: Vector2) -> void:
 func update_tongue(new_pos: Vector2):
 	tongue_line.set_point_position(1, new_pos)
 	tongue_tip.position = new_pos
+	tongue_line_collision.shape.set_b(new_pos)
 
 func retract_tongue() -> void:
 	var tongue_tween = create_tween()

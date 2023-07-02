@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b1jwx873qgfb2"]
+[gd_scene load_steps=47 format=3 uid="uid://b1jwx873qgfb2"]
 
 [ext_resource type="Texture2D" uid="uid://e4fhtmdkemm0" path="res://src/Sprites/FrogBoss-Idle-sprite_sheet.png" id="1_rn1xv"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Frog_Boss.gd" id="1_rqc32"]
@@ -236,6 +236,9 @@ point_count = 3
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wm0in"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nc506"]
+b = Vector2(0, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lyyfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6s3pe"]
@@ -267,7 +270,14 @@ points = PackedVector2Array(0, 0)
 width_curve = SubResource("Curve_23qhl")
 texture = SubResource("PlaceholderTexture2D_wm0in")
 
+[node name="Area2D" type="Area2D" parent="Tongue/TongueLine"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue/TongueLine/Area2D"]
+shape = SubResource("SegmentShape2D_nc506")
+
 [node name="TongueTip" type="Area2D" parent="Tongue"]
+collision_layer = 2
 monitoring = false
 monitorable = false
 
