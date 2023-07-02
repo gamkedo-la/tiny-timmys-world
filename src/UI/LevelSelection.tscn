@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkx53enp42505"]
+[gd_scene load_steps=15 format=3 uid="uid://dkx53enp42505"]
 
 [ext_resource type="Script" path="res://src/UI/LevelSelection.gd" id="1_mgu72"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_0p85a"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dnd4sh1ffdfsv" path="res://src/UI/garden_button_pressed.png" id="6_3iae6"]
 [ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="6_102l4"]
 [ext_resource type="Texture2D" uid="uid://dlste24088fvp" path="res://src/UI/garden_button_hover.png" id="6_a7gb4"]
+[ext_resource type="Texture2D" uid="uid://cadiqva7kb2gr" path="res://src/UI/laboratory_button.png" id="8_ssduq"]
+[ext_resource type="Texture2D" uid="uid://dbywdf6wspiax" path="res://src/UI/laboratory_button_pressed.png" id="9_j7awd"]
+[ext_resource type="Texture2D" uid="uid://bskod0k1rf3yw" path="res://src/UI/laboratory_button_hover.png" id="10_5urhu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6c00"]
 
@@ -76,9 +79,11 @@ texture_normal = ExtResource("5_hiv5e")
 texture_pressed = ExtResource("6_3iae6")
 texture_hover = ExtResource("6_a7gb4")
 
-[node name="Laboratory" type="Button" parent="Panel/VBoxContainer"]
+[node name="Laboratory" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Laboratory"
+texture_normal = ExtResource("8_ssduq")
+texture_pressed = ExtResource("9_j7awd")
+texture_hover = ExtResource("10_5urhu")
 
 [node name="Return" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
