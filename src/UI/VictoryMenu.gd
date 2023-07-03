@@ -33,7 +33,6 @@ func _on_player_victorious() -> void:
 	get_tree().paused = true
 	get_parent().visible = true
 
-
 func _on_next_level_pressed():
 	var current_scene = get_tree().get_current_scene()
 	if current_scene.name.contains('BackyardGarden'):
