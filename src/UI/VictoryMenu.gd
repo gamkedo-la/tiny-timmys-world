@@ -35,11 +35,17 @@ func _on_player_victorious() -> void:
 
 
 func _on_next_level_pressed():
-	pass # Replace with function body.
-
+	var current_scene = get_tree().get_current_scene()
+	if current_scene.name.contains('BackyardGarden'):
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://src/Levels/Laboratory_Level_2.tscn") 
+	else:
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://src/UI/MainMenu.tscn") 
 
 func _on_back_to_menu_pressed():
-	pass # Replace with function body.
-	
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://src/UI/MainMenu.tscn") 
+
 func _input(event):
 	pass

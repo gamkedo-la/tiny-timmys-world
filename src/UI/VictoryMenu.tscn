@@ -1,6 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6hl3n4acijf1"]
+[gd_scene load_steps=17 format=3 uid="uid://c6hl3n4acijf1"]
 
 [ext_resource type="Script" path="res://src/UI/VictoryMenu.gd" id="1_l8h1i"]
+[ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="2_0oyxr"]
+[ext_resource type="Texture2D" uid="uid://bocamop3f3c2a" path="res://src/UI/victory_text.png" id="3_h640m"]
+[ext_resource type="Texture2D" uid="uid://cnvkfv77nr5a7" path="res://src/UI/restart_button.png" id="4_2wu2g"]
+[ext_resource type="Texture2D" uid="uid://cbl8eablscjxi" path="res://src/UI/restart_button_pressed.png" id="5_pwia0"]
+[ext_resource type="Texture2D" uid="uid://cyg6pgh2g6lfb" path="res://src/UI/restart_button_hover.png" id="6_kgolf"]
+[ext_resource type="Texture2D" uid="uid://d266p0jeanoyf" path="res://src/UI/back_to_menu_button.png" id="7_4f2da"]
+[ext_resource type="Texture2D" uid="uid://b8x3oblvuryi" path="res://src/UI/next_level_button.png" id="7_cdkqe"]
+[ext_resource type="Texture2D" uid="uid://cs65yvg65miqd" path="res://src/UI/back_to_menu_button_pressed.png" id="8_4x18q"]
+[ext_resource type="Texture2D" uid="uid://cirk741o2e5ht" path="res://src/UI/next_level_button_pressed.png" id="8_sfcoi"]
+[ext_resource type="Texture2D" uid="uid://cyjvmq37j2y34" path="res://src/UI/back_to_menu_button_hover.png" id="9_cgp24"]
+[ext_resource type="Texture2D" uid="uid://db34k0ksi858g" path="res://src/UI/next_level_button_hover.png" id="9_q8rvn"]
+[ext_resource type="Texture2D" uid="uid://d0vub352250oh" path="res://src/UI/quit_button.png" id="10_0jm7n"]
+[ext_resource type="Texture2D" uid="uid://d1mdg1f64poqr" path="res://src/UI/quit_button_pressed.png" id="11_qnojl"]
+[ext_resource type="Texture2D" uid="uid://dnkest8gfuara" path="res://src/UI/quit_button_hover.png" id="12_h84o0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
@@ -47,6 +61,15 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y0dfi")
 metadata/_edit_use_anchors_ = true
 
+[node name="TextureRect" type="TextureRect" parent="Panel/Inner Panel"]
+layout_mode = 0
+offset_left = -85.0
+offset_top = -0.999634
+offset_right = 1835.0
+offset_bottom = 1439.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_0oyxr")
+
 [node name="ColorRect" type="ColorRect" parent="Panel/Inner Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -60,20 +83,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.247059, 0.247059, 0.247059, 0.85098)
 
-[node name="Title" type="Label" parent="Panel/Inner Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -164.0
-offset_right = 80.0
-offset_bottom = -138.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Victory!!"
+[node name="Title" type="TextureRect" parent="Panel/Inner Panel"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 31.0004
+offset_right = 291.0
+offset_bottom = 82.0004
+texture = ExtResource("3_h640m")
 
 [node name="ScoreLabel" type="Label" parent="Panel/Inner Panel"]
 layout_mode = 1
@@ -83,9 +99,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -72.0
-offset_top = -135.0
+offset_top = -117.0
 offset_right = 80.0
-offset_bottom = -109.0
+offset_bottom = -91.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Score: 0"
@@ -104,18 +120,22 @@ offset_bottom = 98.9996
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Restart Level" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="Restart Level" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
-text = "Restart Level"
+texture_normal = ExtResource("4_2wu2g")
+texture_pressed = ExtResource("5_pwia0")
+texture_hover = ExtResource("6_kgolf")
 
-[node name="Next Level" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="Next Level" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
-text = "Next Level"
+texture_normal = ExtResource("7_cdkqe")
+texture_pressed = ExtResource("8_sfcoi")
+texture_hover = ExtResource("9_q8rvn")
 
 [node name="ColorRect" type="ColorRect" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.156863, 0.156863, 0.156863, 0.792157)
+color = Color(0.156863, 0.156863, 0.156863, 0)
 
 [node name="FullscreenToggle" type="CheckButton" parent="Panel/Inner Panel/VBoxContainer/ColorRect"]
 layout_mode = 1
@@ -132,13 +152,17 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Fullscreen"
 
-[node name="BackToMenu" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="BackToMenu" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
-text = "Back to Menu"
+texture_normal = ExtResource("7_4f2da")
+texture_pressed = ExtResource("8_4x18q")
+texture_hover = ExtResource("9_cgp24")
 
-[node name="Quit" type="Button" parent="Panel/Inner Panel/VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+texture_normal = ExtResource("10_0jm7n")
+texture_pressed = ExtResource("11_qnojl")
+texture_hover = ExtResource("12_h84o0")
 
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Next Level" to="." method="_on_next_level_pressed"]
