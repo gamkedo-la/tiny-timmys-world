@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6hl3n4acijf1"]
+[gd_scene load_steps=18 format=3 uid="uid://c6hl3n4acijf1"]
 
 [ext_resource type="Script" path="res://src/UI/VictoryMenu.gd" id="1_l8h1i"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="2_0oyxr"]
 [ext_resource type="Texture2D" uid="uid://bocamop3f3c2a" path="res://src/UI/victory_text.png" id="3_h640m"]
 [ext_resource type="Texture2D" uid="uid://cnvkfv77nr5a7" path="res://src/UI/restart_button.png" id="4_2wu2g"]
+[ext_resource type="Texture2D" uid="uid://ba0m11ajoqeqx" path="res://src/UI/score_text.png" id="4_kbyw2"]
 [ext_resource type="Texture2D" uid="uid://cbl8eablscjxi" path="res://src/UI/restart_button_pressed.png" id="5_pwia0"]
 [ext_resource type="Texture2D" uid="uid://cyg6pgh2g6lfb" path="res://src/UI/restart_button_hover.png" id="6_kgolf"]
 [ext_resource type="Texture2D" uid="uid://d266p0jeanoyf" path="res://src/UI/back_to_menu_button.png" id="7_4f2da"]
@@ -91,6 +92,15 @@ offset_right = 291.0
 offset_bottom = 82.0004
 texture = ExtResource("3_h640m")
 
+[node name="ScoreText" type="TextureRect" parent="Panel/Inner Panel"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 79.0
+offset_right = 237.0
+offset_bottom = 119.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_kbyw2")
+
 [node name="ScoreLabel" type="Label" parent="Panel/Inner Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -98,13 +108,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.0
 offset_top = -117.0
-offset_right = 80.0
+offset_right = 152.0
 offset_bottom = -91.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score: 0"
+text = "0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/Inner Panel"]
 layout_mode = 1
