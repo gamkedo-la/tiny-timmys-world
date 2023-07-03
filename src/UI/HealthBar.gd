@@ -27,6 +27,7 @@ func _process(delta):
 	pass
 	
 func _update_health_bar(current_health):
+	print_debug(PlayerVars.player_health)
 	for i in get_child_count():
 		if current_health > i * 2 + 1:
 			get_child(i).texture = heart_full

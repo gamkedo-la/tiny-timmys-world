@@ -29,3 +29,13 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event.is_action_pressed("mute"):
 		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
+	
+	if event.is_action_pressed("lower_volume"):
+		var music_index= AudioServer.get_bus_index("Music")
+		var current_volume = AudioServer.get_bus_volume_db(music_index)
+		AudioServer.set_bus_volume_db(music_index, current_volume - 5)
+		
+	if event.is_action_pressed("raise_volume"):
+		var music_index= AudioServer.get_bus_index("Music")
+		var current_volume = AudioServer.get_bus_volume_db(music_index)
+		AudioServer.set_bus_volume_db(music_index, current_volume + 5)
