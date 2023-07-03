@@ -36,3 +36,8 @@ func _on_player_defeated() -> void:
 	score_label.text = "Score: " + var_to_str(PlayerVars.level_score)
 	get_tree().paused = true
 	get_parent().visible = true
+
+
+func _on_back_to_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://src/UI/MainMenu.tscn") 
