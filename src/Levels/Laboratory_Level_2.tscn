@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c33xtnrahwnke"]
+[gd_scene load_steps=34 format=3 uid="uid://c33xtnrahwnke"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_n1f7x"]
 [ext_resource type="AudioStream" uid="uid://cx0hvlg6vd7ld" path="res://src/Audio/TinyTimmyLabSongVersions/TinyTimmyLabSongV3.mp3" id="2_8wc1q"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://drth8ww75s12g" path="res://src/UI/GameOverMenu.tscn" id="25_vrhcd"]
 [ext_resource type="Script" path="res://src/Levels/VictoryControl.gd" id="30_2s1i3"]
 [ext_resource type="PackedScene" uid="uid://c6hl3n4acijf1" path="res://src/UI/VictoryMenu.tscn" id="31_vkpl3"]
+[ext_resource type="PackedScene" uid="uid://c0gk4cbpstem4" path="res://src/UI/countdown.tscn" id="32_5nmki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m10tk"]
 size = Vector2(269, 20)
@@ -253,6 +254,8 @@ color = Color(1, 1, 1, 0.352941)
 
 [node name="VictoryMenu" parent="PauseLayer/Victory" instance=ExtResource("31_vkpl3")]
 layout_mode = 1
+
+[node name="Countdown" parent="PauseLayer" instance=ExtResource("32_5nmki")]
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 

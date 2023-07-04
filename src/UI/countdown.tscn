@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0gk4cbpstem4"]
+
+[ext_resource type="Script" path="res://src/Levels/Countdown.gd" id="1_v2akv"]
+[ext_resource type="Texture2D" uid="uid://c6d7ja8bd4flk" path="res://src/UI/1_countdown.png" id="2_8tl0q"]
+[ext_resource type="Texture2D" uid="uid://hjmaf7iv8p0s" path="res://src/UI/2_countdown.png" id="3_tt10l"]
+[ext_resource type="Texture2D" uid="uid://clu4vfxppeeex" path="res://src/UI/3_countdown.png" id="4_s8kud"]
+[ext_resource type="AudioStream" uid="uid://csmjx6uedsw3h" path="res://src/Audio/Player/slingshot-3.wav" id="5_hnood"]
+
+[node name="Countdown" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_v2akv")
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="one_countdown" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 761.0
+offset_top = 561.0
+offset_right = 801.0
+offset_bottom = 601.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_8tl0q")
+
+[node name="two_countdown" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 762.0
+offset_top = 561.0
+offset_right = 802.0
+offset_bottom = 601.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_tt10l")
+
+[node name="three_countdown" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 561.0
+offset_right = 801.0
+offset_bottom = 601.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_s8kud")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hnood")
+bus = &"SFX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
