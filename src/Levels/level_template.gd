@@ -33,6 +33,7 @@ func _ready() -> void:
 		assert(con_res == OK)
 		
 	enemy_manager_timer.wait_time = 5.0
+	get_tree().paused = true
 	
 func _process(delta: float) -> void:
 	_update_elapsed_time(delta)
@@ -71,3 +72,7 @@ func spawn_heart_on_enemy_defeat(position: Vector2) -> void:
 		new_heart.position = position;
 		new_heart.rotation = 0.0;
 		pixel_viewport.add_child(new_heart)
+
+
+func _on_timer_timeout() -> void:
+		get_tree().paused = false
