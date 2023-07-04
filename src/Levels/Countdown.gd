@@ -13,6 +13,7 @@ var three_played: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), true)
 	one.visible = false
 	two.visible = false
 	get_tree().paused = true
@@ -48,4 +49,5 @@ func _on_timer_timeout():
 	print_debug("Timer timeout")
 	get_tree().paused = false
 	one.visible = false
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), false)
 	set_process_mode(Node.PROCESS_MODE_DISABLED)
