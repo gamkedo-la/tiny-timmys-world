@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://juubjo5hbwl0"]
+[gd_scene load_steps=33 format=3 uid="uid://juubjo5hbwl0"]
 
 [ext_resource type="Script" path="res://src/Levels/level_template.gd" id="1_m2rpn"]
 [ext_resource type="Script" path="res://src/Map Objects/Plax/PlaxBG.gd" id="2_crxet"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://src/Levels/Countdown.gd" id="27_v0msh"]
 [ext_resource type="Texture2D" uid="uid://c6d7ja8bd4flk" path="res://src/UI/1_countdown.png" id="28_df844"]
 [ext_resource type="Texture2D" uid="uid://hjmaf7iv8p0s" path="res://src/UI/2_countdown.png" id="29_sf4sg"]
+[ext_resource type="AudioStream" uid="uid://csmjx6uedsw3h" path="res://src/Audio/Player/slingshot-3.wav" id="31_vbg8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m10tk"]
 size = Vector2(269, 20)
@@ -269,6 +270,7 @@ autostart = true
 
 [node name="one_countdown" type="TextureRect" parent="PauseLayer/Countdown"]
 visible = false
+layout_mode = 0
 offset_left = 761.0
 offset_top = 561.0
 offset_right = 801.0
@@ -278,6 +280,7 @@ texture = ExtResource("28_df844")
 
 [node name="two_countdown" type="TextureRect" parent="PauseLayer/Countdown"]
 visible = false
+layout_mode = 0
 offset_left = 762.0
 offset_top = 561.0
 offset_right = 802.0
@@ -294,5 +297,9 @@ offset_bottom = 601.0
 scale = Vector2(2, 2)
 texture = ExtResource("27_4rj00")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PauseLayer/Countdown"]
+stream = ExtResource("31_vbg8p")
+bus = &"SFX"
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
-[connection signal="timeout" from="PauseLayer/Countdown/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PauseLayer/Countdown/Timer" to="PauseLayer/Countdown" method="_on_timer_timeout"]
