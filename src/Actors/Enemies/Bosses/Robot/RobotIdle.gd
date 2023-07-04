@@ -16,13 +16,12 @@ func physics_process(delta: float) -> void:
 func state_check()->void:
 	if time_in_state > 2.0:
 		var chance = RNG.randf_range(0.0, 1.0)
-#		if chance > 0.75:		
-#			_ai_state_machine.transition_to('RightFistTell', {})
-#		elif chance > 0.5 :		
-#			_ai_state_machine.transition_to('LeftFistTell', {})
-#		elif chance > 0.25:
-#			_ai_state_machine.transition_to('LaserTell', {})
-		_ai_state_machine.transition_to('LaserTell', {})
+		if chance > 0.75:		
+			_ai_state_machine.transition_to('RightFistTell', {})
+		elif chance > 0.5 :		
+			_ai_state_machine.transition_to('LeftFistTell', {})
+		elif chance > 0.25:
+			_ai_state_machine.transition_to('LaserTell', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:

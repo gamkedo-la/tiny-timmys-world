@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://br7vfr0bq2vlv"]
+[gd_scene load_steps=6 format=3 uid="uid://br7vfr0bq2vlv"]
 
 [ext_resource type="Script" path="res://src/Weapons/Slingshot.gd" id="1_ey0vn"]
 [ext_resource type="Texture2D" uid="uid://c3j8xjd4wlt44" path="res://src/Sprites/bow_5x5.png" id="2_anspl"]
+[ext_resource type="AudioStream" uid="uid://cat01iegnv3ye" path="res://src/Audio/Player/slingshot-4.wav" id="3_7mnfe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1cll"]
 radius = 2.77778
@@ -31,6 +32,10 @@ collision_mask = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetector"]
 modulate = Color(0, 0.0117647, 1, 1)
 shape = SubResource("CircleShape2D_cgo5l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7mnfe")
+bus = &"SFX"
 
 [connection signal="area_entered" from="CollisionDetector" to="." method="_on_collision_detector_area_entered"]
 [connection signal="body_entered" from="CollisionDetector" to="." method="_on_collision_detector_body_entered"]
