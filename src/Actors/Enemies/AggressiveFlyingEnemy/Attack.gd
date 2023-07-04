@@ -18,6 +18,12 @@ func physics_process(delta: float) -> void:
 	var normalized_direction = (player_position - actor_position).normalized()
 	actor.velocity.x = actor.SPEED * normalized_direction.x
 	actor.velocity.y = actor.SPEED * normalized_direction.y
+	
+	if actor.velocity.x < 0.0 and actor.actor_body.scale.x < 0.0:
+		actor.actor_body.scale.x *= -1.0
+	if actor.velocity.x > 0.0 and actor.actor_body.scale.x > 0.0:
+		actor.actor_body.scale.x *= -1.0
+
 	actor.move_and_slide()
 		
 	actor.physics_process(delta)
