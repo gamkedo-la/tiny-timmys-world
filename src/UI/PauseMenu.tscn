@@ -54,10 +54,13 @@ anchor_left = 0.375
 anchor_top = 0.333333
 anchor_right = 0.625
 anchor_bottom = 0.666667
-offset_top = -1.19209e-05
-offset_bottom = -2.38419e-05
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -200.0
+offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y0dfi")
 metadata/_edit_use_anchors_ = true
 
@@ -91,7 +94,7 @@ offset_right = 291.0
 offset_bottom = 106.0
 texture = ExtResource("3_56tne")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Inner Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -99,30 +102,30 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -63.0
-offset_top = -70.0004
+offset_top = -70.0003
 offset_right = 64.0
-offset_bottom = 98.9996
+offset_bottom = 98.9997
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume Play" type="TextureButton" parent="Panel/VBoxContainer"]
+[node name="Resume Play" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_dlasj")
 texture_pressed = ExtResource("3_nxqax")
 texture_hover = ExtResource("4_0rglb")
 
-[node name="Restart Level" type="TextureButton" parent="Panel/VBoxContainer"]
+[node name="Restart Level" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_3m2ux")
 texture_pressed = ExtResource("6_cyruj")
 texture_hover = ExtResource("7_wfm3i")
 
-[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(0.156863, 0.156863, 0.156863, 0)
 
-[node name="FullscreenToggle" type="CheckButton" parent="Panel/VBoxContainer/ColorRect"]
+[node name="FullscreenToggle" type="CheckButton" parent="Panel/Inner Panel/VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -137,20 +140,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Fullscreen"
 
-[node name="Back to Menu" type="TextureButton" parent="Panel/VBoxContainer"]
+[node name="Back to Menu" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_kf0oi")
 texture_pressed = ExtResource("9_orjvq")
 texture_hover = ExtResource("10_hfbd6")
 
-[node name="Quit" type="TextureButton" parent="Panel/VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="Panel/Inner Panel/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("11_vvo54")
 texture_pressed = ExtResource("12_homvo")
 texture_hover = ExtResource("13_vuu3m")
 
-[connection signal="pressed" from="Panel/VBoxContainer/Resume Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
-[connection signal="toggled" from="Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
-[connection signal="pressed" from="Panel/VBoxContainer/Back to Menu" to="." method="_on_back_to_menu_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Resume Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
+[connection signal="toggled" from="Panel/Inner Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Back to Menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
