@@ -12,8 +12,13 @@ extends AIActor
 
 var is_in_position: bool = false
 var get_in_position_speed = 1000.0
+var original_modulate
+var time_modulated: float = 0.3
+var time_modulated_elapsed: float = 0
+var is_damaged = false
 
 func _ready():
+	original_modulate = _animated_sprite.modulate
 	tongue_base.visible = false
 	PlayerVars.boss_health = 2000
 	PlayerVars.boss_max_health = 2000
@@ -37,6 +42,13 @@ func physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	is_in_position = (round(position.x) == 0)
+	
+	if is_damaged and time_modulated_elapsed > time_modulated:
+		_animated_sprite.modulate = original_modulate
+		is_damaged = false
+		time_modulated_elapsed = 0
+	elif is_damaged:
+		time_modulated_elapsed += delta
 		
 	pass
 
@@ -90,4 +102,6 @@ func eat_fly() -> void:
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
 	PlayerVars.boss_health -= PlayerVars.player_slingshot_damage
+	_animated_sprite.modulate = Color(10,10,10)
+	is_damaged = true
 	Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * (bullet_detector.position + Vector2(200, 30))))
