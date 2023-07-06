@@ -39,9 +39,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6bvj"]
-radius = 31.0
-height = 62.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qks7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_641ne"]
 animations = [{
@@ -94,10 +92,13 @@ position = Vector2(70, 44)
 sprite_frames = SubResource("SpriteFrames_2jlo3")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand"]
-position = Vector2(64, 39)
-scale = Vector2(1.16436, 1.54531)
-shape = SubResource("CapsuleShape2D_c6bvj")
+[node name="Area2D" type="Area2D" parent="LeftHand"]
+position = Vector2(65, 39)
+scale = Vector2(3.08, 3.08)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHand/Area2D"]
+shape = SubResource("CapsuleShape2D_1qks7")
 
 [node name="RightHand" type="CharacterBody2D" parent="."]
 position = Vector2(277, 1)
@@ -108,10 +109,13 @@ position = Vector2(59, 44)
 sprite_frames = SubResource("SpriteFrames_641ne")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand"]
-position = Vector2(64, 39)
-scale = Vector2(1.16436, 1.54531)
-shape = SubResource("CapsuleShape2D_c6bvj")
+[node name="Area2D" type="Area2D" parent="RightHand"]
+position = Vector2(65, 39)
+scale = Vector2(3.08, 3.08)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/Area2D"]
+shape = SubResource("CapsuleShape2D_1qks7")
 
 [node name="Laser" type="Node2D" parent="."]
 position = Vector2(202, 39)
