@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b55bw7bvfwbtg"]
+[gd_scene load_steps=26 format=3 uid="uid://b55bw7bvfwbtg"]
 
 [ext_resource type="Script" path="res://src/UI/PauseMenu.gd" id="1_0n6hu"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="2_3f4kl"]
@@ -15,6 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://d0vub352250oh" path="res://src/UI/quit_button.png" id="11_vvo54"]
 [ext_resource type="Texture2D" uid="uid://d1mdg1f64poqr" path="res://src/UI/quit_button_pressed.png" id="12_homvo"]
 [ext_resource type="Texture2D" uid="uid://dnkest8gfuara" path="res://src/UI/quit_button_hover.png" id="13_vuu3m"]
+[ext_resource type="Texture2D" uid="uid://drwbvp5arbfag" path="res://src/UI/volume_up_button.png" id="16_vyuwv"]
+[ext_resource type="Texture2D" uid="uid://dtefy5s0rsljf" path="res://src/UI/volume_up_button_pressed.png" id="17_dnaqn"]
+[ext_resource type="Texture2D" uid="uid://dbgumaeh7yjaj" path="res://src/UI/volume_up_button_hover.png" id="18_si362"]
+[ext_resource type="Texture2D" uid="uid://j16w2ohixmdl" path="res://src/UI/volume_down_button.png" id="19_p34yn"]
+[ext_resource type="Texture2D" uid="uid://cen01w8ylg28d" path="res://src/UI/volume_dowm_button_pressed.png" id="20_wmxi1"]
+[ext_resource type="Texture2D" uid="uid://d1jgckmr3owuh" path="res://src/UI/volume_down_button_hover.png" id="21_qv380"]
+[ext_resource type="Texture2D" uid="uid://ig11opv0qnlu" path="res://src/UI/volume_mute_button.png" id="22_7coeh"]
+[ext_resource type="Texture2D" uid="uid://das4rvxvmehnn" path="res://src/UI/volume_mute_button_pressed.png" id="23_3qisq"]
+[ext_resource type="Texture2D" uid="uid://ba6oc87s23dbs" path="res://src/UI/volume_mute_button_hover.png" id="24_uu6hv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0dfi"]
 
@@ -152,8 +161,44 @@ texture_normal = ExtResource("11_vvo54")
 texture_pressed = ExtResource("12_homvo")
 texture_hover = ExtResource("13_vuu3m")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -710.0
+offset_top = -287.0
+offset_right = -558.0
+offset_bottom = -247.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="VolumeUp" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_vyuwv")
+texture_pressed = ExtResource("17_dnaqn")
+texture_hover = ExtResource("18_si362")
+
+[node name="VolumeDown" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_p34yn")
+texture_pressed = ExtResource("20_wmxi1")
+texture_hover = ExtResource("21_qv380")
+
+[node name="VolumeMute" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("22_7coeh")
+texture_pressed = ExtResource("23_3qisq")
+texture_hover = ExtResource("24_uu6hv")
+
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Resume Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Restart Level" to="." method="_on_restart_level_pressed"]
 [connection signal="toggled" from="Panel/Inner Panel/VBoxContainer/ColorRect/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Back to Menu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="pressed" from="Panel/Inner Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/VolumeUp" to="." method="_on_volume_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/VolumeDown" to="." method="_on_volume_down_pressed"]
+[connection signal="pressed" from="HBoxContainer/VolumeMute" to="." method="_on_volume_mute_pressed"]
