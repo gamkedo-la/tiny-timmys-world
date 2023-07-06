@@ -35,3 +35,20 @@ func _on_level_selection_pressed():
 #	if event.is_action_pressed("mute"):
 #		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
 
+
+
+func _on_volume_up_pressed():
+	var music_index= AudioServer.get_bus_index("Master")
+	var current_volume = AudioServer.get_bus_volume_db(music_index)
+	AudioServer.set_bus_volume_db(music_index, current_volume + 5)
+
+
+func _on_volume_down_pressed():
+	var music_index= AudioServer.get_bus_index("Master")
+	var current_volume = AudioServer.get_bus_volume_db(music_index)
+	AudioServer.set_bus_volume_db(music_index, current_volume - 5)
+
+
+func _on_volume_mute_pressed():
+	AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
+	
