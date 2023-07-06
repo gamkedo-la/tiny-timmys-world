@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bt8dg8gj0lc8w" path="res://src/UI/HealthBar.tscn" id="2_a4bfi"]
 
 [node name="UIManager" type="Node2D"]
+z_index = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_m2gkh")
 

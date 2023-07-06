@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://tacsbvhvcb28"]
+[gd_scene load_steps=27 format=3 uid="uid://tacsbvhvcb28"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.gd" id="1_dmrst"]
 [ext_resource type="Texture2D" uid="uid://bnjc1yj4gflpy" path="res://src/Sprites/LabBoss_Head.png" id="2_ucwdv"]
@@ -55,6 +55,9 @@ animations = [{
 [sub_resource type="CanvasTexture" id="CanvasTexture_hw4k2"]
 diffuse_texture = ExtResource("6_4rspb")
 texture_repeat = 2
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4fg3q"]
+b = Vector2(0, 0)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5l38c"]
 diffuse_texture = ExtResource("6_4rspb")
@@ -125,11 +128,23 @@ position = Vector2(-24, -2)
 texture = SubResource("CanvasTexture_hw4k2")
 texture_mode = 1
 
+[node name="Area2D" type="Area2D" parent="Laser/LaserLeftLine"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserLeftLine/Area2D"]
+shape = SubResource("SegmentShape2D_4fg3q")
+
 [node name="LaserRightLine" type="Line2D" parent="Laser"]
 position = Vector2(18, -2)
 texture = SubResource("CanvasTexture_5l38c")
 texture_mode = 1
 joint_mode = 2
+
+[node name="Area2D" type="Area2D" parent="Laser/LaserRightLine"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserRightLine/Area2D"]
+shape = SubResource("SegmentShape2D_4fg3q")
 
 [node name="LaserRightTip" type="Area2D" parent="Laser"]
 position = Vector2(18, -2)

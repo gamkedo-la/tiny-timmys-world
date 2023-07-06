@@ -4,7 +4,9 @@ extends AIActor
 @onready var bullet_detector: Area2D = $BulletDetector
 @onready var laser_base: Node2D = $Laser
 @onready var laser_left_line: Line2D = $Laser/LaserLeftLine
+@onready var laser_left_line_collision: CollisionShape2D = $Laser/LaserLeftLine/Area2D/CollisionShape2D
 @onready var laser_right_line: Line2D = $Laser/LaserRightLine
+@onready var laser_right_line_collision: CollisionShape2D = $Laser/LaserRightLine/Area2D/CollisionShape2D
 @onready var laser_left_tip: Area2D = $Laser/LaserLeftTip
 @onready var laser_right_tip: Area2D = $Laser/LaserRightTip
 
@@ -107,6 +109,8 @@ func update_laser(new_pos: Vector2):
 	laser_right_line.set_point_position(1, new_pos)
 	laser_left_tip.position = new_pos
 	laser_right_tip.position = new_pos
+	laser_left_line_collision.shape.set_b(new_pos)
+	laser_right_line_collision.shape.set_b(new_pos)
 
 func retract_laser() -> void:
 	var laser_left_tween = create_tween()
