@@ -17,6 +17,8 @@ var time_modulated: float = 0.3
 var time_modulated_elapsed: float = 0
 var is_damaged = false
 
+var tongue_tell_finished: bool = false
+
 func _ready():
 	original_modulate = _animated_sprite.modulate
 	tongue_base.visible = false
@@ -105,3 +107,7 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 	_animated_sprite.modulate = Color(10,10,10)
 	is_damaged = true
 	Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * (bullet_detector.position + Vector2(200, 30))))
+
+func _on_animated_sprite_2d_animation_finished():
+	print_debug("Animation finished")
+	print_debug(_animated_sprite.animation)
