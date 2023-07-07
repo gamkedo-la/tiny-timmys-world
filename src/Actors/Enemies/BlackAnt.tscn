@@ -171,7 +171,7 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_jceyq"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.6, 0.6)
 collision_layer = 2
 collision_mask = 73
 script = ExtResource("1_4i0ab")
@@ -189,8 +189,8 @@ texture = ExtResource("2_u4ob7")
 
 [node name="StompDetector" type="Area2D" parent="Body"]
 modulate = Color(0, 0.207843, 1, 1)
-position = Vector2(0, -17.5)
-scale = Vector2(2.11, 1)
+position = Vector2(-1.25, -17.5)
+scale = Vector2(2.26, 1)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/StompDetector"]
