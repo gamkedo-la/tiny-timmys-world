@@ -76,8 +76,7 @@ func unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_released("move_right"):
 		direction -= right
 		right = 0.0	
-	
-	
+
 	# Handle Jump.
 	elif event.is_action_pressed("jump") && !jump:
 		jump = true
