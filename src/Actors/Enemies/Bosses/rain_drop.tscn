@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://540vycrv1en0" path="res://src/Sprites/Drop 16x16.png" id="1_gp6xj"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5usqo"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylhdq"]
 
 [node name="RainDrop" type="RigidBody2D"]
 collision_layer = 9
@@ -12,5 +12,8 @@ gravity_scale = 0.5
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_gp6xj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_5usqo")
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_ylhdq")

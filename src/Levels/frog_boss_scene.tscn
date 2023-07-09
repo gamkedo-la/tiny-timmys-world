@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dqsam150if7hw"]
 
-[ext_resource type="PackedScene" uid="uid://bcyxc5ba6pbfk" path="res://src/Actors/player.tscn" id="1_3t1ec"]
+[ext_resource type="PackedScene" uid="uid://dc3cv7tfrx24v" path="res://src/Actors/player.tscn" id="1_3t1ec"]
 [ext_resource type="PackedScene" uid="uid://c55cwuqj7ofxd" path="res://src/Actors/Enemies/Enemy.tscn" id="2_km20j"]
 [ext_resource type="PackedScene" uid="uid://b1jwx873qgfb2" path="res://src/Actors/Enemies/Bosses/Frog_Boss.tscn" id="3_4e4o1"]
 [ext_resource type="PackedScene" uid="uid://csk0ii5gs2bp7" path="res://src/Map Objects/Floor/FloorTileMapManager.tscn" id="4_skayq"]
@@ -24,7 +24,7 @@ collision_layer = 32
 position = Vector2(267, 147)
 
 [node name="Player" parent="." instance=ExtResource("1_3t1ec")]
-position = Vector2(19, 293)
+position = Vector2(17, 222)
 
 [node name="FloorTileMapManager" parent="." instance=ExtResource("4_skayq")]
 tile_set = ExtResource("5_i6cxw")

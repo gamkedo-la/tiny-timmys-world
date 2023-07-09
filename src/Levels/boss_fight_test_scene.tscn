@@ -89,7 +89,4 @@ render_target_update_mode = 4
 [node name="Frog_Boss" parent="CanvasLayer/SubViewportContainer/PixelViewport/FrogBossScene" index="0"]
 collision_mask = 32
 
-[node name="Player" parent="CanvasLayer/SubViewportContainer/PixelViewport/FrogBossScene" index="2"]
-visible = false
-
 [editable path="CanvasLayer/SubViewportContainer/PixelViewport/FrogBossScene"]
