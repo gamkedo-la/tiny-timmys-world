@@ -133,7 +133,8 @@ script = ExtResource("1_dmrst")
 position = Vector2(200, 50)
 sprite_frames = SubResource("SpriteFrames_irbtk")
 animation = &"Laser"
-frame_progress = 0.429738
+frame = 3
+frame_progress = 0.121121
 
 [node name="LeftHand" type="CharacterBody2D" parent="."]
 script = ExtResource("4_1rkhc")

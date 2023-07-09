@@ -12,7 +12,8 @@ func process(delta: float) -> void:
 func physics_process(delta: float) -> void:
 	if !PlayerVars.player:
 		return
-	actor.fist_return("RightHand")
+#	actor.fist_return("RightHand")
+	actor.fist_return_experimental("RightHand",delta)
 	actor.physics_process(delta)
 
 

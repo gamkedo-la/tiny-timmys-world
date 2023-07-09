@@ -19,6 +19,8 @@ var original_modulate
 var time_modulated: float = 0.3
 var time_modulated_elapsed: float = 0
 var is_damaged = false
+var time_interpolated = 0.0
+var interpolation_speed = 0.5
 
 func _ready():
 	original_modulate = modulate
@@ -71,7 +73,7 @@ func fist_launch(fist: String) -> void:
 	hand.velocity.y = hand.SPEED * normalized_direction.y
 	hand.move_and_slide()
 	
-func fist_return(fist: String) -> void:
+func fist_returnfist_return(fist: String) -> void:
 	var hand = get_node(fist)
 	var hand_initial_position = hand.initial_position
 	var hand_position = hand.position
@@ -82,6 +84,18 @@ func fist_return(fist: String) -> void:
 	
 	if(round(hand_position.y) == hand_initial_position.y):
 		fist_is_back_in_position = true
+
+func fist_return_experimental(fist: String, delta: float) -> void:
+	time_interpolated += delta
+	var hand = get_node(fist)
+	var hand_initial_position = hand.initial_position
+	var hand_position = hand.position
+	
+	hand.position = hand_position.lerp(hand_initial_position, time_interpolated * interpolation_speed)
+	
+	if(round(hand_position.y) == hand_initial_position.y):
+		fist_is_back_in_position = true
+		time_interpolated = 0.0
 		
 func fire_laser(pos: Vector2) -> void:
 	laser_base.visible = true
