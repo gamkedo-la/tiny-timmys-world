@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlgaqoueji01l"]
+
+[ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="1_gipk4"]
+[ext_resource type="Script" path="res://src/UI/Credits.gd" id="1_x0psb"]
+[ext_resource type="Texture2D" uid="uid://du7bjltosjaxt" path="res://src/UI/credits_text.png" id="2_3ipt8"]
+[ext_resource type="Texture2D" uid="uid://c335qsrfalx0q" path="res://src/UI/return_button.png" id="4_eu0j2"]
+[ext_resource type="Texture2D" uid="uid://b4dk35vgassdt" path="res://src/UI/return_button_pressed.png" id="5_6wdsb"]
+[ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="6_ttdwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yahmn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_twera"]
+font_size = 20
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x0psb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yahmn")
+
+[node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -13.0
+offset_right = 1904.0
+offset_bottom = 1427.0
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_gipk4")
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 1200.0
+
+[node name="Title" type="TextureRect" parent="Panel/Panel"]
+layout_mode = 0
+offset_left = 673.0
+offset_top = 40.0
+offset_right = 800.0
+offset_bottom = 80.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_3ipt8")
+
+[node name="Text" type="Label" parent="Panel/Panel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 127.0
+offset_right = 1550.0
+offset_bottom = 1197.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus scelerisque fringilla. Integer quis nisl lectus. Cras molestie auctor sapien, nec varius leo imperdiet vel. Ut sapien sem, convallis non enim id, facilisis rutrum erat. Ut venenatis mi sed massa mollis, id imperdiet odio malesuada. Duis feugiat ante quis porttitor hendrerit. Etiam luctus turpis vitae diam sagittis eleifend. Nunc hendrerit ultricies faucibus.
+
+Aenean turpis velit, volutpat nec lectus id, semper consequat ex. Maecenas ac tortor vitae lorem cursus posuere sed a mauris. Aenean id tincidunt urna. Integer egestas semper nunc, id ultricies ante suscipit vel. Mauris molestie in arcu et maximus. In dolor arcu, imperdiet et pretium et, scelerisque id mi. Praesent sit amet massa feugiat, eleifend neque egestas, lacinia risus. Mauris rutrum ac enim quis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim nulla, facilisis nec blandit nec, tincidunt in urna. Duis ornare laoreet consequat. Phasellus nec mi at leo bibendum facilisis ut vel ligula. Nunc a quam nisi. Aliquam pretium dignissim sollicitudin. Curabitur non porttitor sapien.
+
+Nam eu eleifend mi. Aliquam iaculis nec mi eu venenatis. Curabitur hendrerit eget orci quis faucibus. Quisque eleifend pharetra lorem et fermentum. Sed dignissim, libero et ultrices hendrerit, sapien velit cursus tellus, eu commodo sapien augue ac ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia egestas dictum. Mauris vitae imperdiet neque. Donec maximus mi nec enim ultrices viverra. Fusce placerat facilisis justo lacinia maximus. Nam a ante lacus. Nunc quis nunc in purus feugiat dapibus. Sed fermentum rutrum nibh, nec elementum turpis tincidunt ut. Vivamus blandit malesuada odio in tincidunt.
+"
+label_settings = SubResource("LabelSettings_twera")
+autowrap_mode = 3
+
+[node name="Return" type="TextureButton" parent="Panel/Panel"]
+layout_mode = 0
+offset_left = 1352.0
+offset_top = 1125.0
+offset_right = 1479.0
+offset_bottom = 1165.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_eu0j2")
+texture_pressed = ExtResource("5_6wdsb")
+texture_hover = ExtResource("6_ttdwk")
+
+[connection signal="pressed" from="Panel/Panel/Return" to="." method="_on_return_pressed"]
