@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b1jwx873qgfb2"]
+[gd_scene load_steps=63 format=3 uid="uid://b1jwx873qgfb2"]
 
 [ext_resource type="Texture2D" uid="uid://e4fhtmdkemm0" path="res://src/Sprites/FrogBoss-Idle-sprite_sheet.png" id="1_rn1xv"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Frog_Boss.gd" id="1_rqc32"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogRainStomp.gd" id="6_vi85q"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogTongueTell.gd" id="8_2uava"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogTongueAtk.gd" id="9_gccf4"]
+[ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/TongueOut.gd" id="11_0077e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0eife"]
 atlas = ExtResource("1_rn1xv")
@@ -130,6 +131,34 @@ region = Rect2(11200, 0, 400, 300)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tjgf"]
 atlas = ExtResource("1_rn1xv")
 region = Rect2(11600, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brswk"]
+atlas = ExtResource("3_yk8nt")
+region = Rect2(2400, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb5pf"]
+atlas = ExtResource("3_yk8nt")
+region = Rect2(2000, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiadx"]
+atlas = ExtResource("3_yk8nt")
+region = Rect2(1600, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1ck3"]
+atlas = ExtResource("3_yk8nt")
+region = Rect2(1200, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngfpb"]
+atlas = ExtResource("3_yk8nt")
+region = Rect2(800, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtvik"]
+atlas = ExtResource("3_yk8nt")
+region = Rect2(400, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqon2"]
+atlas = ExtResource("3_yk8nt")
+region = Rect2(0, 0, 400, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvauy"]
 atlas = ExtResource("3_yk8nt")
@@ -258,6 +287,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_brswk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb5pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uiadx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1ck3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngfpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtvik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqon2")
+}],
+"loop": false,
+"name": &"TongueOut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wvauy")
 }, {
 "duration": 1.0,
@@ -278,7 +333,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e07hf")
 }],
-"loop": true,
+"loop": false,
 "name": &"TongueTell",
 "speed": 5.0
 }]
@@ -310,8 +365,7 @@ script = ExtResource("1_rqc32")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(200, 150)
 sprite_frames = SubResource("SpriteFrames_irbtk")
-animation = &"TongueTell"
-frame_progress = 0.145262
+animation = &"TongueOut"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(344, 176)
@@ -365,6 +419,9 @@ script = ExtResource("8_2uava")
 
 [node name="TongueAtk" type="Node" parent="AIFSM/TongueTell"]
 script = ExtResource("9_gccf4")
+
+[node name="TongueOut" type="Node" parent="AIFSM/TongueTell/TongueAtk"]
+script = ExtResource("11_0077e")
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 293.0

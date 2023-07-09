@@ -26,7 +26,7 @@ func physics_process(delta: float) -> void:
 
 func state_check()->void:
 	if time_in_state > 3.0 && tongue_fired:
-		_ai_state_machine.transition_to('Idle', {})
+		_ai_state_machine.transition_to('TongueOut', {})
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
