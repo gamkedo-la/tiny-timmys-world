@@ -36,6 +36,7 @@ var up: float = 0.0
 var normal_fall: float = -jump_speed
 var fall_limit: float = normal_fall
 var rotate_speed: float = 10.0
+var initial_position: Vector2
 
 var RayGround: bool = false
 @onready var grnd1:= $Body/Grnd01
@@ -48,6 +49,7 @@ func _ready() -> void:
 	PlayerVars.player = self
 	can_shoot = true
 	time_elapsed_between_shots = 0
+	initial_position = position
 	
 func _on_enemy_detector_area_entered(area: Area2D) -> void:
 	_damage_player(area.position)
@@ -201,15 +203,17 @@ func shoot(direction: Vector2) -> void:
 
 
 func _on_fall_detector_area_entered(area: Area2D) -> void:
-	print_debug("Fall detected")
-	Global.emit_signal("player_defeated")
-	queue_free()
+#	Global.emit_signal("player_defeated")
+#	queue_free()
+	position = initial_position
+	_damage_player(area.position)
 
 
 func _on_fall_detector_body_entered(body: Node2D) -> void:
-	print_debug("Fall detected")
-	Global.emit_signal("player_defeated")
-	queue_free()
+	position = initial_position
+	_damage_player(body.position)
+#	Global.emit_signal("player_defeated")
+#	queue_free()
 	
 func _damage_player(position) -> void:
 	if is_damaged == false:
