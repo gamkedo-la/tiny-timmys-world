@@ -17,7 +17,7 @@ func state_check()->void:
 	pass
 
 func enter(msg:Dictionary = {}) -> void:
-#	actor.ani_player_play("Idle")
+	actor.ani_player_play("StompTell")
 
 	time_in_state = 0.0
 	pass
