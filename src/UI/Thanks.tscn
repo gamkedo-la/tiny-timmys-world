@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://jx2x2duslm40"]
+
+[ext_resource type="Script" path="res://src/UI/Thanks.gd" id="1_gwli1"]
+[ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="1_i7mv4"]
+[ext_resource type="Texture2D" uid="uid://c335qsrfalx0q" path="res://src/UI/return_button.png" id="2_aj8al"]
+[ext_resource type="Texture2D" uid="uid://b4dk35vgassdt" path="res://src/UI/return_button_pressed.png" id="3_7tr8i"]
+[ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="4_enys6"]
+[ext_resource type="Texture2D" uid="uid://ba8yo2waxn3dd" path="res://src/UI/thanks_text.png" id="6_jh2sh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2g8q"]
+
+[node name="Thanks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gwli1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y2g8q")
+
+[node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -13.0
+offset_right = 1904.0
+offset_bottom = 1427.0
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_i7mv4")
+
+[node name="Return" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1352.0
+offset_top = 1125.0
+offset_right = 1479.0
+offset_bottom = 1165.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_aj8al")
+texture_pressed = ExtResource("3_7tr8i")
+texture_hover = ExtResource("4_enys6")
+
+[node name="Message" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 487.0
+offset_right = 1316.0
+offset_bottom = 623.0
+texture = ExtResource("6_jh2sh")
+
+[connection signal="pressed" from="Panel/Return" to="." method="_on_return_pressed"]

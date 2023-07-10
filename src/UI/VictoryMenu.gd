@@ -40,7 +40,7 @@ func _on_next_level_pressed():
 		get_tree().change_scene_to_file("res://src/Levels/Laboratory_Level_2.tscn") 
 	else:
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://src/UI/MainMenu.tscn") 
+		get_tree().change_scene_to_file("res://src/UI/Thanks.tscn") 
 
 func _on_back_to_menu_pressed():
 	get_tree().paused = false
