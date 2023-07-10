@@ -5,6 +5,7 @@ extends Control
 @onready var two: TextureRect = $two_countdown
 @onready var three: TextureRect = $three_countdown
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+var end_countdown_audio = preload("res://src/Audio/Player/slingshot-3.wav")
 
 var one_played: bool = false
 var two_played: bool = false
@@ -45,8 +46,7 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout():
-	audio_stream_player.play()
-	print_debug("Timer timeout")
+	emit_signal("play_sfx", end_countdown_audio)
 	get_tree().paused = false
 	one.visible = false
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), false)
