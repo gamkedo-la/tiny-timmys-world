@@ -28,10 +28,6 @@ func _ready() -> void:
 		con_res = Global.connect("enemy_defeated", spawn_heart_on_enemy_defeat)
 		assert(con_res == OK)
 		
-	if not Global.is_connected("enemy_defeated", spawn_heart_on_enemy_defeat):
-		con_res = Global.connect("enemy_defeated", spawn_heart_on_enemy_defeat)
-		assert(con_res == OK)
-		
 	enemy_manager_timer.wait_time = 5.0
 	
 func _process(delta: float) -> void:
@@ -66,7 +62,7 @@ func _update_elapsed_time(delta: float) -> void:
 
 func spawn_heart_on_enemy_defeat(position: Vector2) -> void:
 	var chance = RNG.randf_range(0.0, 1.0)
-	if chance > 0.8:
+	if chance > 0.7:
 		var new_heart = heart.instantiate()
 		new_heart.position = position;
 		new_heart.rotation = 0.0;
