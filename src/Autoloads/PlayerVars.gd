@@ -31,11 +31,11 @@ func _input(event):
 		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
 	
 	if event.is_action_pressed("lower_volume"):
-		var music_index= AudioServer.get_bus_index("Music")
+		var music_index= AudioServer.get_bus_index("Master")
 		var current_volume = AudioServer.get_bus_volume_db(music_index)
 		AudioServer.set_bus_volume_db(music_index, current_volume - 5)
 		
 	if event.is_action_pressed("raise_volume"):
-		var music_index= AudioServer.get_bus_index("Music")
+		var music_index= AudioServer.get_bus_index("Master")
 		var current_volume = AudioServer.get_bus_volume_db(music_index)
 		AudioServer.set_bus_volume_db(music_index, current_volume + 5)
