@@ -30,6 +30,7 @@ func _on_stomp_detector_body_entered(body: Node2D) -> void:
 	Global.emit_signal("enemy_damage_taken", PlayerVars.player_stomp_damage, (get_global_transform() * body.position))
 	
 	if health <= 0:
+		$CollisionShape2D.set_deferred("disabled", true)
 		Global.emit_signal("points_scored", score, (get_global_transform() * body.position))
 		Global.tween_eng_halftime()
 		anim_player.play("squish")
@@ -44,6 +45,7 @@ func _on_bullet_detector_area_entered(area: Area2D) -> void:
 	Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * self.position))
 	
 	if health <= 0:
+		$CollisionShape2D.set_deferred("disabled", true)
 		Global.emit_signal("points_scored", score, (get_global_transform() * area.position))
 		Global.emit_signal("enemy_defeated", position)
 		anim_player.play("shot_pop")
