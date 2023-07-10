@@ -34,4 +34,5 @@ func restart_bgm() -> void:
 	
 func play_sfx(stream) -> void:
 	sfx.stream = stream
+	sfx.volume_db = -5
 	sfx.play()
