@@ -33,7 +33,7 @@ func _on_restart_level_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_player_defeated() -> void:
-	score_label.text = "Score: " + var_to_str(PlayerVars.level_score)
+	score_label.text = var_to_str(PlayerVars.level_score)
 	get_tree().paused = true
 	get_parent().visible = true
 
