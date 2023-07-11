@@ -11,7 +11,7 @@ script = ExtResource("1_yeknd")
 
 [node name="PlatformBody" type="CharacterBody2D" parent="."]
 position = Vector2(-313, -261)
-collision_layer = 8
+collision_layer = 256
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="PlatformBody"]
