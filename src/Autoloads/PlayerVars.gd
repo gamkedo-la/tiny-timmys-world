@@ -20,7 +20,6 @@ var player_audio_jump = preload("res://src/Audio/Player/jump-1.wav")
 const HIGHSCORE_SAVE_PATH = "user://highscores.json"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_scores()
 	var con_res
 	if not Global.is_connected("player_defeated", _on_player_defeated):
 		con_res = Global.connect("player_defeated", _on_player_defeated)
@@ -51,16 +50,19 @@ func load_scores() -> void:
 		return # File DNE	
 	var file= FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.READ)
 	var json= JSON.new()
-	var score_data = json.parse(file.get_as_text())
+	var score_data = json.parse_string(file.get_line())
+	file.close()
 	#print("high scores")
 	#print(score_data)
 
 func save_scores() -> void:
 	var file = FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.WRITE)
 	var json_string = JSON.stringify(level_score)
-	file.store_line(json_string)
-	#print("stored high score")
+	#print("json score")
 	#print(json_string)
+	file.store_line(json_string)
+	file.close()
+
 	
 func _on_player_defeated() -> void:
 	save_scores()
