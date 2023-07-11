@@ -161,6 +161,18 @@ enabled = false
 target_position = Vector2(0, 7)
 collision_mask = 2
 
+[node name="StompChk2" type="RayCast2D" parent="Body"]
+position = Vector2(-7, -2)
+enabled = false
+target_position = Vector2(0, 7)
+collision_mask = 2
+
+[node name="StompChk3" type="RayCast2D" parent="Body"]
+position = Vector2(7, -2)
+enabled = false
+target_position = Vector2(0, 7)
+collision_mask = 2
+
 [node name="Player" type="Sprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_81ojk")

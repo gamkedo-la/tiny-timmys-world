@@ -44,6 +44,8 @@ var RayGround: bool = false
 @onready var grnd3:= $Body/Grnd03
 @onready var lndseek: RayCast2D = $Body/LandSeek
 @onready var stompchk: RayCast2D = $Body/StompChk
+@onready var stompchk2: RayCast2D = $Body/StompChk2
+@onready var stompchk3: RayCast2D = $Body/StompChk3
 
 func _ready() -> void:
 	PlayerVars.player = self
@@ -216,14 +218,15 @@ func _on_fall_detector_body_entered(body: Node2D) -> void:
 #	queue_free()
 	
 func _damage_player(position) -> void:
-	if is_damaged == false:
-		stompchk.force_raycast_update()
-		if stompchk.is_colliding():
-			velocity = calculate_stomp_velocity(velocity, stomp_impulse)
-		else:
-			is_damaged = true
-			PlayerVars.player_health -= 1
-			Global.emit_signal("player_damage_taken", PlayerVars.player_health, (get_global_transform() * position))
+	stompchk.force_raycast_update()
+	stompchk2.force_raycast_update()
+	stompchk3.force_raycast_update()
+	if (stompchk.is_colliding() || stompchk2.is_colliding() || stompchk3.is_colliding()):
+		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+	elif is_damaged == false:
+		is_damaged = true
+		PlayerVars.player_health -= 1
+		Global.emit_signal("player_damage_taken", PlayerVars.player_health, (get_global_transform() * position))
 		if PlayerVars.player_health <= 0:
 			Global.emit_signal("player_defeated")
 	else:
