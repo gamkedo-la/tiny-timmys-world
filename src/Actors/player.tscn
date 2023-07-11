@@ -125,7 +125,7 @@ size = Vector2(6, 13.2797)
 size = Vector2(6, 30)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 72
+collision_mask = 328
 script = ExtResource("1_is4vd")
 stomp_impulse = 500.0
 JUMP_VELOCITY = -700.0
@@ -137,23 +137,23 @@ SPEED = 200.0
 [node name="Grnd01" type="RayCast2D" parent="Body"]
 position = Vector2(-7, 0)
 target_position = Vector2(0, 7)
-collision_mask = 8
+collision_mask = 264
 
 [node name="Grnd02" type="RayCast2D" parent="Body"]
 position = Vector2(1, 0)
 target_position = Vector2(0, 7)
-collision_mask = 8
+collision_mask = 264
 
 [node name="Grnd03" type="RayCast2D" parent="Body"]
 position = Vector2(8, 0)
 target_position = Vector2(0, 7)
-collision_mask = 8
+collision_mask = 264
 
 [node name="LandSeek" type="RayCast2D" parent="Body"]
 position = Vector2(1, 0)
 enabled = false
 target_position = Vector2(0, 40)
-collision_mask = 8
+collision_mask = 264
 
 [node name="StompChk" type="RayCast2D" parent="Body"]
 position = Vector2(0, -2)
