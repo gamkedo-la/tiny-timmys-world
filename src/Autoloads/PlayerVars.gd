@@ -17,9 +17,14 @@ var boss_health: int
 var boss_max_health: int
 
 var player_audio_jump = preload("res://src/Audio/Player/jump-1.wav")
+const HIGHSCORE_SAVE_PATH = "user://highscores.json"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	load_scores()
+	var con_res
+	if not Global.is_connected("player_defeated", _on_player_defeated):
+		con_res = Global.connect("player_defeated", _on_player_defeated)
+		assert(con_res == OK)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,3 +44,27 @@ func _input(event):
 		var music_index= AudioServer.get_bus_index("Master")
 		var current_volume = AudioServer.get_bus_volume_db(music_index)
 		AudioServer.set_bus_volume_db(music_index, current_volume + 5)
+		
+func load_scores() -> void:
+	if not FileAccess.file_exists(HIGHSCORE_SAVE_PATH):
+		print("scores not found")
+		return # File DNE	
+	var file= FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.READ)
+	var json= JSON.new()
+	var score_data = json.parse(file.get_as_text())
+	#print("high scores")
+	#print(score_data)
+
+func save_scores() -> void:
+	var file = FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.WRITE)
+	var json_string = JSON.stringify(level_score)
+	file.store_line(json_string)
+	#print("stored high score")
+	#print(json_string)
+	
+func _on_player_defeated() -> void:
+	save_scores()
+	
+
+	
+	
