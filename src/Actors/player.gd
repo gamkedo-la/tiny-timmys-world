@@ -57,8 +57,6 @@ func _on_enemy_detector_area_entered(area: Area2D) -> void:
 	_damage_player(area.position)
 	
 func _on_enemy_detector_body_entered(body: Node2D) -> void:
-	#temporary behavior for the funs	
-	print_debug(body.name)
 	if(body.name.contains('@@')):
 		_damage_player(body.position)
 		jump = true
@@ -69,9 +67,7 @@ func _on_spikes_detector_area_entered(area):
 	_damage_player(area.position)
 
 
-func _on_spikes_detector_body_entered(body):
-	#temporary behavior for the funs	
-	print_debug(body.name)
+func _on_spikes_detector_body_entered(body):	
 	if(body.name.contains('@@')):
 		_damage_player(body.position)
 		jump = true
