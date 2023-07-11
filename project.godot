@@ -97,6 +97,7 @@ raise_volume={
 2d_physics/layer_7="screen_boundary"
 2d_physics/layer_8="fall_detection"
 2d_physics/layer_9="Platform"
+2d_physics/layer_10="Spikes"
 
 [physics]
 

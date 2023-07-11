@@ -60,7 +60,19 @@ func _on_enemy_detector_body_entered(body: Node2D) -> void:
 	#temporary behavior for the funs	
 	print_debug(body.name)
 	if(body.name.contains('@@')):
-		print_debug('Tilemap collision')
+		_damage_player(body.position)
+		jump = true
+	else:
+		pass
+		
+func _on_spikes_detector_area_entered(area):
+	_damage_player(area.position)
+
+
+func _on_spikes_detector_body_entered(body):
+	#temporary behavior for the funs	
+	print_debug(body.name)
+	if(body.name.contains('@@')):
 		_damage_player(body.position)
 		jump = true
 	else:
@@ -231,3 +243,6 @@ func _damage_player(position) -> void:
 			Global.emit_signal("player_defeated")
 	else:
 		pass
+
+
+
