@@ -142,7 +142,8 @@ func hide_laser() -> void:
 
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
-	PlayerVars.boss_health -= PlayerVars.player_slingshot_damage
-	modulate = Color(10,10,10)
-	is_damaged = true
-	Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * (bullet_detector.position + Vector2(200, 30))))
+	if (is_in_position):
+		PlayerVars.boss_health -= PlayerVars.player_slingshot_damage
+		modulate = Color(10,10,10)
+		is_damaged = true
+		Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * (bullet_detector.position + Vector2(200, 30))))

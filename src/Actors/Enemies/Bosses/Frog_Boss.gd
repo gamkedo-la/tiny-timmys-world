@@ -28,7 +28,6 @@ func _ready():
 	is_in_position = (round(position.x) == 0)
 	if (not is_in_position):
 		ai_finite_state_machine.set_process(false)
-		print_debug(ai_finite_state_machine.is_processing())
 		
 	pass
 
@@ -36,6 +35,7 @@ func physics_process(delta: float) -> void:
 	if(is_in_position && not ai_finite_state_machine.is_processing()):
 		velocity.x = 0
 		ai_finite_state_machine.set_process(true)
+		bullet_detector.set_process(true)
 	else:
 		if position.x > 0:
 			velocity.x = -get_in_position_speed * delta
@@ -103,10 +103,11 @@ func eat_fly() -> void:
 	PlayerVars.boss_health += 1000
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
-	PlayerVars.boss_health -= PlayerVars.player_slingshot_damage
-	_animated_sprite.modulate = Color(10,10,10)
-	is_damaged = true
-	Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * (bullet_detector.position + Vector2(200, 30))))
+	if (is_in_position):
+		PlayerVars.boss_health -= PlayerVars.player_slingshot_damage
+		_animated_sprite.modulate = Color(10,10,10)
+		is_damaged = true
+		Global.emit_signal("enemy_damage_taken", PlayerVars.player_slingshot_damage, (get_global_transform() * (bullet_detector.position + Vector2(200, 30))))
 
 func _on_animated_sprite_2d_animation_finished():
 	print_debug("Animation finished")
