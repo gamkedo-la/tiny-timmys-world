@@ -12,7 +12,7 @@ signal player_victorious()
 
 var LEVEL_SPEED: float = -20.0
 var show_debug_labels_enemies: bool = false
-var show_AIFSM_labels: bool = true
+var show_AIFSM_labels: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

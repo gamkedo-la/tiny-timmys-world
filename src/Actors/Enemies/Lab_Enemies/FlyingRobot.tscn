@@ -392,6 +392,7 @@ libraries = {
 }
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -85.0
 offset_right = 20.0
@@ -400,6 +401,7 @@ text = "Test"
 label_settings = SubResource("LabelSettings_jceyq")
 
 [node name="LeaveCounterDebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -18.75
 offset_top = -53.75
 offset_right = 21.25
