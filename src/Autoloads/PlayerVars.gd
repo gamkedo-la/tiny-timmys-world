@@ -22,6 +22,7 @@ var player_audio_jump = preload("res://src/Audio/Player/jump-1.wav")
 const HIGHSCORE_SAVE_PATH = "user://highscores.save"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	load_scores()
 	var con_res
 	if not Global.is_connected("player_defeated", _on_player_defeated):
 		con_res = Global.connect("player_defeated", _on_player_defeated)
