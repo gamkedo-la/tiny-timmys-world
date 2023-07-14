@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://jx2x2duslm40"]
+[gd_scene load_steps=9 format=3 uid="uid://jx2x2duslm40"]
 
 [ext_resource type="Script" path="res://src/UI/Thanks.gd" id="1_gwli1"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="1_i7mv4"]
 [ext_resource type="Texture2D" uid="uid://c335qsrfalx0q" path="res://src/UI/return_button.png" id="2_aj8al"]
+[ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="2_kcu0w"]
 [ext_resource type="Texture2D" uid="uid://b4dk35vgassdt" path="res://src/UI/return_button_pressed.png" id="3_7tr8i"]
 [ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="4_enys6"]
 [ext_resource type="Texture2D" uid="uid://ba8yo2waxn3dd" path="res://src/UI/thanks_text.png" id="6_jh2sh"]
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gwli1")
+level_bgm = ExtResource("2_kcu0w")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
