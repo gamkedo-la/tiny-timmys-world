@@ -23,6 +23,8 @@ func state_check()->void:
 
 func enter(msg:Dictionary = {}) -> void:
 #	actor.ani_player_play("Idle")
+	actor.audio_stream_player.stream = actor.laser_fire_sfx
+	actor.audio_stream_player.play()
 	laser_fired = false
 	time_in_state = 0.0
 	pass

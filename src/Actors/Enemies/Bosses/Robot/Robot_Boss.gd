@@ -1,6 +1,7 @@
 extends AIActor
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var bullet_detector: Area2D = $BulletDetector
 @onready var laser_base: Node2D = $Laser
 @onready var laser_left_line: Line2D = $Laser/LaserLeftLine
@@ -11,6 +12,11 @@ extends AIActor
 @onready var laser_right_tip: Area2D = $Laser/LaserRightTip
 
 @onready var ai_finite_state_machine = $AIFSM
+
+@export var fist_tell_sfx: AudioStream
+@export var fist_fire_sfx: AudioStream
+@export var laser_tell_sfx: AudioStream
+@export var laser_fire_sfx: AudioStream
 
 var is_in_position: bool = false
 var fist_is_back_in_position: bool = false
