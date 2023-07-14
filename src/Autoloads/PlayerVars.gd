@@ -70,16 +70,14 @@ func update_high_scores() -> void:
 	high_scores = sort_descending(high_scores)
 	if (high_scores.size() > MAX_NUM_HIGH_SCORES):
 		high_scores.pop_back()
-	print("### score sorting")
-	print(high_scores)
 
 func sort_descending(a: Array) -> Array:
 	var index = 0
 	for i in range(a.size()):
-		if i+1 != a.size():
-			if a[i] < a[i+1]:
-				var temp = a[i+1]
-				a[i+1] = a[i]
+		for b in range(i+1, a.size()):
+			if a[i] < a[b]:
+				var temp = a[b]
+				a[b] = a[i]
 				a[i] = temp
 	return a
 	
