@@ -1,6 +1,7 @@
 extends AIActor
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var tongue_base: Node2D = $Tongue
 @onready var tongue_line: Line2D = $Tongue/TongueLine
 @onready var tongue_line_collision: CollisionShape2D = $Tongue/TongueLine/Area2D/CollisionShape2D
@@ -9,6 +10,10 @@ extends AIActor
 
 @onready var flies: Node2D = $Flies
 @onready var ai_finite_state_machine = $AIFSM
+
+@export var tongue_sfx: AudioStream
+@export var stomp_sfx: AudioStream
+@export var flies_sfx: AudioStream
 
 var is_in_position: bool = false
 var get_in_position_speed = 1000.0

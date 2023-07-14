@@ -1,10 +1,13 @@
-[gd_scene load_steps=95 format=3 uid="uid://b1jwx873qgfb2"]
+[gd_scene load_steps=98 format=3 uid="uid://b1jwx873qgfb2"]
 
 [ext_resource type="Texture2D" uid="uid://e4fhtmdkemm0" path="res://src/Sprites/FrogBoss-Idle-sprite_sheet.png" id="1_rn1xv"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Frog_Boss.gd" id="1_rqc32"]
+[ext_resource type="AudioStream" uid="uid://dorxlp4hv7fqf" path="res://src/Audio/Frog/frog-croak-1.wav" id="2_n8gvk"]
 [ext_resource type="Texture2D" uid="uid://dp6cf177xieni" path="res://src/Sprites/FrogBoss-StompTell-sprite_sheet.png" id="3_75d37"]
 [ext_resource type="Script" path="res://src/Actors/FSM/AIFSM.gd" id="3_gs6nc"]
+[ext_resource type="AudioStream" uid="uid://cyhswin7fsu77" path="res://src/Audio/Frog/frog-croak-3.wav" id="3_q26p3"]
 [ext_resource type="Texture2D" uid="uid://bjijgkuqd7sjn" path="res://src/Sprites/FrogBoss-TongueTell-sprite_sheet.png" id="3_yk8nt"]
+[ext_resource type="AudioStream" uid="uid://ctk2lsdkoprvl" path="res://src/Audio/Frog/frog-croak-2.wav" id="4_gpoq7"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogIdle.gd" id="4_scuj7"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogSpawnFly.gd" id="5_2akvq"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/FrogStates/FrogStompTell.gd" id="5_d2rco"]
@@ -584,6 +587,9 @@ collision_mask = 0
 platform_floor_layers = 4294901792
 platform_wall_layers = 32
 script = ExtResource("1_rqc32")
+tongue_sfx = ExtResource("2_n8gvk")
+stomp_sfx = ExtResource("3_q26p3")
+flies_sfx = ExtResource("4_gpoq7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(200, 150)
@@ -666,6 +672,8 @@ collision_mask = 16
 modulate = Color(0, 1, 0, 1)
 scale = Vector2(4.39999, 3.44999)
 shape = SubResource("RectangleShape2D_6s3pe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="BulletDetector" to="." method="_on_bullet_detector_area_entered"]

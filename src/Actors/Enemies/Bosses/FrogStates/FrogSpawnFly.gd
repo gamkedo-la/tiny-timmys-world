@@ -28,6 +28,8 @@ func state_check()->void:
 
 func enter(msg:Dictionary = {}) -> void:
 	fly_spawned = false
+	actor.audio_stream_player.stream = actor.flies_sfx
+	actor.audio_stream_player.play()
 	time_in_state = 0.0
 	pass
 
