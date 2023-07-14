@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c06yus3w27kd"]
+[gd_scene load_steps=10 format=3 uid="uid://c06yus3w27kd"]
 
 [ext_resource type="Script" path="res://src/UI/Highscores.gd" id="1_6v3to"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="2_3s0fj"]
@@ -8,6 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="6_ap2pe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yahmn"]
+
+[sub_resource type="SystemFont" id="SystemFont_fa57j"]
+font_names = PackedStringArray("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+font_weight = 475
+
+[sub_resource type="Theme" id="Theme_ge2go"]
+default_font = SubResource("SystemFont_fa57j")
+default_font_size = 40
 
 [node name="Highscores" type="Control"]
 layout_mode = 3
@@ -51,11 +59,17 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_fiftd")
 
 [node name="ItemList" type="ItemList" parent="Panel/Panel"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 118.0
-offset_right = 1597.0
-offset_bottom = 1127.0
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ge2go")
 auto_height = true
 
 [node name="Return" type="TextureButton" parent="Panel/Panel"]
