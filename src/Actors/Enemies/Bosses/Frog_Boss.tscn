@@ -649,6 +649,7 @@ script = ExtResource("9_gccf4")
 script = ExtResource("11_0077e")
 
 [node name="StateLabel" type="Label" parent="."]
+visible = false
 offset_left = 293.0
 offset_top = 24.0
 offset_right = 395.0

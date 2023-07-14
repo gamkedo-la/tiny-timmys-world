@@ -244,6 +244,7 @@ script = ExtResource("14_03vck")
 script = ExtResource("15_1eiql")
 
 [node name="StateLabel" type="Label" parent="."]
+visible = false
 offset_left = 293.0
 offset_top = 24.0
 offset_right = 395.0
