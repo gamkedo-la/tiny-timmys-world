@@ -4,6 +4,8 @@ var level_score: int
 @export var level_completion_time: float
 var level_progress: float
 var level_elapsed_time: float
+var high_scores: Array
+const MAX_NUM_HIGH_SCORES = 3
 
 var player: CharacterBody2D = null
 
@@ -24,7 +26,9 @@ func _ready() -> void:
 	if not Global.is_connected("player_defeated", _on_player_defeated):
 		con_res = Global.connect("player_defeated", _on_player_defeated)
 		assert(con_res == OK)
-
+	if not Global.is_connected("player_victorious", _on_player_victorious):
+		con_res = Global.connect("player_victorious", _on_player_victorious)
+		assert(con_res == OK)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -45,20 +49,46 @@ func _input(event):
 		AudioServer.set_bus_volume_db(music_index, current_volume + 5)
 		
 func load_scores() -> void:
+	high_scores.clear()
 	if not FileAccess.file_exists(HIGHSCORE_SAVE_PATH):
 		print("scores not found")
 		return # File DNE	
 	var file= FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.READ)
-	var content = file.get_16()
+	while file.get_position() < file.get_length():
+		high_scores.append(file.get_16())
+	high_scores = sort_descending(high_scores)
 	file.close()
 
 func save_scores() -> void:
 	var file = FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.WRITE)
-	file.store_16(level_score)
+	for score in high_scores:
+		file.store_16(score)
 	file.close()
 
+func update_high_scores() -> void:
+	high_scores.append(level_score)
+	high_scores = sort_descending(high_scores)
+	if (high_scores.size() > MAX_NUM_HIGH_SCORES):
+		high_scores.pop_back()
+	print("### score sorting")
+	print(high_scores)
+
+func sort_descending(a: Array) -> Array:
+	var index = 0
+	for i in range(a.size()):
+		if i+1 != a.size():
+			if a[i] < a[i+1]:
+				var temp = a[i+1]
+				a[i+1] = a[i]
+				a[i] = temp
+	return a
 	
 func _on_player_defeated() -> void:
+	update_high_scores()
+	save_scores()
+
+func _on_player_victorious() -> void:
+	update_high_scores()
 	save_scores()
 	
 
