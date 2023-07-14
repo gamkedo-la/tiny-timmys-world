@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=31 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" path="res://src/UI/Credits.tscn" id="4_cx8lh"]
 [ext_resource type="Texture2D" uid="uid://t4uj5x4ppsw6" path="res://src/UI/play_button.png" id="4_h8edh"]
 [ext_resource type="Texture2D" uid="uid://cfj8rasfkp8x" path="res://src/UI/play_button_pressed.png" id="5_fjbfa"]
+[ext_resource type="PackedScene" uid="uid://c06yus3w27kd" path="res://src/UI/Highscores.tscn" id="5_s5x5k"]
 [ext_resource type="Texture2D" uid="uid://cynu6r2l6m1ej" path="res://src/UI/play_button_hover.png" id="6_po3om"]
 [ext_resource type="Texture2D" uid="uid://yd0prh2qrpw3" path="res://src/UI/levels_button.png" id="7_7bigp"]
 [ext_resource type="Texture2D" uid="uid://ccmjv6opindxg" path="res://src/UI/levels_button_hover.png" id="8_lxqrc"]
 [ext_resource type="Texture2D" uid="uid://bv7hxqpwoc7ir" path="res://src/UI/levels_button_pressed.png" id="8_ufe5l"]
 [ext_resource type="Texture2D" uid="uid://b06h2tmyb1kfc" path="res://src/UI/credits_button.png" id="11_5hpfk"]
 [ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="11_bai26"]
+[ext_resource type="Texture2D" uid="uid://ba0m11ajoqeqx" path="res://src/UI/score_text.png" id="12_kv2ia"]
 [ext_resource type="Texture2D" uid="uid://ltlnnk1yvltt" path="res://src/UI/credits_button_pressed.png" id="12_ta6cj"]
 [ext_resource type="Texture2D" uid="uid://jdrir31ephk6" path="res://src/UI/credits_button_hover.png" id="13_fbb4u"]
 [ext_resource type="Texture2D" uid="uid://d0vub352250oh" path="res://src/UI/quit_button.png" id="14_3x06v"]
@@ -41,6 +43,7 @@ script = ExtResource("1_c6sew")
 level_scene = ExtResource("2_gg8ts")
 level_selection_scene = ExtResource("3_i4pdq")
 credits_scene = ExtResource("4_cx8lh")
+high_scores_scene = ExtResource("5_s5x5k")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -91,6 +94,10 @@ texture_hover = ExtResource("8_lxqrc")
 [node name="FullscreenToggle" type="CheckButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Fullscreen"
+
+[node name="Highscores" type="TextureButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_kv2ia")
 
 [node name="Credits" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -143,6 +150,7 @@ stream = ExtResource("11_bai26")
 [connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/LevelSelection" to="." method="_on_level_selection_pressed"]
 [connection signal="toggled" from="Panel/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="Panel/VBoxContainer/Highscores" to="." method="_on_high_scores_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/VolumeUp" to="." method="_on_volume_up_pressed"]
