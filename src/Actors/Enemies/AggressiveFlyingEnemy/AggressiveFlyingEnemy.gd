@@ -4,11 +4,14 @@ extends AIActor
 @export var score: int = 30
 @export var health: int = 30
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var debug_label: Label = $StateLabel
 @onready var sprite: Sprite2D = $Body/Enemy
 @onready var actor_body: Node2D = $Body
 @onready var stomp_detector: Area2D = $Body/StompDetector
 @onready var leave_counter_debug_label = $LeaveCounterDebugLabel
+
+var play_buzz: bool = false
 
 var dir = Vector2.LEFT
 var leave_counter = 4
@@ -53,6 +56,13 @@ func physics_process(delta: float) -> void:
 	if debug_label.visible:
 		_update_debug_label()
 	_update_leave_counter_debug_label()
+	
+	if play_buzz and not audio_stream_player.playing:
+		audio_stream_player.play()
+	
+	if not play_buzz:
+		audio_stream_player.stop()
+		audio_stream_player.seek(0.0)
 
 
 func _update_debug_label() -> void:

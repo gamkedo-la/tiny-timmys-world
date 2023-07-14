@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cx2mog32vlxi4"]
+[gd_scene load_steps=16 format=3 uid="uid://cx2mog32vlxi4"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/AggressiveFlyingEnemy.gd" id="1_4fflr"]
 [ext_resource type="Texture2D" uid="uid://bkjdy8ra1tlvw" path="res://src/Sprites/FireFly-Versions/firefly4thframe.png" id="2_llyoj"]
 [ext_resource type="Script" path="res://src/Actors/FSM/StateMachine.gd" id="3_2iyne"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/Fly.gd" id="4_q64ah"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/Attack.gd" id="5_4x7cm"]
+[ext_resource type="AudioStream" uid="uid://8tg0cfyibuxj" path="res://src/Audio/FlyingEnemyBuzz/FlyingEnemyBuzz.mp3" id="6_rr6fq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
 size = Vector2(26.9738, 15.1316)
@@ -391,6 +392,11 @@ script = ExtResource("4_q64ah")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_4x7cm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rr6fq")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detecter_body_entered"]
 [connection signal="area_entered" from="Body/BulletDetector" to="." method="_on_bullet_detector_area_entered"]

@@ -38,11 +38,12 @@ func state_check()->void:
 
 func enter(msg:Dictionary = {}) -> void:
 	RNG.randomize()
+	actor.play_buzz = true
 
 	time_in_state = 0.0
 	pass
 
 func exit() -> void:
-	pass
+	actor.play_buzz = false
 	
 		
