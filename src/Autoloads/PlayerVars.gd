@@ -17,7 +17,7 @@ var boss_health: int
 var boss_max_health: int
 
 var player_audio_jump = preload("res://src/Audio/Player/jump-1.wav")
-const HIGHSCORE_SAVE_PATH = "user://highscores.json"
+const HIGHSCORE_SAVE_PATH = "user://highscores.save"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var con_res
@@ -49,18 +49,12 @@ func load_scores() -> void:
 		print("scores not found")
 		return # File DNE	
 	var file= FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.READ)
-	var json= JSON.new()
-	var score_data = json.parse_string(file.get_line())
+	var content = file.get_16()
 	file.close()
-	#print("high scores")
-	#print(score_data)
 
 func save_scores() -> void:
 	var file = FileAccess.open(HIGHSCORE_SAVE_PATH, FileAccess.WRITE)
-	var json_string = JSON.stringify(level_score)
-	#print("json score")
-	#print(json_string)
-	file.store_line(json_string)
+	file.store_16(level_score)
 	file.close()
 
 	

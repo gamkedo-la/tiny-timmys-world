@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
 [ext_resource type="PackedScene" uid="uid://dkx53enp42505" path="res://src/UI/LevelSelection.tscn" id="3_i4pdq"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="4_4p7we"]
-[ext_resource type="PackedScene" uid="uid://dlgaqoueji01l" path="res://src/UI/Credits.tscn" id="4_cx8lh"]
+[ext_resource type="PackedScene" path="res://src/UI/Credits.tscn" id="4_cx8lh"]
 [ext_resource type="Texture2D" uid="uid://t4uj5x4ppsw6" path="res://src/UI/play_button.png" id="4_h8edh"]
 [ext_resource type="Texture2D" uid="uid://cfj8rasfkp8x" path="res://src/UI/play_button_pressed.png" id="5_fjbfa"]
 [ext_resource type="Texture2D" uid="uid://cynu6r2l6m1ej" path="res://src/UI/play_button_hover.png" id="6_po3om"]
