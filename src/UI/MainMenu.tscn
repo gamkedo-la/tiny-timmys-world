@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://c1p6xtbxm6gun"]
+[gd_scene load_steps=33 format=3 uid="uid://c1p6xtbxm6gun"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_c6sew"]
 [ext_resource type="PackedScene" uid="uid://juubjo5hbwl0" path="res://src/Levels/Backyard_Garden_Level_1.tscn" id="2_gg8ts"]
 [ext_resource type="PackedScene" uid="uid://dkx53enp42505" path="res://src/UI/LevelSelection.tscn" id="3_i4pdq"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="4_4p7we"]
-[ext_resource type="PackedScene" uid="uid://dlgaqoueji01l" path="res://src/UI/Credits.tscn" id="4_cx8lh"]
+[ext_resource type="PackedScene" path="res://src/UI/Credits.tscn" id="4_cx8lh"]
 [ext_resource type="Texture2D" uid="uid://t4uj5x4ppsw6" path="res://src/UI/play_button.png" id="4_h8edh"]
 [ext_resource type="Texture2D" uid="uid://cfj8rasfkp8x" path="res://src/UI/play_button_pressed.png" id="5_fjbfa"]
 [ext_resource type="PackedScene" uid="uid://c06yus3w27kd" path="res://src/UI/Highscores.tscn" id="5_s5x5k"]
@@ -14,10 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://bv7hxqpwoc7ir" path="res://src/UI/levels_button_pressed.png" id="8_ufe5l"]
 [ext_resource type="Texture2D" uid="uid://b06h2tmyb1kfc" path="res://src/UI/credits_button.png" id="11_5hpfk"]
 [ext_resource type="AudioStream" uid="uid://bjp1oiyv4wiaq" path="res://src/Audio/BGM/TinyTimGardenTheme.mp3" id="11_bai26"]
-[ext_resource type="Texture2D" uid="uid://ba0m11ajoqeqx" path="res://src/UI/score_text.png" id="12_kv2ia"]
 [ext_resource type="Texture2D" uid="uid://ltlnnk1yvltt" path="res://src/UI/credits_button_pressed.png" id="12_ta6cj"]
 [ext_resource type="Texture2D" uid="uid://jdrir31ephk6" path="res://src/UI/credits_button_hover.png" id="13_fbb4u"]
+[ext_resource type="Texture2D" uid="uid://cyuldju4ngyk8" path="res://src/UI/hi_scores_button.png" id="13_urulm"]
 [ext_resource type="Texture2D" uid="uid://d0vub352250oh" path="res://src/UI/quit_button.png" id="14_3x06v"]
+[ext_resource type="Texture2D" uid="uid://b881sbsd2f3yo" path="res://src/UI/hi_scores_button_pressed.png" id="14_ml54o"]
+[ext_resource type="Texture2D" uid="uid://c6nvxqyss65an" path="res://src/UI/hi_scores_button_hover.png" id="15_0x82j"]
 [ext_resource type="Texture2D" uid="uid://d1mdg1f64poqr" path="res://src/UI/quit_button_pressed.png" id="15_n12s1"]
 [ext_resource type="Texture2D" uid="uid://dnkest8gfuara" path="res://src/UI/quit_button_hover.png" id="16_5fkmv"]
 [ext_resource type="Texture2D" uid="uid://drwbvp5arbfag" path="res://src/UI/volume_up_button.png" id="17_h2inl"]
@@ -97,7 +99,9 @@ text = "Fullscreen"
 
 [node name="Highscores" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("12_kv2ia")
+texture_normal = ExtResource("13_urulm")
+texture_pressed = ExtResource("14_ml54o")
+texture_hover = ExtResource("15_0x82j")
 
 [node name="Credits" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
