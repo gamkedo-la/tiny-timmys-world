@@ -7,7 +7,7 @@ func _ready():
 		item_list.add_item(" No Scores Yet...")
 	else:
 		item_list.add_item("Rank          Score", null, false)
-		var index = 0
+		var index = 1
 		for i in PlayerVars.high_scores:
 			item_list.add_item("  %d                 %d" % [index, i] , null, false)
 			index = index + 1
