@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/UI/Highscores.gd" id="1_6v3to"]
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="2_3s0fj"]
-[ext_resource type="Texture2D" uid="uid://ba0m11ajoqeqx" path="res://src/UI/score_text.png" id="3_fiftd"]
+[ext_resource type="Texture2D" uid="uid://7exrc4g1gog1" path="res://src/UI/hi_scores_text.png" id="3_eguwa"]
 [ext_resource type="Texture2D" uid="uid://c335qsrfalx0q" path="res://src/UI/return_button.png" id="4_6hgfi"]
 [ext_resource type="Texture2D" uid="uid://b4dk35vgassdt" path="res://src/UI/return_button_pressed.png" id="5_tyxcp"]
 [ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="6_ap2pe"]
@@ -51,12 +51,13 @@ offset_bottom = 1200.0
 
 [node name="Title" type="TextureRect" parent="Panel/Panel"]
 layout_mode = 0
-offset_left = 673.0
-offset_top = 40.0
-offset_right = 800.0
-offset_bottom = 80.0
+offset_left = 601.0
+offset_top = 44.0
+offset_right = 825.444
+offset_bottom = 84.0
 scale = Vector2(2, 2)
-texture = ExtResource("3_fiftd")
+texture = ExtResource("3_eguwa")
+expand_mode = 3
 
 [node name="ItemList" type="ItemList" parent="Panel/Panel"]
 layout_direction = 2
