@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://xtf2drh4t6n8"]
+[gd_scene load_steps=17 format=3 uid="uid://xtf2drh4t6n8"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Lab_Enemies/AggressiveFlyingRobot.gd" id="1_kk17c"]
 [ext_resource type="Texture2D" uid="uid://dacwvvsuwulku" path="res://src/Sprites/flying_robot_aggresive-Sheet.png" id="2_ttfn1"]
 [ext_resource type="Script" path="res://src/Actors/FSM/StateMachine.gd" id="3_ia1wt"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/Fly.gd" id="4_4el2x"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/AggressiveFlyingEnemy/Attack.gd" id="5_k0dkk"]
+[ext_resource type="AudioStream" uid="uid://d0ftcm5efce0s" path="res://src/Audio/Robots/robot-5.wav" id="6_ivucb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u60ad"]
 size = Vector2(25.0001, 8.42106)
@@ -421,6 +422,10 @@ script = ExtResource("4_4el2x")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_k0dkk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ivucb")
+volume_db = -5.0
 
 [connection signal="body_entered" from="Body/StompDetector" to="." method="_on_stomp_detecter_body_entered"]
 [connection signal="area_entered" from="Body/BulletDetector" to="." method="_on_bullet_detector_area_entered"]
