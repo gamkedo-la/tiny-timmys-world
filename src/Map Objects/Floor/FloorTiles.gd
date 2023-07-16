@@ -67,8 +67,8 @@ func _spawn_new_random_floor() -> void:
 			floor_cells_coord_list.append(Vector2i(n, max_coords_y))
 			decorator_cells_coord_list.append(Vector2i(n, max_coords_y - 1))
 		
-		if (rng.randf_range(0.0, 1.0) < floor_hole_spawn_probability && floor_cells_coord_list.has(Vector2i(n, max_coords_y))): 
-			hazard_cells_coord_list.append(Vector2i(n, max_coords_y - 1))
+			if (rng.randf_range(0.0, 1.0) < floor_hole_spawn_probability): 
+				hazard_cells_coord_list.append(Vector2i(n, max_coords_y - 1))
 	
 	new_floor.set_cells_terrain_connect(0, floor_cells_coord_list, 0, 0, true)
 	new_floor.set_cells_terrain_connect(0, decorator_cells_coord_list, 0, 1, true)
