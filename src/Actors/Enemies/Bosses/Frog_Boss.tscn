@@ -612,7 +612,7 @@ width_curve = SubResource("Curve_23qhl")
 texture = SubResource("PlaceholderTexture2D_wm0in")
 
 [node name="Area2D" type="Area2D" parent="Tongue/TongueLine"]
-collision_layer = 2
+collision_layer = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue/TongueLine/Area2D"]
 shape = SubResource("SegmentShape2D_nc506")
