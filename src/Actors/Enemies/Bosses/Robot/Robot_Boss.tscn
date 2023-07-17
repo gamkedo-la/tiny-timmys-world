@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://tacsbvhvcb28"]
+[gd_scene load_steps=45 format=3 uid="uid://tacsbvhvcb28"]
 
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/Robot_Boss.gd" id="1_dmrst"]
 [ext_resource type="AudioStream" uid="uid://bm7e6t61vxit8" path="res://src/Audio/Robots/robot-4.wav" id="2_pqmja"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/RightFistReturn.gd" id="10_6xxhf"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistTell.gd" id="11_1oef4"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistAttack.gd" id="12_rtmkk"]
+[ext_resource type="Texture2D" uid="uid://c2tld5am2hc74" path="res://src/Sprites/laser_glow.png" id="12_rv4cj"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LeftFistReturn.gd" id="13_ey4kr"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LaserTell.gd" id="14_03vck"]
 [ext_resource type="Script" path="res://src/Actors/Enemies/Bosses/Robot/LaserAttack.gd" id="15_1eiql"]
@@ -111,6 +112,46 @@ texture_repeat = 2
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4fg3q"]
 b = Vector2(0, 0)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_my65t"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[sub_resource type="Curve" id="Curve_8aqpo"]
+_data = [Vector2(0, 0.772727), 0.0, 0.0, 0, 0, Vector2(0.445783, 0.472727), -0.620174, -0.620174, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_odvfg"]
+curve = SubResource("Curve_8aqpo")
+
+[sub_resource type="Curve" id="Curve_ij8sm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0181818), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_od6kt"]
+curve = SubResource("Curve_ij8sm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tk65k"]
+particle_flag_disable_z = true
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+angular_velocity_min = 150.0
+angular_velocity_max = 150.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = 300.0
+radial_accel_max = 300.0
+angle_min = 50.0
+angle_max = 50.0
+scale_curve = SubResource("CurveTexture_odvfg")
+turbulence_enabled = true
+turbulence_noise_strength = 0.5
+turbulence_noise_scale = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_od6kt")
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_5l38c"]
 diffuse_texture = ExtResource("6_4rspb")
 texture_repeat = 2
@@ -191,6 +232,18 @@ collision_layer = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserLeftLine/Area2D"]
 shape = SubResource("SegmentShape2D_4fg3q")
 
+[node name="BaseParticles2D" type="GPUParticles2D" parent="Laser/LaserLeftLine"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_my65t")
+texture = ExtResource("12_rv4cj")
+lifetime = 0.3
+
+[node name="BeamParticles2D" type="GPUParticles2D" parent="Laser/LaserLeftLine"]
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_tk65k")
+texture = ExtResource("12_rv4cj")
+lifetime = 2.0
+
 [node name="LaserRightLine" type="Line2D" parent="Laser"]
 position = Vector2(18, -2)
 texture = SubResource("CanvasTexture_5l38c")
@@ -202,6 +255,18 @@ collision_layer = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserRightLine/Area2D"]
 shape = SubResource("SegmentShape2D_4fg3q")
+
+[node name="BaseParticles2D" type="GPUParticles2D" parent="Laser/LaserRightLine"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_my65t")
+texture = ExtResource("12_rv4cj")
+lifetime = 0.3
+
+[node name="BeamParticles2D" type="GPUParticles2D" parent="Laser/LaserRightLine"]
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_tk65k")
+texture = ExtResource("12_rv4cj")
+lifetime = 2.0
 
 [node name="LaserRightTip" type="Area2D" parent="Laser"]
 position = Vector2(18, -2)

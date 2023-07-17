@@ -9,6 +9,10 @@ extends AIActor
 @onready var laser_right_line: Line2D = $Laser/LaserRightLine
 @onready var laser_right_line_collision: CollisionShape2D = $Laser/LaserRightLine/Area2D/CollisionShape2D
 @onready var laser_left_tip: Area2D = $Laser/LaserLeftTip
+@onready var laser_left_particle_base: GPUParticles2D = $Laser/LaserLeftLine/BaseParticles2D
+@onready var laser_left_particle_beam: GPUParticles2D = $Laser/LaserLeftLine/BeamParticles2D
+@onready var laser_right_particle_base: GPUParticles2D = $Laser/LaserRightLine/BaseParticles2D
+@onready var laser_right_particle_beam: GPUParticles2D = $Laser/LaserRightLine/BeamParticles2D
 @onready var laser_right_tip: Area2D = $Laser/LaserRightTip
 
 @onready var ai_finite_state_machine = $AIFSM
@@ -29,6 +33,10 @@ var time_interpolated = 0.0
 var interpolation_speed = 0.5
 
 func _ready():
+	laser_left_particle_base.emitting = false
+	laser_left_particle_beam.emitting = false
+	laser_right_particle_base.emitting = false
+	laser_right_particle_beam.emitting = false
 	original_modulate = modulate
 	PlayerVars.boss_health = 2000
 	PlayerVars.boss_max_health = 2000
@@ -105,6 +113,10 @@ func fist_return_experimental(fist: String, delta: float) -> void:
 		
 func fire_laser(pos: Vector2) -> void:
 	laser_base.visible = true
+	laser_left_particle_beam.emitting = true
+	laser_left_particle_base.emitting = true
+	laser_right_particle_beam.emitting = true
+	laser_right_particle_base.emitting = true
 	var laser_left_tween = create_tween()
 	var laser_right_tween = create_tween()
 	var loc_left_pos = laser_left_line.to_local(pos)
@@ -126,6 +138,8 @@ func fire_laser(pos: Vector2) -> void:
 
 func update_laser(new_pos: Vector2):
 	laser_left_line.set_point_position(1, new_pos)
+	laser_left_particle_beam.process_material.set_direction(Vector3(laser_left_line.points[1].x, laser_left_line.points[1].y, 0))
+	laser_right_particle_beam.process_material.set_direction(Vector3(laser_right_line.points[1].x, laser_right_line.points[1].y, 0))
 	laser_right_line.set_point_position(1, new_pos)
 	laser_left_tip.position = new_pos
 	laser_right_tip.position = new_pos
@@ -145,6 +159,10 @@ func retract_laser() -> void:
 func hide_laser() -> void:
 	
 	laser_base.visible = false
+	laser_left_particle_base.emitting = false
+	laser_left_particle_beam.emitting = false
+	laser_right_particle_base.emitting = false
+	laser_right_particle_beam.emitting = false
 
 
 func _on_bullet_detector_area_entered(area: Area2D) -> void:
