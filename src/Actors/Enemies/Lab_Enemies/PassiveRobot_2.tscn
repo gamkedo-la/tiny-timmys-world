@@ -369,7 +369,7 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/TurnDetector"]
 position = Vector2(-0.240073, 2.3416)
-scale = Vector2(0.869717, 1.00106)
+scale = Vector2(0.714493, 1.00106)
 shape = SubResource("RectangleShape2D_xe5km")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
