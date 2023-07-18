@@ -19,12 +19,14 @@ func _process(delta: float) -> void:
 
 
 func _on_collision_detector_area_entered(area: Area2D) -> void:
-	if(audio_stream_player.playing):
-		audio_stream_player.stop()
-	queue_free()
+	if(area.name == "BulletDetector"):
+		if(audio_stream_player.playing):
+			audio_stream_player.stop()
+		queue_free()
 
 
 func _on_collision_detector_body_entered(body: Node2D) -> void:
-	if(audio_stream_player.playing):
-		audio_stream_player.stop()
-	queue_free()
+	if(body.name == "BulletDetector"):
+		if(audio_stream_player.playing):
+			audio_stream_player.stop()
+		queue_free()
