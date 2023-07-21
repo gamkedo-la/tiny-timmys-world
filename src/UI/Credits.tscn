@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlgaqoueji01l"]
+[gd_scene load_steps=10 format=3 uid="uid://dlgaqoueji01l"]
 
 [ext_resource type="Texture2D" uid="uid://clb6dhrvcnkk3" path="res://src/Map Objects/Plax/ExportedTinyTimmy.png" id="1_gipk4"]
 [ext_resource type="Script" path="res://src/UI/Credits.gd" id="1_x0psb"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cgpg8dcu5k34r" path="res://src/UI/return_button_hover.png" id="6_ttdwk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yahmn"]
+
+[sub_resource type="Theme" id="Theme_56qkg"]
+default_font_size = 22
 
 [sub_resource type="LabelSettings" id="LabelSettings_twera"]
 font_size = 20
@@ -53,17 +56,57 @@ offset_bottom = 80.0
 scale = Vector2(2, 2)
 texture = ExtResource("2_3ipt8")
 
-[node name="Text" type="Label" parent="Panel/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Panel"]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 127.0
 offset_right = 1550.0
 offset_bottom = 1197.0
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus scelerisque fringilla. Integer quis nisl lectus. Cras molestie auctor sapien, nec varius leo imperdiet vel. Ut sapien sem, convallis non enim id, facilisis rutrum erat. Ut venenatis mi sed massa mollis, id imperdiet odio malesuada. Duis feugiat ante quis porttitor hendrerit. Etiam luctus turpis vitae diam sagittis eleifend. Nunc hendrerit ultricies faucibus.
+theme = SubResource("Theme_56qkg")
+bbcode_enabled = true
+text = "[b]Sergio Ferrer[/b]: Project lead and core gameplay, boss fights (including animations and functionality), level design tilemaps and terrain, health and damage system, enemy behaviors (aggressive flying robot, tinypassive robot, fast enemy), implementation of spikes and holes, player animations (idle, walk, damage), menu interfaces (gameplay, victory, game over, level select), countdown, volume control, music (countdown delay, \"thanks for playing\" menu), sound effects (jump, coins, heart item, aggressive flying enemy and robot laser), debugging and optimization
 
-Aenean turpis velit, volutpat nec lectus id, semper consequat ex. Maecenas ac tortor vitae lorem cursus posuere sed a mauris. Aenean id tincidunt urna. Integer egestas semper nunc, id ultricies ante suscipit vel. Mauris molestie in arcu et maximus. In dolor arcu, imperdiet et pretium et, scelerisque id mi. Praesent sit amet massa feugiat, eleifend neque egestas, lacinia risus. Mauris rutrum ac enim quis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim nulla, facilisis nec blandit nec, tincidunt in urna. Duis ornare laoreet consequat. Phasellus nec mi at leo bibendum facilisis ut vel ligula. Nunc a quam nisi. Aliquam pretium dignissim sollicitudin. Curabitur non porttitor sapien.
+[b]Kyle Black:[/b] Garden theme, gameplay camera system look and feel, stomp bug fix, coin animation and physics change, heart item animation, audio system, tongue attack, state machine refactor, frog interactions with fly, boss background and UI components, raindrop attack, debug features, fixed boss position, AI improvements, forest stalk enemy, points scoring, time slowing on stomp, improved FX for bug interactions, garden level fixes, parallax enhancements, level camera added to garden
 
-Nam eu eleifend mi. Aliquam iaculis nec mi eu venenatis. Curabitur hendrerit eget orci quis faucibus. Quisque eleifend pharetra lorem et fermentum. Sed dignissim, libero et ultrices hendrerit, sapien velit cursus tellus, eu commodo sapien augue ac ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia egestas dictum. Mauris vitae imperdiet neque. Donec maximus mi nec enim ultrices viverra. Fusce placerat facilisis justo lacinia maximus. Nam a ante lacus. Nunc quis nunc in purus feugiat dapibus. Sed fermentum rutrum nibh, nec elementum turpis tincidunt ut. Vivamus blandit malesuada odio in tincidunt.
+[b]Rodrigo Bonzerr Lopez:[/b] Tiny Timmy Lab song, tiny tank, roomba machine, window tint update, tiny car, red and black ants, large bucket hand fist, bucket hand with water and fight stance, sitting & standing sprites for bucket with fist, mushroom monster, additional versions of Tiny Timmy, tiny bot, firefly (art, buzz audio, and additional functionality)
+
+[b]Dan Dela Rosa: [/b]Aggressive flying enemy behavior improvements, ant enemies, game over menu, health restoration heart, powerup spawning, coin mechanics including movement and collection, improved enemy behavior (ground and flying), addition of a flying enemy, boss interactions (bullet collision and health bar), addition of pause state
+
+[b]Fahad Muntaz:[/b] Ant stomp detector adjustment, backyard garden level collision fixes, high scores system, ranking, high scores screen connection to main menu, score sorting and saving, save/load score functions addition
+
+[b]MrPhil (Philip Ludington):[/b] Aggressive flying enemy functionality and sprite customization, enemy manager debugging, pause menu and key mapping
+
+[b]Jared Rigby:[/b] Sounds (jump, slingshot, frog croak, robot variations)
+
+[b]Thomas Brandoli:[/b] Main menu, menu parallax background effect
+
+[b]Cooper Willis: [/b]Aggressive wasp spritesheet 
+"
+
+[node name="Text" type="Label" parent="Panel/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 127.0
+offset_right = 1550.0
+offset_bottom = 1197.0
+text = "Sergio Ferrer: Project lead and core gameplay, boss fights (including animations and functionality), level design tilemaps and terrain, health and damage system, enemy behaviors (aggressive flying robot, tinypassive robot, fast enemy), implementation of spikes and holes, player animations (idle, walk, damage), menu interfaces (gameplay, victory, game over, level select), countdown, volume control, music (countdown delay, \"thanks for playing\" menu), sound effects (jump, coins, heart item, aggressive flying enemy and robot laser), debugging and optimization
+
+Kyle Black: Garden theme, gameplay camera system look and feel, stomp bug fix, coin animation and physics change, heart item animation, audio system, tongue attack, state machine refactor, frog interactions with fly, boss background and UI components, raindrop attack, debug features, fixed boss position, AI improvements, forest stalk enemy, points scoring, time slowing on stomp, improved FX for bug interactions, garden level fixes, parallax enhancements, level camera added to garden
+
+Rodrigo Bonzerr Lopez: Tiny Timmy Lab song, tiny tank, roomba machine, window tint update, tiny car, red and black ants, large bucket hand fist, bucket hand with water and fight stance, sitting & standing sprites for bucket with fist, mushroom monster, additional versions of Tiny Timmy, tiny bot, firefly (art, buzz audio, and additional functionality)
+
+Dan Dela Rosa: Aggressive flying enemy behavior improvements, ant enemies, game over menu, health restoration heart, powerup spawning, coin mechanics including movement and collection, improved enemy behavior (ground and flying), addition of a flying enemy, boss interactions (bullet collision and health bar), addition of pause state
+
+Fahad Muntaz: Ant stomp detector adjustment, backyard garden level collision fixes, high scores system, ranking, high scores screen connection to main menu, score sorting and saving, save/load score functions addition
+
+MrPhil (Philip Ludington): Aggressive flying enemy functionality and sprite customization, enemy manager debugging, pause menu and key mapping
+
+Jared Rigby: Sounds (jump, slingshot, frog croak, robot variations)
+
+Thomas Brandoli: Main menu, menu parallax background effect
+
+Cooper Willis: Aggressive wasp spritesheet 
 "
 label_settings = SubResource("LabelSettings_twera")
 autowrap_mode = 3
