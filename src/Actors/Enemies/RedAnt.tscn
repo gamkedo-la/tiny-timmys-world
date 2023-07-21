@@ -7,7 +7,7 @@
 size = Vector2(42.1055, 21.0526)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0twr"]
-size = Vector2(31.9211, 15.5631)
+size = Vector2(26.2955, 3.10901)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkaph"]
 size = Vector2(19.3182, 15.3382)
@@ -194,7 +194,7 @@ scale = Vector2(2.31907, 1)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/StompDetector"]
-position = Vector2(0.592417, -28.75)
+position = Vector2(0.359339, -35.8333)
 scale = Vector2(1.38021, 1.07215)
 shape = SubResource("RectangleShape2D_r0twr")
 
